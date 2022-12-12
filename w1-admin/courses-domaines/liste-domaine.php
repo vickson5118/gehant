@@ -3,10 +3,10 @@
 require_once($_SERVER["DOCUMENT_ROOT"]."/manager/DomaineManager.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/src/Utilisateur.php");
 
-session_start (); 
-
 use manager\DomaineManager;
-use utils\Constants;
+use utils\Functions;
+
+session_start();
 
 Functions::redirectWhenNotConnexionAdmin($_SESSION["utilisateur"]);
 
@@ -26,8 +26,6 @@ foreach ($listeDomaine as $domaine){
         $domaineLocked = true;
     }
 }
-
-//phpinfo();
 
 ?>
 <!DOCTYPE html>

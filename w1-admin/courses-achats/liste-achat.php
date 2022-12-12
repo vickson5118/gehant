@@ -79,7 +79,7 @@ $listeAchatEntrepriseNotConfirm = $achatManager -> getListeAchatEntrepriseNotCon
 										<i class="bi bi-check-lg"></i>
 									</button>
 									
-									<?php if($achat->getPaidForced()){ ?>
+									<?php if($achat->isPaidForced()){ ?>
 									<button data-bs-toggle="modal" data-bs-target="#staticBackdropConfirmUnlockedPaiement" value="<?= $achat->getId() ?>" type="button" class="btn btn-danger btn-modal-confirm-particulier-unlocked-paiement" title="Débloquer l'achat">
 										<i class="bi bi-unlock-fill"></i>
 									</button>
@@ -156,7 +156,7 @@ $listeAchatEntrepriseNotConfirm = $achatManager -> getListeAchatEntrepriseNotCon
     									<button data-bs-toggle="modal" data-bs-target="#staticBackdropConfirmPaiementEntreprise" value="<?= $achat->getId() ?>" type="button" class="btn btn-success btn-modal-confirm-entreprise-paiement" title="Confirmer le paiement">
     										<i class="bi bi-check-lg"></i>
     									</button>
-    									<?php if($achat->getPaidForced()){ ?>
+    									<?php if($achat->isPaidForced()){ ?>
         									<button data-bs-toggle="modal" data-bs-target="#staticBackdropConfirmUnlockedPaiement" value="<?= $achat->getId() ?>" type="button" class="btn btn-danger btn-modal-confirm-particulier-unlocked-paiement" title="Débloquer l'achat">
         										<i class="bi bi-unlock-fill"></i>
         									</button>

@@ -92,7 +92,7 @@ $listeSecteur = $secteurManager->getAll();
 					<h3>Les objectifs</h3>
 				</div>
 				<div class="panel-body table-responsive">
-					<?php if(empty($listeEntreprise)){ ?>
+					<?php if(empty($listeObjectif)){ ?>
 						<h3 class="text-center">Aucun objectif enregistré.</h3>
 					<?php }else{ ?>
     					<table class="table table-hover table-bordered">
@@ -129,7 +129,7 @@ $listeSecteur = $secteurManager->getAll();
 					<h3>Les secteurs d'activité</h3>
 				</div>
 				<div class="panel-body table-responsive">
-					<?php if(empty($listeEntreprise)){ ?>
+					<?php if(empty($listeSecteur)){ ?>
 						<h3 class="text-center">Aucun secteur d'activité enregistré.</h3>
 					<?php }else{ ?>
     					<table class="table table-hover table-bordered">
@@ -170,7 +170,7 @@ $listeSecteur = $secteurManager->getAll();
 	  ?>
 		
 		<?php require_once($_SERVER["DOCUMENT_ROOT"]."/inc/other/w1-admin/js.php"); ?>
-		<script src="/inc/js/w1-admin/liste-entreprise.js"></script>
+		<script src="/inc/js/w1-admin/liste-entreprise.js" type="text/javascript"></script>
 	</body>
 
 </html>

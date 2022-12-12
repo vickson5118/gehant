@@ -9,14 +9,14 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/manager/PaysManager.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/manager/FormationManager.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/manager/EntrepriseManager.php");
 
-session_start (); 
-
 use manager\UtilisateurManager;
 use manager\DomaineManager;
 use manager\FormationManager;
 use manager\PaysManager;
 use manager\EntrepriseManager;
 use utils\Functions;
+
+session_start();
 
 Functions::redirectWhenNotConnexionAdmin($_SESSION["utilisateur"]);
 

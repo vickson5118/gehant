@@ -8,12 +8,12 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/manager/FormationManager.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/utils/pdf/html2pdf/src/Html2Pdf.php");
 
 use manager\FactureManager;
+use Spipu\Html2Pdf\Html2Pdf;
 use src\Facture;
 use manager\AchatManager;
 use utils\Functions;
 use utils\Constants;
 use manager\FormationManager;
-use Spipu\Html2Pdf\Html2Pdf;
 
 session_start();
 
@@ -44,7 +44,7 @@ if($achatId == null || intval($achatId) == 0){
 // Generer la facture
 $dateTime = new DateTime();
 $dateCreation = $dateTime -> format("Y-m-d");
-$designation = strtoupper(uniqid(null, true));
+$designation = strtoupper(uniqid("gehant", true));
 
 $factureManager = new FactureManager();
 $facture = new Facture();
@@ -57,7 +57,7 @@ $achatManager = new AchatManager();
 
 //Genereration du format du PDF de la facture
 $html = "<div style=\"padding: 10px;\">
-                <img src=\"" . $_SERVER["DOCUMENT_ROOT"] ."/inc/images/logo.png\" alt='Logo GEHANT' width='100' height='50' style='position:absolute; right:50px;margin-top:15px;' />
+                <img src=\"" . $_SERVER["DOCUMENT_ROOT"] . "/inc/images/logo.png\" alt='Logo GEHANT' width='100' height='50' style='position:absolute; right:50px;margin-top:15px;' />
                 <p style=\"text-align: center;font-size: 40px;font-weight: bold;\">Reçu</p>
                 <div>
                     <div style='margin-left: 60px;'>
@@ -67,12 +67,12 @@ $html = "<div style=\"padding: 10px;\">
                                     Marcory, Immeuble Kalimba, 3eme etage
                                 </div>
                                 <p><a href=\"http://gehant.net\" style=\"text-decoration: none;color: #f15a24\">GEHANT</a></p>
-                                <p style=\"margin-top: 10px;font-size:13px\">Vendu à: <b>" .$souscripteurName."</b></p>
-                                <p style=\"font-size:13px\">Bénéficiaire: <b>" .$beneficiaireName."</b></p>
+                                <p style=\"margin-top: 10px;font-size:13px\">Vendu à: <b>" . $souscripteurName . "</b></p>
+                                <p style=\"font-size:13px\">Bénéficiaire: <b>" . $beneficiaireName . "</b></p>
                           </div>
                           <div>
                             <div style=\"font-size:13px;margin-top: 10px;\"><b>Date: </b>" . Functions::convertDateEnToFr($dateCreation) . "</div>
-                            <p style=\"font-size:13px\"><b>N° de facture :</b> " . $designation ."</p>
+                            <p style=\"font-size:13px\"><b>N° de facture :</b> " . $designation . "</p>
                           </div>
                         </div>
                         <div style='margin-left: 60px;margin-top: -30px;'>
@@ -87,18 +87,16 @@ $html = "<div style=\"padding: 10px;\">
                             <tbody>
                                 <tr style=\"text-align: center; background-color: #f0f0f0;\">
                                  <th style=\"padding: 10px 20px;font-size:10px;width: 10%;\">1</th>
-                                 <td style='padding:10px 20px;font-size:10px;width: 60%;'>" .$formationTitre. "</td>
+                                 <td style='padding:10px 20px;font-size:10px;width: 60%;'>" . $formationTitre . "</td>
                                  <td style='padding:10px 20px;font-size:10px;width: 30%;'>$" . $formationPrix . "</td>
                                  </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
-                    <div style='font-size: 20px;margin: 25px 80px 0 0;text-align:right;'>Total: <b>$" 
-                                     . $formationPrix. "</b></div>
+                    <div style='font-size: 20px;margin: 25px 80px 0 0;text-align:right;'>Total: <b>$" . $formationPrix . "</b></div>
                 </div>
-                <div style=\"position:absolute;bottom:0;font-size:10px;\">Facture générée par <b>GEHANT</b> le " 
-                 . $dateTime -> format("d/m/Y H:i:s") . "</div>";
+                <div style=\"position:absolute;bottom:0;font-size:10px;\">Facture générée par <b>GEHANT</b> le " . $dateTime->format("d/m/Y H:i:s") . "</div>";
                             
 $facture -> setPrix(intval($formationPrix));
 $factureId = $factureManager -> addFacture($facture);
@@ -110,7 +108,7 @@ if($achatManager -> updateConfirmParticulierPaid($factureId, intval($achatId))){
     $formationManager = new FormationManager();
     
     //incrementer le nombre d'achats de la formation
-    $formationManager -> updateNombreAchat(null,$formationTitre);
+    $formationManager -> updateNombreAchat($formationTitre);
     
     try{
         $pdf = new Html2Pdf();

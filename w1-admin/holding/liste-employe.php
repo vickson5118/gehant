@@ -80,7 +80,7 @@ $entrepriseName = $entrepriseManager->getName($entrepriseId);
     								
     								<td><?= $user->getDateInscription() ?></td>
     								
-    								<?php if($user->getBloquer()){ ?>
+    								<?php if($user->isBloquer()){ ?>
     									<td style="margin-top: 10px;" class="badge rounded-pill bg-success">Oui</td>
     								<?php }else{ ?>
     									<td style="margin-top: 10px;" class="badge rounded-pill bg-danger">Non</td>
@@ -88,7 +88,7 @@ $entrepriseName = $entrepriseManager->getName($entrepriseId);
     								
     								<td><?= $user->getDerniereConnexion() ?></td>
     								
-    								<?php if($user->getConnect()){ ?>
+    								<?php if($user->isConnect()){ ?>
     									<td style="margin-top: 10px;" class="badge rounded-pill bg-success">Oui</td>
     								<?php }else{ ?>
     									<td style="margin-top: 10px;" class="badge rounded-pill bg-danger">Non</td>

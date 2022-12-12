@@ -7,8 +7,6 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/src/Utilisateur.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/manager/ContactManager.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/manager/AchatManager.php");
 
-session_start();
-
 $contactManager = new ContactManager();
 $achatManager = new AchatManager();
 

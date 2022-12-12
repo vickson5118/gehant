@@ -1,6 +1,5 @@
 <?php 
     require_once($_SERVER["DOCUMENT_ROOT"]."/src/Formation.php");
-    session_start();
 ?>
 <div class="col-md-3 edit-menu-container">
 	<div class="palinifier-container">

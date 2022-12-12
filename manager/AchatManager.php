@@ -257,7 +257,7 @@ class AchatManager{
         	$bdd = Database::getInstance();
         	$sql = "SELECT a.id,a.paid_forced,u.nom,u.prenoms,u.email,u.telephone,u.fonction,a.confirm_paid FROM ".Constants::TABLE_ACHAT
         	           ." AS a INNER JOIN ".Constants::TABLE_UTILISATEUR." AS u ON a.utilisateur_id=u.id WHERE a.formation_id=? AND 
-                        a.entreprise_id=? ORDER BY a.confirm_paid DESC";
+                        a.entreprise_id=?";
                     
         	$prepare = Functions::bindPrepare($bdd, $sql, $formationId,$entrepriseId);
         	$prepare->execute();
@@ -670,12 +670,12 @@ class AchatManager{
             $bdd = Database::getInstance();
             
             if($isEntreprise){
-                $sql = "SELECT f.titre,f.titre_url,f.illustration,d.titre_url AS domaineUrl,u.nom,u.prenoms FROM ".Constants::TABLE_ACHAT
+                $sql = "SELECT d.id AS achatId,f.id AS formationId,f.titre,f.titre_url,f.illustration,f.date_debut,f.date_fin,d.titre_url AS domaineUrl,d.titre AS domaineTitre,u.nom,u.prenoms FROM ".Constants::TABLE_ACHAT
                 ." AS a INNER JOIN ".Constants::TABLE_FORMATION." AS f INNER JOIN ".Constants::TABLE_UTILISATEUR
                 ." AS u INNER JOIN ".Constants::TABLE_DOMAINE." AS d ON a.formation_id=f.id AND f.auteur_id=u.id AND
                    f.domaine_id=d.id WHERE a.entreprise_id =? AND a.is_paid=true AND a.confirm_paid=true";
             }else{
-                $sql = "SELECT f.titre,f.titre_url,f.illustration,d.titre_url AS domaineUrl,u.nom,u.prenoms FROM ".Constants::TABLE_ACHAT
+                $sql = "SELECT d.id AS achatId,f.id AS formationId,f.titre,f.titre_url,f.illustration,f.date_debut,f.date_fin,d.titre_url AS domaineUrl,d.titre AS domaineTitre,u.nom,u.prenoms FROM ".Constants::TABLE_ACHAT
                 ." AS a INNER JOIN ".Constants::TABLE_FORMATION." AS f INNER JOIN ".Constants::TABLE_UTILISATEUR
                 ." AS u INNER JOIN ".Constants::TABLE_DOMAINE." AS d ON a.formation_id=f.id AND f.auteur_id=u.id AND
                f.domaine_id=d.id WHERE a.entreprise_id<=>null AND a.utilisateur_id=? AND a.is_paid=true AND 
@@ -693,18 +693,23 @@ class AchatManager{
                 $formation = new Formation();
                 $domaine = new Domaine();
                 $auteur = new Utilisateur();
-                
+
+                $domaine->setTitre($result["titre"]);
                 $domaine->setTitreUrl($result["domaineUrl"]);
                 
                 $auteur->setNom($result["nom"]);
                 $auteur->setPrenoms($result["prenoms"]);
-                
+
+                $formation->setId($result["formationId"]);
                 $formation->setTitreUrl($result["titre_url"]);
                 $formation->setTitre($result["titre"]);
                 $formation->setIllustration($result["illustration"]);
+                $formation->setDateDebut(Functions::convertDateEnToFr($result["date_debut"]));
+                $formation->setDateFin(Functions::convertDateEnToFr($result["date_fin"]));
                 $formation->setAuteur($auteur);
                 $formation->setDomaine($domaine);
-                
+
+                $achat->setId($result["achatId"]);
                 $achat->setFormation($formation);
                 
                 $listeAchat[] = $achat;
@@ -741,9 +746,6 @@ class AchatManager{
                 ." AS u INNER JOIN ".Constants::TABLE_DOMAINE." AS d ON a.formation_id=f.id AND f.auteur_id=u.id AND 
                 f.domaine_id=d.id WHERE a.entreprise_id<=>null AND a.utilisateur_id=? AND a.is_paid=true AND a.confirm_paid=false";
             }
-            
-            
-            
             
             $prepare = Functions::bindPrepare($bdd, $sql, $id);
             $prepare->execute();

@@ -2,6 +2,7 @@
 
 require_once($_SERVER["DOCUMENT_ROOT"]."/src/Utilisateur.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/src/Formation.php");
+require_once($_SERVER["DOCUMENT_ROOT"]."/src/Achat.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/manager/AchatManager.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/manager/EntrepriseManager.php");
 
@@ -24,8 +25,9 @@ if($entrepriseId == 0){
 $achatManager = new AchatManager();
 $entrepriseManager = new EntrepriseManager();
 
-$listeFormation = $achatManager->getListeFormationNotConfirmPaid($entrepriseId,true);
+$listeFormationAchete = $achatManager->getListeFormationConfirmPaid($entrepriseId,true);
 $entrepriseName = $entrepriseManager->getName($entrepriseId);
+
 
 ?>
 <!DOCTYPE html>
@@ -50,7 +52,7 @@ $entrepriseName = $entrepriseManager->getName($entrepriseId);
 					<h3>Les formations achetées par <b><?= $entrepriseName ?></b></h3>
 				</div>
 				<div class="panel-body">
-					<?php if(empty($listeFormation)){ ?>
+					<?php if(empty($listeFormationAchete)){ ?>
 						<h3 class="text-center">Aucune formation achetée.</h3>
 					<?php }else{ ?>
 					<table class="table table-hover table-bordered">
@@ -66,16 +68,16 @@ $entrepriseName = $entrepriseManager->getName($entrepriseId);
 							</tr>
 						</thead>
 						<tbody>
-							<?php foreach ($listeFormation as $key => $formation){ ?>
+							<?php foreach ($listeFormationAchete as $key => $achat){ ?>
 								<tr>
     								<th scope="row"><?= ($key+1)?></th>
-    								<td class="formation-title"><?= $formation->getTitre() ?></td>
-    								<td class="row-email"><?= $formation->getAuteur()->getPrenoms()." ".$formation->getAuteur()->getNom() ?></td>
-    								<td class="row-domaine"><?= $formation->getDomaine()->getTitre() ?></td>
-    								<td style="display: none;" class="row-domaine-url"><?= $formation->getDomaine()->getTitreUrl() ?></td>
-    								<td><?= Functions::formatFormationDate($formation->getDateDebut(), $formation->getDateFin()) ?></td>
+    								<td class="formation-title"><?= $achat->getFormation()->getTitre() ?></td>
+    								<td class="row-email"><?= $achat->getFormation()->getAuteur()->getPrenoms()." ".$achat->getFormation()->getAuteur()->getNom() ?></td>
+    								<td class="row-domaine"><?= $achat->getFormation()->getDomaine()->getTitre() ?></td>
+    								<td style="display: none;" class="row-domaine-url"><?= $achat->getFormation()->getDomaine()->getTitre() ?></td>
+    								<td><?= Functions::formatFormationDate($achat->getFormation()->getDateDebut(), $achat->getFormation()->getDateFin()) ?></td>
     								<td>
-        								<a href="/w1-admin/entreprise/formations/participants/<?= $formation->getId() ?>/<?= $entrepriseId ?>" class="btn btn-success" title="Les participants"><i class="bi bi-eye-fill"></i></a> 
+        								<a href="/w1-admin/entreprise/formations/participants/<?= $achat->getFormation()->getId() ?>/<?= $entrepriseId ?>" class="btn btn-success" title="Les participants"><i class="bi bi-eye-fill"></i></a>
     								</td>
     							</tr>
 							

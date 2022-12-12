@@ -6,6 +6,7 @@ session_start ();
 
 use manager\UtilisateurManager;
 use utils\Constants;
+use utils\Functions;
 
 Functions::redirectWhenNotConnexionAdmin($_SESSION["utilisateur"]);
 

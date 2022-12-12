@@ -6,12 +6,12 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/manager/AchatManager.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/manager/EntrepriseManager.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/manager/FormationManager.php");
 
-session_start (); 
-
 use manager\AchatManager;
 use manager\EntrepriseManager;
 use utils\Functions;
 use manager\FormationManager;
+
+session_start ();
 
 Functions::redirectWhenNotConnexionAdmin($_SESSION["utilisateur"]);
 
@@ -74,7 +74,7 @@ $formationTitre = $formationManager->getFormationTitre($formationId);
 							    ?>
 							    <tr style="text-align: center;">
     								<th scope="row"><?= ($key+1) ?></th>
-    								<?php if($achat->getConfirmPaid()){ ?>
+    								<?php if($achat->isConfirmPaid()){ ?>
     									<td style="margin-top: 10px;" class="badge rounded-pill bg-success">Oui</td>
     								<?php }else{ ?>
     									<td style="margin-top: 10px;" class="badge rounded-pill bg-danger">Non</td>

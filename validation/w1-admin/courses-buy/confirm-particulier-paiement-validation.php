@@ -43,7 +43,7 @@ if($achatId == null || intval($achatId) == 0){
 // Generer la facture
 $dateTime = new DateTime();
 $dateCreation = $dateTime -> format("Y-m-d");
-$designation = strtoupper(uniqid(null, true));
+$designation = strtoupper(uniqid("gehant", true));
 
 $factureManager = new FactureManager();
 $facture = new Facture();
@@ -107,7 +107,7 @@ if($achatManager -> updateConfirmParticulierPaid($factureId, intval($achatId))){
     $formationManager = new FormationManager();
     
     //incrementer le nombre d'achats de la formation
-    $formationManager -> updateNombreAchat(null,$formationTitre);
+    $formationManager -> updateNombreAchat($formationTitre);
     
     try{
         $pdf = new Html2Pdf();
