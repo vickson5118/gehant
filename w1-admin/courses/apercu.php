@@ -15,13 +15,7 @@ use manager\ModuleManager;
 use manager\PointCleManager;
 use manager\AchatManager;
 
-if (($_SESSION["utilisateur"]) == null) {
-    header("Location: http://" . $_SERVER["SERVER_NAME"] . "/w1-admin/index.php");
-    exit();
-} else if ($_SESSION ["utilisateur"]->getTypeCompte()->getId() != Constants::COMPTE_ADMIN) {
-    header("Location: http://" . $_SERVER ["SERVER_NAME"]);
-    exit ();
-}
+Functions::redirectWhenNotConnexionAdmin($_SESSION["utilisateur"]);
 
 $formationManager = new FormationManager();
 $formation = $formationManager->getOneFormationInfo(Functions::getValueChamp($_GET["domaine"]), Functions::getValueChamp($_GET["formation"]), true);

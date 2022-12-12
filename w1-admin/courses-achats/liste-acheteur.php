@@ -9,6 +9,7 @@ use utils\Functions;
 
 session_start ();
 
+Functions::redirectWhenNotConnexionAdmin($_SESSION["utilisateur"]);
 
 if( intval(Functions::getValueChamp($_GET["formation"])) == 0){
     http_response_code(404);

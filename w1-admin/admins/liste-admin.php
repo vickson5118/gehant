@@ -7,13 +7,7 @@ session_start ();
 use manager\UtilisateurManager;
 use utils\Constants;
 
-if (($_SESSION ["utilisateur"]) == null) {
-    header ( "Location: http://" . $_SERVER ["SERVER_NAME"]."/w1-admin" );
-    exit ();
-}else if($_SESSION ["utilisateur"] ->getTypeCompte()->getId() != Constants::COMPTE_ADMIN){
-    header ( "Location: http://" . $_SERVER ["SERVER_NAME"] );
-    exit ();
-}
+Functions::redirectWhenNotConnexionAdmin($_SESSION["utilisateur"]);
 
 $utilisateurManager = new UtilisateurManager();
 $listeAdmin = $utilisateurManager->getAllUser(Constants::COMPTE_ADMIN);
@@ -23,11 +17,11 @@ $adminLocked = false;
 
 foreach ($listeAdmin as $admin){
     
-    if(!$admin->getBloquer()){
+    if(!$admin->isBloquer()){
         $adminActif = true;
     }
     
-    if($admin->getBloquer()){
+    if($admin->isBloquer()){
         $adminLocked = true;
     }
 }
@@ -78,7 +72,7 @@ foreach ($listeAdmin as $admin){
 							<?php 
 							$indexCountLocked = 0;
 							foreach ($listeAdmin as $admin){ 
-							    if($admin->getBloquer()){
+							    if($admin->isBloquer()){
 							        $indexCountLocked++;
 							    ?>
 							<tr>
@@ -123,7 +117,7 @@ foreach ($listeAdmin as $admin){
 							<?php
 							     $indexCountOnLine = 0;
 							     foreach ($listeAdmin as $admin){ 
-							    if(!$admin->getBloquer()){
+							    if(!$admin->isBloquer()){
 							        $indexCountOnLine++;
 							    ?>
 							<tr style="text-align: center;">
@@ -131,7 +125,7 @@ foreach ($listeAdmin as $admin){
 								<td class="row-name"><?= $admin->getPrenoms(). " ".$admin->getNom(); ?></td>
 								<td class="row-email"><?= $admin->getEmail(); ?></td>
 								<td><?= $admin->getDateInscription(); ?></td>
-								<?php if($admin->getConnect()){ ?>
+								<?php if($admin->isConnect()){ ?>
 									<td style="margin-top: 10px;" class="badge rounded-pill bg-success">Oui</td>
 								<?php }else{ ?>
 									<td style="margin-top: 10px;" class="badge rounded-pill bg-danger">Non</td>

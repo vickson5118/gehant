@@ -16,15 +16,9 @@ use manager\DomaineManager;
 use manager\FormationManager;
 use manager\PaysManager;
 use manager\EntrepriseManager;
-use utils\Constants;
+use utils\Functions;
 
-if (($_SESSION ["utilisateur"]) == null) {
-    header ( "Location: http://" . $_SERVER ["SERVER_NAME"]."/w1-admin" );
-    exit ();
-}else if($_SESSION ["utilisateur"] ->getTypeCompte()->getId() != Constants::COMPTE_ADMIN){
-    header ( "Location: http://" . $_SERVER ["SERVER_NAME"] );
-    exit ();
-}
+Functions::redirectWhenNotConnexionAdmin($_SESSION["utilisateur"]);
 
 $utilisateurManager = new UtilisateurManager();
 $domaineManager = new DomaineManager();

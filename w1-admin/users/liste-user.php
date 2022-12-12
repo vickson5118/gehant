@@ -2,20 +2,14 @@
 
 
 require_once($_SERVER["DOCUMENT_ROOT"]."/manager/UtilisateurManager.php");
+require_once($_SERVER["DOCUMENT_ROOT"]."/src/Utilisateur.php");
 session_start ();
 
 use manager\UtilisateurManager;
 use utils\Constants;
+use utils\Functions;
 
-
-if (($_SESSION ["utilisateur"]) == null) {
-    header ( "Location: http://" . $_SERVER ["SERVER_NAME"]."/w1-admin" );
-    exit ();
-}else if($_SESSION ["utilisateur"] ->getTypeCompte()->getId() != Constants::COMPTE_ADMIN){
-    header ( "Location: http://" . $_SERVER ["SERVER_NAME"] );
-    exit ();
-}
-
+Functions::redirectWhenNotConnexionAdmin($_SESSION["utilisateur"]);
 
 $utilisateurManager = new UtilisateurManager();
 $listeUser = $utilisateurManager->getAllUser(Constants::COMPTE_STANDARD);
@@ -26,15 +20,15 @@ $userInactif = false;
 
 foreach ($listeUser as $user){
     
-    if(!$user->getBloquer() && $user->getActive()){
+    if(!$user->isBloquer() && $user->isActive()){
         $userActif = true;
     }
     
-    if($user->getBloquer()){
+    if($user->isBloquer()){
         $userLocked = true;
     }
     
-    if(!$user->getActive()){
+    if(!$user->isActive()){
         $userInactif = true;
     }
 }
@@ -87,7 +81,7 @@ foreach ($listeUser as $user){
 							<?php 
 							 $indexCountOnline = 0;
 							foreach ($listeUser as $user){
-							    if(!$user->getBloquer() && $user->getActive()){
+							    if(!$user->isBloquer() && $user->isActive()){
 							        $indexCountOnline++;
 							    ?>
 							    <tr style="text-align: center;">
@@ -96,7 +90,7 @@ foreach ($listeUser as $user){
     								<td class="row-email"><?= $user->getEmail() ?></td>
     								<td><?= $user->getDateInscription() ?></td>
     								<td><?= $user->getDerniereConnexion() ?></td>
-    								<?php if($user->getConnect()){ ?>
+    								<?php if($user->isConnect()){ ?>
     									<td style="margin-top: 10px;" class="badge rounded-pill bg-success">Oui</td>
     								<?php }else{ ?>
     									<td style="margin-top: 10px;" class="badge rounded-pill bg-danger">Non</td>
@@ -138,7 +132,7 @@ foreach ($listeUser as $user){
 							<?php 
 							$indexCountInactif = 0;
 							foreach ($listeUser as $user){
-							    if(!$user->getActive()){
+							    if(!$user->isActive()){
 							        $indexCountInactif++;
 							    ?>
 								<tr style="text-align: center;">
@@ -181,7 +175,7 @@ foreach ($listeUser as $user){
 							<?php 
 							$indexCountLocked = 0;
 							foreach ($listeUser as $user){
-							    if($user->getBloquer()){
+							    if($user->isBloquer()){
 							        $indexCountLocked++;
 							    ?>
 							    <tr>

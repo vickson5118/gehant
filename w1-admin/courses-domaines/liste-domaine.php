@@ -8,14 +8,7 @@ session_start ();
 use manager\DomaineManager;
 use utils\Constants;
 
-if (($_SESSION ["utilisateur"]) == null) {
-    header ( "Location: http://" . $_SERVER ["SERVER_NAME"]."/w1-admin" );
-    exit ();
-}else if($_SESSION ["utilisateur"] ->getTypeCompte()->getId() != Constants::COMPTE_ADMIN){
-    header ( "Location: http://" . $_SERVER ["SERVER_NAME"] );
-    exit ();
-}
-
+Functions::redirectWhenNotConnexionAdmin($_SESSION["utilisateur"]);
 
 $domaineManager = new DomaineManager();
 $listeDomaine = $domaineManager->getAll();
@@ -25,11 +18,11 @@ $domaineLocked = false;
 
 foreach ($listeDomaine as $domaine){
     
-    if(!$domaine->getBloquer()){
+    if(!$domaine->isBloquer()){
         $domaineActif = true;
     }
     
-    if($domaine->getBloquer()){
+    if($domaine->isBloquer()){
         $domaineLocked = true;
     }
 }
@@ -85,7 +78,7 @@ foreach ($listeDomaine as $domaine){
 								<?php 
 								$indexCountOnLine = 0;
 								foreach ($listeDomaine as $domaineActif){ 
-								    if(!$domaineActif->getBloquer()){
+								    if(!$domaineActif->isBloquer()){
 								        $indexCountOnLine++;
 								    ?>
 									<tr>
@@ -136,7 +129,7 @@ foreach ($listeDomaine as $domaine){
 								<?php 
 								$indexCountLocked = 0;
 								foreach ($listeDomaine as $domaineLocked){
-								    if($domaineLocked->getBloquer()){
+								    if($domaineLocked->isBloquer()){
 								        $indexCountLocked++;
 								    ?>
 									<tr>

@@ -518,6 +518,10 @@ class Functions{
         return strtoupper(substr($prenoms, 0, 1).substr($nom, 0, 1));
     }
 
+    /** Rediriger lorsqu'il n'y a pas de session entreprise pour les pages d'entreprise
+     * @param Utilisateur|null $utilisateur
+     * @return void*
+     */
     public static function redirectWhenNotConnexionEntreprise(?Utilisateur $utilisateur) : void{
         if($utilisateur == null){
             header("Location: http://" . $_SERVER["SERVER_NAME"] . "/compte/connexion");
@@ -525,6 +529,20 @@ class Functions{
         } else if(!empty($utilisateur) &&  $utilisateur -> getTypeCompte() -> getId() != Constants::COMPTE_ENTREPRISE){
             header("Location: http://" . $_SERVER["SERVER_NAME"]);
             exit();
+        }
+    }
+
+    /**
+     * @param Utilisateur|null $utilisateur
+     * @return void
+     */
+    public static function redirectWhenNotConnexionAdmin(?Utilisateur $utilisateur) : void{
+        if ($utilisateur == null) {
+            header ( "Location: http://" . $_SERVER ["SERVER_NAME"]."/w1-admin" );
+            exit ();
+        }else if($utilisateur ->getTypeCompte()->getId() != Constants::COMPTE_ADMIN){
+            http_response_code(404);
+            exit ();
         }
     }
     

@@ -6,16 +6,9 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/manager/ContactManager.php");
 session_start ();
 
 use manager\ContactManager;
-use utils\Constants;
 use utils\Functions;
 
-if (($_SESSION ["utilisateur"]) == null) {
-    header ( "Location: http://" . $_SERVER ["SERVER_NAME"]."/w1-admin" );
-    exit ();
-}else if($_SESSION ["utilisateur"] ->getTypeCompte()->getId() != Constants::COMPTE_ADMIN){
-    header ( "Location: http://" . $_SERVER ["SERVER_NAME"] );
-    exit ();
-}
+Functions::redirectWhenNotConnexionAdmin($_SESSION["utilisateur"]);
 
 $contactManager = new ContactManager();
 $contact = $contactManager->getMail(intval(Functions::getValueChamp($_GET["mail"])));

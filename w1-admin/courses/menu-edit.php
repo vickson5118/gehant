@@ -21,7 +21,7 @@
 	</div>
 
 	<div class="finalise-contenu-container">
-		<?php if(!$_SESSION["formation"]->getRedactionFinished()){ ?>
+		<?php if(!$_SESSION["formation"]->isRedactionFinished()){ ?>
 		<button type="button" id="btn-send-evaluate">Envoyer pour evaluation</button>
 		<?php }?>
 	</div>

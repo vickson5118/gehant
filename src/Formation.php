@@ -30,7 +30,7 @@ class Formation{
     private bool $bloquer;
     private ?int $prix;
     private ?string $illustration;
-    private ?bool $redactionFinished;
+    private bool $redactionFinished;
     private ?int $nombreAchat;
 
     /**
@@ -338,17 +338,17 @@ class Formation{
     }
 
     /**
-     * @return bool|null
+     * @return bool
      */
-    public function getRedactionFinished(): ?bool
+    public function isRedactionFinished(): bool
     {
         return $this->redactionFinished;
     }
 
     /**
-     * @param bool|null $redactionFinished
+     * @param bool $redactionFinished
      */
-    public function setRedactionFinished(?bool $redactionFinished): void
+    public function setRedactionFinished(bool $redactionFinished): void
     {
         $this->redactionFinished = $redactionFinished;
     }

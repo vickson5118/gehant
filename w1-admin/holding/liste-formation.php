@@ -8,19 +8,11 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/manager/EntrepriseManager.php");
 session_start (); 
 
 use manager\AchatManager;
-use utils\Constants;
 use utils\Functions;
 use manager\EntrepriseManager;
 
 
-
-if (($_SESSION ["utilisateur"]) == null) {
-    header ( "Location: http://" . $_SERVER ["SERVER_NAME"]."/w1-admin/index.php" );
-    exit ();
-}else if($_SESSION ["utilisateur"] ->getTypeCompte()->getId() != Constants::COMPTE_ADMIN){
-    header ( "Location: http://" . $_SERVER ["SERVER_NAME"] );
-    exit ();
-}
+Functions::redirectWhenNotConnexionAdmin($_SESSION["utilisateur"]);
 
 $entrepriseId = intval(Functions::getValueChamp($_GET ["entreprise"]));
 

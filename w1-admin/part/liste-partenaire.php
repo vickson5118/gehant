@@ -5,17 +5,11 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/src/Partenaire.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/src/Utilisateur.php");
 
 use manager\PartenaireManager;
-use utils\Constants;
+use utils\Functions;
 
 session_start();
 
-if (($_SESSION ["utilisateur"]) == null) {
-    header ( "Location: http://" . $_SERVER ["SERVER_NAME"]."/w1-admin" );
-    exit ();
-}else if($_SESSION ["utilisateur"] ->getTypeCompte()->getId() != Constants::COMPTE_ADMIN){
-    header ( "Location: http://" . $_SERVER ["SERVER_NAME"] );
-    exit ();
-}
+Functions::redirectWhenNotConnexionAdmin($_SESSION["utilisateur"]);
 
 $partenaireManager = new PartenaireManager();
 $listePartenaire = $partenaireManager -> getAll();

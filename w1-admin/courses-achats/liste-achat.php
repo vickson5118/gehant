@@ -9,14 +9,8 @@ use utils\Constants;
 use utils\Functions;
 
 session_start();
-if(($_SESSION["utilisateur"]) == null){
-    header("Location: http://" . $_SERVER["SERVER_NAME"] . "/w1-admin");
-    exit();
-}else if($_SESSION ["utilisateur"] ->getTypeCompte()->getId() != Constants::COMPTE_ADMIN){
-    header ( "Location: http://" . $_SERVER ["SERVER_NAME"] );
-    exit ();
-}
 
+Functions::redirectWhenNotConnexionAdmin($_SESSION["utilisateur"]);
 
 $achatManager = new AchatManager();
 $listeAchatParticulierNotConfirm = $achatManager -> getListeAchatParticulierNotComfirmPaid();

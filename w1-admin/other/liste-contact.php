@@ -6,15 +6,9 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/manager/ContactManager.php");
 session_start ();
 
 use manager\ContactManager;
-use utils\Constants;
+use utils\Functions;
 
-if (($_SESSION ["utilisateur"]) == null) {
-    header ( "Location: http://" . $_SERVER ["SERVER_NAME"]."/w1-admin" );
-    exit ();
-}else if($_SESSION ["utilisateur"] ->getTypeCompte()->getId() != Constants::COMPTE_ADMIN){
-    header ( "Location: http://" . $_SERVER ["SERVER_NAME"] );
-    exit ();
-}
+Functions::redirectWhenNotConnexionAdmin($_SESSION["utilisateur"]);
 
 $contactManager = new ContactManager();
 $ListeParticulierContact = $contactManager->getListeParticulierContact();
@@ -106,7 +100,7 @@ $ListeEntrepriseContact = $contactManager->getListeEntrepriseContact();
     						<tbody>
     							<?php foreach ($ListeParticulierContact as $key => $contact){ ?>
         							<tr>
-        								<th scope="row"><?=  $key+1 ?><?php if(!$contact->getView()){?><span class="not-view"></span><?php }?></th>
+        								<th scope="row"><?=  $key+1 ?><?php if(!$contact->isView()){?><span class="not-view"></span><?php }?></th>
         								<td><?= $contact->getPrenoms()." ".$contact->getNom() ?></td>
         								<td class="row-email"><?= $contact->getEmail() ?></td>
         								<td><?= $contact->getTelephone() ?></td>

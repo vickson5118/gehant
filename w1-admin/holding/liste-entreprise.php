@@ -8,17 +8,11 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/manager/SecteurManager.php");
 session_start ();
 
 use manager\EntrepriseManager;
-use utils\Constants;
 use manager\ObjectifManager;
 use manager\SecteurManager;
+use utils\Functions;
 
-if (($_SESSION ["utilisateur"]) == null) {
-    header ( "Location: http://" . $_SERVER ["SERVER_NAME"]."/w1-admin/index.php" );
-    exit ();
-}else if($_SESSION ["utilisateur"] ->getTypeCompte()->getId() != Constants::COMPTE_ADMIN){
-    header ( "Location: http://" . $_SERVER ["SERVER_NAME"] );
-    exit ();
-}
+Functions::redirectWhenNotConnexionAdmin($_SESSION["utilisateur"]);
 
 $entrepriseManager = new EntrepriseManager();
 $objectifManager = new ObjectifManager();

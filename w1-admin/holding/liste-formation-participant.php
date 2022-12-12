@@ -10,20 +10,10 @@ session_start ();
 
 use manager\AchatManager;
 use manager\EntrepriseManager;
-use utils\Constants;
 use utils\Functions;
 use manager\FormationManager;
 
-
-
-if (($_SESSION ["utilisateur"]) == null) {
-    header ( "Location: http://" . $_SERVER ["SERVER_NAME"]."/w1-admin/index.php" );
-    exit ();
-}else if($_SESSION ["utilisateur"] ->getTypeCompte()->getId() != Constants::COMPTE_ADMIN){
-    header ( "Location: http://" . $_SERVER ["SERVER_NAME"] );
-    exit ();
-}
-
+Functions::redirectWhenNotConnexionAdmin($_SESSION["utilisateur"]);
 
 $entrepriseId = intval(Functions::getValueChamp($_GET ["entreprise"]));
 $formationId = intval(Functions::getValueChamp($_GET ["formation"]));

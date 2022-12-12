@@ -8,17 +8,10 @@ use manager\FormationManager;
 use utils\Constants;
 use utils\Functions;
 
-if (($_SESSION ["utilisateur"]) == null) {
-    header ( "Location: http://" . $_SERVER ["SERVER_NAME"]."/w1-admin" );
-    exit ();
-}else if($_SESSION ["utilisateur"] ->getTypeCompte()->getId() != Constants::COMPTE_ADMIN){
-    header ( "Location: http://" . $_SERVER ["SERVER_NAME"] );
-    exit ();
-}
+Functions::redirectWhenNotConnexionAdmin($_SESSION["utilisateur"]);
 
 $formationManager = new FormationManager();
-$formation = $formationManager -> getOneFormationInfo(Functions::getValueChamp($_GET["domaine"]),
-    Functions::getValueChamp($_GET["formation"]),true);
+$formation = $formationManager -> getOneFormationInfo(Functions::getValueChamp($_GET["domaine"]), Functions::getValueChamp($_GET["formation"]),true);
 
 if($formation == null){
     http_response_code(404);

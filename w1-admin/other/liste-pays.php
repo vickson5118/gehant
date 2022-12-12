@@ -5,17 +5,9 @@ require_once ($_SERVER["DOCUMENT_ROOT"] . "/manager/PaysManager.php");
 session_start();
 
 use manager\PaysManager;
-use utils\Constants;
+use utils\Functions;
 
-
-
-if (($_SESSION ["utilisateur"]) == null) {
-    header("Location: http://" . $_SERVER["SERVER_NAME"] . "/w1-admin");
-    exit();
-}else if($_SESSION ["utilisateur"] ->getTypeCompte()->getId() != Constants::COMPTE_ADMIN){
-    header ( "Location: http://" . $_SERVER ["SERVER_NAME"] );
-    exit ();
-}
+Functions::redirectWhenNotConnexionAdmin($_SESSION["utilisateur"]);
 
 $paysManager = new PaysManager();
 $listePays = $paysManager -> getAllPays();
