@@ -1,0 +1,212 @@
+body{
+	font-family: "Open Sans", serif;
+}
+
+.admin-infos-container{
+	background: rgb(191,18,18);
+	background: -moz-linear-gradient(18deg, rgba(191,18,18,1) 12%, rgba(167,130,118,1) 51%, rgba(196,39,28,1) 87%);
+	background: -webkit-linear-gradient(18deg, rgba(191,18,18,1) 12%, rgba(167,130,118,1) 51%, rgba(196,39,28,1) 87%);
+	background: linear-gradient(18deg, rgba(191,18,18,1) 12%, rgba(167,130,118,1) 51%, rgba(196,39,28,1) 87%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#bf1212",endColorstr="#c4271c",GradientType=1);
+	border-radius: 10px;
+	padding: 15px;
+	width: 200px;
+	height: 170px;
+	box-shadow: 4px 6px 15px 2px rgba(0,0,0,0.65);
+	-webkit-box-shadow: 4px 6px 15px 2px rgba(0,0,0,0.65);
+	-moz-box-shadow: 4px 6px 15px 2px rgba(0,0,0,0.65);
+}
+
+.user-infos-container{
+	background: rgb(127,228,205);
+	background: -moz-linear-gradient(34deg, rgba(127,228,205,1) 9%, rgba(151,232,218,1) 27%, rgba(71,219,176,1) 87%);
+	background: -webkit-linear-gradient(34deg, rgba(127,228,205,1) 9%, rgba(151,232,218,1) 27%, rgba(71,219,176,1) 87%);
+	background: linear-gradient(34deg, rgba(127,228,205,1) 9%, rgba(151,232,218,1) 27%, rgba(71,219,176,1) 87%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#7fe4cd",endColorstr="#47dbb0",GradientType=1);
+	border-radius: 10px;
+	padding: 15px;
+	width: 200px;
+	height: 170px;
+	margin-top: 30px;
+	box-shadow: 4px 6px 15px 2px rgba(0,0,0,0.65);
+	-webkit-box-shadow: 4px 6px 15px 2px rgba(0,0,0,0.65);
+	-moz-box-shadow: 4px 6px 15px 2px rgba(0,0,0,0.65);
+	
+}
+
+.domaines-formations-infos-container{
+	position: absolute;
+	top: 50px;
+	left: 350px;
+	background: rgb(115,76,255);
+	background: -moz-linear-gradient(31deg, rgba(115,76,255,1) 26%, rgba(225,216,249,1) 84%);
+	background: -webkit-linear-gradient(31deg, rgba(115,76,255,1) 26%, rgba(225,216,249,1) 84%);
+	background: linear-gradient(31deg, rgba(115,76,255,1) 26%, rgba(225,216,249,1) 84%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#734cff",endColorstr="#e1d8f9",GradientType=1);
+	border-radius: 10px;
+	padding: 15px;
+	width: 200px;
+	height: 170px;
+	box-shadow: 4px 6px 15px 2px rgba(0,0,0,0.65);
+	-webkit-box-shadow: 4px 6px 15px 2px rgba(0,0,0,0.65);
+	-moz-box-shadow: 4px 6px 15px 2px rgba(0,0,0,0.65);
+}
+
+.formations-infos-container{
+	position: absolute;
+	top: 250px;
+	left: 350px;
+	background: rgb(255,255,255);
+	background: -moz-linear-gradient(158deg, rgba(255,255,255,0.2497373949579832) 0%, rgba(66,130,254,1) 30%, rgba(66,130,254,1) 73%);
+	background: -webkit-linear-gradient(158deg, rgba(255,255,255,0.2497373949579832) 0%, rgba(66,130,254,1) 30%, rgba(66,130,254,1) 73%);
+	background: linear-gradient(158deg, rgba(255,255,255,0.2497373949579832) 0%, rgba(66,130,254,1) 30%, rgba(66,130,254,1) 73%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#4282fe",GradientType=1);
+	border-radius: 10px;
+	padding: 15px;
+	width: 200px;
+	height: 170px;
+	box-shadow: 4px 6px 15px 2px rgba(0,0,0,0.65);
+	-webkit-box-shadow: 4px 6px 15px 2px rgba(0,0,0,0.65);
+	-moz-box-shadow: 4px 6px 15px 2px rgba(0,0,0,0.65);
+}
+
+.pays-infos-container{
+	position: absolute;
+	top: 50px;
+	left: 600px;
+	background: rgb(193,228,237);
+	background: -moz-linear-gradient(349deg, rgba(193,228,237,1) 0%, rgba(33,50,143,1) 50%, rgba(45,32,221,1) 91%);
+	background: -webkit-linear-gradient(349deg, rgba(193,228,237,1) 0%, rgba(33,50,143,1) 50%, rgba(45,32,221,1) 91%);
+	background: linear-gradient(349deg, rgba(193,228,237,1) 0%, rgba(33,50,143,1) 50%, rgba(45,32,221,1) 91%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#c1e4ed",endColorstr="#2d20dd",GradientType=1);
+	border-radius: 10px;
+	padding: 15px;
+	width: 200px;
+	height: 170px;
+	box-shadow: 4px 6px 15px 2px rgba(0,0,0,0.65);
+	-webkit-box-shadow: 4px 6px 15px 2px rgba(0,0,0,0.65);
+	-moz-box-shadow: 4px 6px 15px 2px rgba(0,0,0,0.65);
+}
+
+.temoignages-infos-container{
+	position: absolute;
+	top: 250px;
+	left: 600px;
+	background: rgb(215,136,129);
+	background: -moz-linear-gradient(117deg, rgba(215,136,129,1) 0%, rgba(121,29,9,1) 72%);
+	background: -webkit-linear-gradient(117deg, rgba(215,136,129,1) 0%, rgba(121,29,9,1) 72%);
+	background: linear-gradient(117deg, rgba(215,136,129,1) 0%, rgba(121,29,9,1) 72%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#d78881",endColorstr="#791d09",GradientType=1);
+	border-radius: 10px;
+	padding: 15px;
+	width: 200px;
+	height: 170px;
+	box-shadow: 4px 6px 15px 2px rgba(0,0,0,0.65);
+	-webkit-box-shadow: 4px 6px 15px 2px rgba(0,0,0,0.65);
+	-moz-box-shadow: 4px 6px 15px 2px rgba(0,0,0,0.65);
+}
+
+
+
+.admin-infos-container a,.user-infos-container a{
+	display: block;
+	width: 200px;
+	height: 170px;
+	text-decoration: none;
+	color: white;
+	margin-left: -95px;
+	margin-top: -118px;
+	border-radius: 10px;
+	font-weight: bold;
+	font-size: 13px;
+	padding-top: 25px;
+	padding-left: 70px;
+}
+
+.user-infos-container a{
+	margin-top: -120px;
+}
+
+
+.domaines-formations-infos-container a,.formations-infos-container a,.pays-infos-container a,.temoignages-infos-container a{
+	text-decoration: none;
+	display: block;
+	height: 170px;
+	width: 200px;
+	border-radius: 10px;
+	color: white;
+	font-size: 13px;
+	position: relative;
+	left: -20px;
+	top: 5px;
+	padding-left: 80px;
+	padding-top: 20px;
+	font-weight: bold;
+}
+
+.pays-infos-container a,.temoignages-infos-container a{
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+.admin-infos-container .bxs-user-circle,.user-infos-container .bi-people-fill,.pays-infos-container i,.temoignages-infos-container i{
+	font-size: 50px;
+	color: white;
+}
+
+.admin-infos-container .admin-connect{
+	padding-left: 80px;
+	padding-top: 20px;
+}
+
+.user-infos-container .user-connect{
+	padding-left: 80px;
+	padding-top: 0;
+}
+
+.admin-infos-container .admin-connect span:nth-child(1),.user-infos-container .user-connect span:nth-child(1){
+	color: white;
+	display: block;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.admin-infos-container span:nth-child(2),.user-infos-container .user-connect span:nth-child(2){
+	font-size: 15px;
+}
+
+.formations-infos-container .bi-book-fill,.domaines-formations-infos-container .bi-journals{
+	font-size: 50px;
+	color: white;
+	position: absolute;
+	top: 20px;
+	left: 15px;
+}
+
+.domaines-formations-infos-container span:nth-child(1), .formations-infos-container span:nth-child(1){
+	position: absolute;
+	bottom: 40px;
+	font-size: 16px;
+	font-weight: bold;
+	left: 110px;
+	color: white;
+}
+
+.domaines-formations-infos-container span:nth-child(2),.formations-infos-container span:nth-child(2){
+	position: absolute;
+	bottom: 5px;
+	font-size: 18px;
+	left: 20px;
+}
+
+.pays-infos-container span:nth-child(1),.temoignages-infos-container span:nth-child(1){
+	position: absolute;
+	bottom: 40px;
+	font-size: 16px;
+	font-weight: bold;
+	left: 110px;
+	color: white;
+}
+
+

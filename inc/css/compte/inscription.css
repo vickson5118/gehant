@@ -1,0 +1,129 @@
+
+.inscription-banniere{
+	width: 100%;
+	height: 600px;
+	position: relative;
+	left: 0;
+	right: 0;
+	background-image: url("/inc/images/temp/domaine.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+	overflow:hidden;
+}
+
+.inscription-banniere:after,.inscription-banniere-cover:after {
+    content: "";
+    display: block;
+    height: 250px;
+    width: 120%;
+    position: relative;
+    right: 0;
+    top: 79%;
+    left: 0;
+    z-index: 1;
+    background-color: #fff;
+    -webkit-transform: rotate(-3deg);
+    transform: rotate(-3deg);
+}
+
+.inscription-banniere-cover{
+	background-color: rgba(0,0,0,.8);
+	width: 100%;
+	height: 100%;
+}
+
+.entreprise-inscription-box,
+.particulier-inscription-box{
+	background-color: white;
+	top: 0;
+	z-index: 1;
+	width: 35%;
+	border-radius: 10px;
+	box-shadow: 1px 2px 13px -1px rgba(135,122,122,0.81);
+	-webkit-box-shadow: 1px 2px 13px -1px rgba(135,122,122,0.81);
+	-moz-box-shadow: 1px 2px 13px -1px rgba(135,122,122,0.81);
+	padding-left: 20px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: -250px;
+}
+
+
+.entreprise-inscription-box h3,
+.particulier-inscription-box h3{
+	font-family: 'Ibarra Real Nova', serif;
+	font-size: 23px;
+	font-weight: bold;
+}
+
+.entreprise-inscription-box div,.particulier-inscription-box div{
+	font-size: 13px;
+}
+
+.entreprise-inscription-box .options-container,
+.particulier-inscription-box .options-container{
+	margin-top: 10px;
+	font-weight: bold;
+	font-size: 11px;
+}
+
+.particulier-inscription-box a,.entreprise-inscription-box a{
+	text-decoration: none;
+	display: block;
+	background-color: #541f13;
+	padding: 10px;
+	color: white;
+	text-align: center;
+	font-size: 13px;
+}
+
+.particulier-inscription-box a,
+.entreprise-inscription-box a{
+	width: 120px;
+	margin: 50px auto;
+}
+
+.gbadge{
+	background-color: #f07b16;
+	width: 100px;
+	text-align: center;
+	position: relative;
+	right: 25px;
+	top: -10px;
+	color: white;
+	border-radius: 5px;
+	font-weight: bold;
+}
+
+
+/*************************************RESPONSIVE**************************************/
+@media only screen and (max-width: 929px){
+	.entreprise-inscription-box,
+	.particulier-inscription-box{
+		z-index: 1;
+		width: 45%;
+		margin-top: -350px;
+	}
+}
+
+@media only screen and (max-width: 719px){
+	
+	.entreprise-inscription-box,
+	.particulier-inscription-box{
+		z-index: 1;
+		width: 95%;
+		position: relative;
+	}
+	
+	.particulier-inscription-box{
+		margin-top: -350px;
+		margin-bottom: 30px;
+	}
+	
+	.entreprise-inscription-box{
+		margin-top: 0;
+	}
+}
+

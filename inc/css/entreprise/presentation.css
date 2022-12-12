@@ -1,0 +1,192 @@
+footer{
+	margin-top: 80px;
+}
+
+/*Banniere*/
+.formation-info-banniere{
+	background-repeat: no-repeat;
+	-webkit-background-size: cover;
+	background-size: cover;
+	background-position: center;
+	color: white;
+}
+
+.formation-info-banniere .banniere-bg{
+	background-color: rgba(0,0,0,.7);
+	width: 100%;
+	padding: 80px 50px 50px 50px;
+}
+
+.formation-info-banniere h1{
+	font-family: 'Ibarra Real Nova', serif;
+	font-size: 30px;
+	font-weight: bold;
+}
+
+.formation-info-banniere .formation-but{
+	font-size: 16px;
+	margin-top: 20px;
+	padding-right: 70px;
+}
+
+.formation-info-banniere .formateur,
+.formation-info-banniere .date,
+.formation-info-banniere .lieu{
+	font-size: 14px;
+	margin-top: 10px;
+}
+
+.formation-info-banniere .prix{
+	margin-top: 10px;
+	font-size: 30px;
+	font-family: 'Ibarra Real Nova', serif;
+	font-weight: bold;
+}
+
+
+.formation-info-banniere .description{
+	width: 98%;
+	box-shadow: 2px 0 12px 3px rgba(115,105,105,0.7);
+	-webkit-box-shadow: 2px 0 12px 3px rgba(115,105,105,0.7);
+	-moz-box-shadow: 2px 0 12px 3px rgba(115,105,105,0.7);
+	padding: 30px;
+	margin-top: 30px;
+	/*background-color: #E9E9E9;*/
+	/*background-color: rgb(229, 166, 114);*/
+	background-color: #f07b16;
+	color: #fff;
+	font-size: 15px;
+}
+
+
+/*centrer les en tête de table*/
+.table th, .table td{
+	text-align: center;
+}
+
+/*panel*/
+.panel{
+	background-color:#fff;
+	border-radius: 5px;
+	margin: 50px auto 0;
+}
+
+.panel .panel-header{
+	text-align: center;
+	padding: 10px;
+}
+
+
+/*panel success*/
+.panel.panel-success{
+	border: 1px solid #633328;
+	-webkit-box-shadow:  0 1px 2px rgba(99, 51, 40,0.5);
+	-moz-box-shadow:   0 1px 2px rgba(99, 51, 40,0.5);
+	box-shadow:   0 1px 2px rgba(99, 51, 40,0.5);
+}
+
+.panel.panel-success .panel-header{
+	background-color: #633328;
+}
+
+.panel.panel-success .panel-header h3{
+	display: inline-block;
+	color: white;
+}
+
+.panel.panel-success .panel-header button{
+	outline: none;
+	border: none;
+	background-color: transparent;
+	margin-left: 20px;
+}
+
+.panel.panel-success .panel-header button i{
+	color: white;
+	font-size: 25px;
+}
+
+
+/************************************RESPONSIVE***********************************/
+@media only screen and (max-width: 767px){
+	.formation-info-banniere .banniere-bg{
+		background-color: rgba(0,0,0,.7);
+		width: 100%;
+		padding: 80px 10px 50px 10px;
+	}
+	
+	.formation-info-banniere h1{
+		font-size: 25px;
+	}
+	
+	.col-fonction,
+	.row-fonction{
+		display: none;
+	}
+	
+	.table th, .table td{
+		font-size: 13px;
+	}
+	
+}
+
+@media only screen and (max-width: 539px){
+	.col-email,
+	.row-email{
+		display: none;
+	}
+}
+
+@media only screen and (max-width: 499px){
+	
+	.formation-info-banniere h1{
+		text-align: center;
+	}
+	
+	.formation-info-banniere .formation-but{
+		font-size: 14px;
+		text-align: center;
+		padding-right: 10px;
+	}
+
+.formation-info-banniere .formateur,
+.formation-info-banniere .date,
+.formation-info-banniere .lieu{
+	font-size: 12px;
+	text-align: center;
+}
+
+	.formation-info-banniere .prix{
+		font-size: 25px;
+		text-align: center;
+	}
+		
+}
+
+@media only screen and (max-width: 355px){
+	
+	.panel.panel-success .panel-header{
+		background-color: #633328;
+	}
+	
+	.panel.panel-success .panel-header h3{
+		font-size: 22px;
+		text-align: center;
+	}
+	
+	.panel.panel-success .panel-header button{
+		outline: none;
+		border: none;
+		background-color: transparent;
+		display: block;
+		margin: 0 auto;
+	}
+	
+	.panel.panel-success .panel-header button i{
+		color: white;
+		font-size: 18px;
+	}
+}
+
+
+

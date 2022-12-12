@@ -1,0 +1,330 @@
+body{
+	background-color: #EBEFF3;
+}
+
+
+footer{
+	margin-top: 60px;
+}
+
+.entreprise-container{
+	width: 100%;
+	padding: 25px 0 0 0;
+	bottom: 0;
+	position: absolute;
+	top: 60px;
+}
+
+.entreprise-container>.container{
+	position: relative;
+	padding-left: 0 !important;
+}
+
+.text-boost-container{
+	width: 34%;
+	height: auto;
+	margin-left: 5%;
+	background-color: #fff;
+	border-radius: 10px;
+	padding: 40px 20px;
+	box-shadow: 1px 2px 13px -1px rgba(135,122,122,0.81);
+	-webkit-box-shadow: 1px 2px 13px -1px rgba(135,122,122,0.81);
+	-moz-box-shadow: 1px 2px 13px -1px rgba(135,122,122,0.81);
+}
+
+.text-boost-container p{
+	font-family: 'Ibarra Real Nova', serif;
+	font-size: 20px;
+	text-align: center;
+	color: #541f13;
+	margin-bottom: 20px;
+	
+}
+
+.text-boost-container .performance,.text-boost-container .quality,.text-boost-container .mentor{
+	margin-bottom: 25px;
+}
+
+.text-boost-container .performance img,.text-boost-container .quality img,.text-boost-container .mentor img{
+	width: 45px;
+	height: 45px;
+	float: left;
+	margin-right: 10px;
+}
+
+.text-boost-container .performance div,.text-boost-container .quality div,.text-boost-container .mentor div{
+	margin-left: 10px;
+	padding-left: 15px;
+	font-size: 14px;
+}
+
+.text-boost-container .part-box-container{
+	border-top: 1px solid #f7f7f7;
+	margin: 0 auto;
+}
+
+.text-boost-container .part-box-container div:nth-child(1){
+	font-family: 'Ibarra Real Nova', serif;
+	font-size: 18px;
+	margin-top: 5px;
+	text-align: center;
+} 
+
+.text-boost-container .part-container .one-pub{
+	width: 250px;
+	height: 120px;
+	background-color: #F7F7F7;
+	text-align: center;
+	margin: 0 auto;
+	padding-top: 15px;
+}
+
+.part-container .one-pub img{
+	max-height: 85px;
+	max-width: 200px;
+	margin: 0 auto;
+	text-align: center;;
+}
+
+/*Form*/
+.form-inscription-entreprise-container{
+	width: 62%;
+	position: relative;
+	margin-left: 42%;
+	margin-top: -540px;
+	background-color: #fff;
+	padding: 30px 30px 50px 50px;
+}
+
+.form-inscription-entreprise-container .form-input-container{
+	margin-bottom: 35px;
+	display: inline-block;
+	position: relative;
+}
+
+.form-inscription-entreprise-container p:nth-child(1){
+	font-family: 'Ibarra Real Nova', serif;
+	font-size: 25px;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.form-inscription-entreprise-container .form-input-container label{
+	font-size: 13px;
+	display: block;
+}
+
+.form-inscription-entreprise-container .form-input-container input,
+.form-inscription-entreprise-container .form-input-container select{
+	height: 40px;
+	width: 250px;
+	border: none;
+	border-bottom: 2px solid black;
+	font-size: 14px;
+}
+
+.form-inscription-entreprise-container .form-input-container input:focus,
+.form-inscription-entreprise-container .form-input-container input:hover,
+.form-inscription-entreprise-container .form-input-container select:focus,
+.form-inscription-entreprise-container .form-input-container select:hover{
+	border: none;
+	box-shadow: none;
+	outline: none;
+	border-bottom: 2px solid #f07b16;
+}
+
+.form-inscription-entreprise-container .form-box p{
+	font-size: 11px;
+}
+
+.form-inscription-entreprise-container .form-box button{
+	outline: none;
+	border: none;
+	background-color: #f07b16;
+	color: white;
+	padding: 10px 15px;
+	margin-left: 40%;
+	font-weight: bold;
+	border-radius: 5px;
+	font-size: 16px;
+}
+
+
+/***********************RESPONSIVE**********************/
+@media only screen and (max-width: 1399px){
+	.container{
+		max-width: 100%;
+		margin: 0;
+		padding: 0;
+	}
+	
+	.container .row{
+		max-width: 100%;
+		margin: 0;
+		padding: 0;
+	}
+	
+	.text-boost-container{
+		width: 32%;
+		margin-left: 60px;
+	}
+	
+	.form-inscription-entreprise-container{
+		width: 52%;
+	}
+	
+}
+
+@media only screen and (max-width: 1238px){
+	.text-boost-container p{
+		font-size: 20px;
+	}
+	.form-inscription-entreprise-container{
+		top: -30px;
+	}
+}
+
+@media only screen and (max-width: 1199px){
+	.text-boost-container{
+		width: 34%;
+		margin-left: 30px;
+	}
+	
+	.form-inscription-entreprise-container{
+		width: 58%;
+		right: 20px;
+		top: 0;
+	}
+}
+
+@media only screen and (max-width: 1165px){
+	.text-boost-container p{
+		font-size: 18px;	
+	}
+	
+	.text-boost-container .performance img,.text-boost-container .quality img,.text-boost-container .mentor img{
+		width: 30px;
+		height: 30px;
+	}
+	
+	.text-boost-container .performance div,.text-boost-container .quality div,.text-boost-container .mentor div{
+		font-size: 13px;
+	}
+	
+	.form-inscription-entreprise-container{
+		top: 10px;
+	}
+}
+
+@media only screen and (max-width: 1060px){
+	.text-boost-container{
+		display: none;
+	}
+	
+	.form-inscription-entreprise-container{
+		margin: 0 auto;
+		right: 0;
+		width: 70%;
+		top: -50px;
+	}
+	
+}
+
+@media only screen and (max-width: 899px){
+	
+	.form-inscription-entreprise-container{
+		width: 73%;
+	}
+	
+	.form-inscription-entreprise-container .form-input-container input,
+	.form-inscription-entreprise-container .form-input-container select{
+		width: 220px;
+	}
+}
+
+@media only screen and (max-width: 767px){
+	.form-inscription-entreprise-container{
+		width: 80%;
+	}
+	
+	.form-inscription-entreprise-container .form-input-container input,
+	.form-inscription-entreprise-container .form-input-container select{
+		width: 220px;
+	}
+}
+
+@media only screen and (max-width: 689px){
+	.form-inscription-entreprise-container{
+		width: 90%;
+	}
+	
+	.form-inscription-entreprise-container .form-input-container input,
+	.form-inscription-entreprise-container .form-input-container select{
+		width: 220px;
+	}
+}
+
+@media only screen and (max-width: 600px){
+	
+	.form-inscription-entreprise-container{
+		padding-left: 30px;
+		width: 70%;
+	}
+	
+	.form-inscription-entreprise-container .form-box{
+		width: 250px;
+		margin: 0 auto;
+	}
+	
+	.form-inscription-entreprise-container .form-input-container{
+		width: 300px;
+	}
+	
+	.form-inscription-entreprise-container .form-box p{
+		font-size: 9px;
+		padding-left: 10px;
+	}
+	
+	.form-inscription-entreprise-container .form-box button{
+		font-size: 13px;
+		padding: 10px;
+		margin-left: 60px;
+	}
+	
+}
+
+@media only screen and (max-width: 489px){
+	.form-inscription-entreprise-container{
+		width: 90%;
+		padding-left: 10px;
+	}
+	
+	.form-inscription-entreprise-container .form-input-container{
+		width: 300px;
+	}
+	
+	.form-inscription-entreprise-container .form-input-container input,
+	.form-inscription-entreprise-container .form-input-container select{
+		width: 250px;
+	}
+	
+	.form-inscription-entreprise-container .form-box button{
+		margin-left: 80px;
+	}
+	
+}
+
+
+@media only screen and (max-width: 290px){
+	.form-inscription-entreprise-container .form-input-container input,
+	.form-inscription-entreprise-container .form-input-container select{
+		width: 220px;
+	}
+		
+}
+
+
+
+
+
+

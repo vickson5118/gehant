@@ -1,0 +1,89 @@
+.conditions-container{
+	margin-top: 100px;
+}
+
+.conditions-container .row{
+	margin-bottom: 50px;
+}
+
+.conditions-container .col-md-9 h1{
+	font-family: 'Ibarra Real Nova', serif;
+	font-size: 35px;
+	margin-bottom: 30px;
+}
+
+.conditions-container .col-md-9 h2{
+	font-family: 'Ibarra Real Nova', serif;
+	font-size: 25px;
+}
+
+.conditions-container .col-md-9 p{
+	font-size: 15px;
+	padding-right: 20px;
+	text-align: justify;
+}
+
+/*****ASIDE*/
+.actions-container{
+	/*background-color: #D5D5D5;*/
+	height: 200px;
+	position: -webkit-sticky;
+	position: sticky;
+	top: 80px;
+	padding-top: 20px;
+}
+
+.actions-container a{
+	text-decoration: none;
+	outline: none;
+	border: none;
+	display: block;
+	margin-bottom: 15px;
+	width: 95%;
+	text-align: left;
+	font-size: 14px;
+	padding: 10px;
+	position: relative;
+	background-color: #f15a24;
+	color: #fff;
+	font-weight: bold;
+	border-radius: 5px;
+}
+
+.actions-container a i{
+	position: absolute;
+	right: 10px;
+}
+
+
+/**********************RESPONSIVE****************/
+@media only screen and (max-width: 989px){
+	.actions-container{
+		display: none;
+	}
+	
+	.conditions-container{
+		max-width: 100px !important;
+	}
+	
+	.conditions-container .col-md-9{
+		width: 100%;
+	}
+}
+
+@media only screen and (max-width: 499px){
+	.conditions-container .col-md-9 h1{
+		font-size: 30px;
+		text-align: center;
+	}
+	
+	.conditions-container .col-md-9 h2{
+		text-align: center;
+	}
+	
+	.conditions-container .col-md-9 p{
+		padding-right: 5px;
+	}
+}
+
+

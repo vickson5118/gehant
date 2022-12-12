@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+
+#staticBackdropCreateFormation .form-control{
+	border-radius: 0;
+	border: none;
+	background-color:#F9F9F8;
+	border-bottom: 1px solid #f07b16;
+}

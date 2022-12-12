@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:wght@500&display=swap');
+
+body{
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.container-fluid{
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+}
+
+/*Alertify custom*/
+.ajs-message.ajs-error.ajs-visible{
+	background-color: rgba(255,0,0,1);
+	text-shadow: none;
+	border:none;
+}
+
+.ajs-message.ajs-success.ajs-visible{
+	background-color: rgba(17,100,36,1);
+	text-shadow: none;
+	border:none;
+}
+
+/*supprimer le box shadow qui apparait lorsque le input a le focus*/
+textarea:focus, textarea.form-control:focus, select.form-select:focus,
+	input.form-control:focus, input[type=text]:focus, input[type=password]:focus,
+	input[type=email]:focus, input[type=number]:focus, [type=text].form-control:focus,
+	[type=password].form-control:focus, [type=email].form-control:focus, [type=tel].form-control:focus,
+	[contenteditable].form-control:focus {
+	box-shadow: none;
+	border: none;
+}
+
+.error{
+	color: #DB2424;
+	font-size: 11px;
+	position: absolute;
+}
+
+@media only screen and (min-width: 1400px){
+	/*
+	Reduire le container*/
+	.container{
+		padding-left: 100px !important;
+		padding-right: 100px !important;
+	}
+}
+
+/*search*/
+.search-page{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0,0,0,.7);
+	z-index: 99;
+	text-align: center;
+	padding-top: 300px;
+	display: none;
+}
+
+.search-page{
+	color: white;
+	font-family: 'Lora', serif;
+	font-size: 38px;
+}
+
+.search-page span{
+	display: block;
+	position: absolute;
+	top: 50px;
+	right: 380px;
+	cursor: pointer;
+	margin: 0;
+	padding: 0;
+}
+
+.search-page span i{
+	font-size: 70px;
+}
+
+.search-page input{
+	width: 40%;
+	height: 45px;
+	font-size: 17px;
+	padding-left: 10px;
+	font-family: "Open Sans",serif;
+}
+
+.search-page .result-container{
+	margin: 0 auto;
+	background-color: #fff;
+	width: 40%;
+	height: auto;
+}
+
+.search-page .result-container p{
+	color: black;
+	text-align: left;
+	font-size: 15px;
+	border-bottom: 1px solid #f07b16;
+	margin: 0;
+	
+}
+
+.search-page .result-container p a{
+	position: relative;
+	text-decoration: none;
+	color: black;
+	width: 100%;
+	display: block;
+	left: 0;
+	right: 0;
+	padding: 10px;
+}
+
+.search-page .result-container p a:hover{
+	color: #f07b16;
+}
+
+
+.search-page .result-container p:last-child {
+	border-bottom: none;
+}
+
+
+/*********************RS*************************/
+.rs-container{
+	z-index: 9;
+	/*background-color: red;*/
+	position: fixed;
+	top: 100px;
+	
+}
+
+.rs-container a{
+	display: block;
+	height: 45px;
+	width: 45px;
+	background-color: #fff;
+	 transition: width 0.3s;
+}
+
+
+.rs-container a:nth-child(1) {
+	background-color: #3B5998;
+	background-image: url("/inc/images/icones/rs/facebook.png");
+}
+.rs-container a:nth-child(2) {
+	background-color: #007AB9;
+	background-image: url("/inc/images/icones/rs/linkedin.png");
+}
+
+.rs-container a:nth-child(3) {
+	background-color: #03A9F4;
+	background-image: url("/inc/images/icones/rs/twitter.png");
+}
+
+.rs-container a:nth-child(4) {
+	background-color: #E60000;
+	background-image: url("/inc/images/icones/rs/youtube.png");
+}
+
+.rs-container a:nth-child(5) {
+	background-color: #000;
+	background-image: url("/inc/images/icones/rs/email.png");
+	background-repeat: no-repeat;
+	background-position: center;
+	-webkit-background-size: 22px;
+	background-size: 22px;
+}
+
+.rs-container a:nth-child(1),.rs-container a:nth-child(2),
+.rs-container a:nth-child(3),.rs-container a:nth-child(4){
+	background-repeat: no-repeat;
+	background-position: center;
+	-webkit-background-size: 30px;
+	background-size: 30px;
+}
+
+.rs-container a:hover {
+	width: 60px;
+}
+
+
+/*************************ANCRE*************************/
+.page-ancre{
+	background-color: #541f13;
+	position: fixed;
+	right: 70px;
+	bottom: 50px;
+	z-index: 99;
+	height: 60px;
+	width: 60px;
+	text-align: center;
+	border-radius: 50%;
+	box-shadow: 2px 2px 12px 5px rgba(0,0,0,0.75);
+	-webkit-box-shadow: 2px 2px 12px 5px rgba(0,0,0,0.75);
+	-moz-box-shadow: 2px 2px 12px 5px rgba(0,0,0,0.75);
+	cursor: pointer;
+	display: none;
+	/*transition: all 2s;*/
+}
+
+.page-ancre i{
+	font-size: 37px;
+	color: white;
+}
+
+/**************************RESPONSIVE*********************/
+@media screen and (max-width: 1199px){
+	.container{
+		max-width: 100%;	
+	}
+}
+
+@media screen and (max-width: 989px){
+	.page-ancre, .rs-container{
+		display: none;
+	}
+}

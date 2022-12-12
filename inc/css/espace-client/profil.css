@@ -1,0 +1,154 @@
+/**
+Informations personnes*/
+.infos-perso-container,
+.infos-password-container,
+.infos-entreprise-container{
+	position: relative;
+}
+
+.infos-entreprise-container {
+	margin-bottom: 50px;
+}
+
+.infos-perso-container p img,
+.infos-email-container p img,
+.infos-password-container p img,
+.infos-entreprise-container p img{
+	width: 25px;
+	height: 25px;
+	margin-top: 7px;
+}
+
+.infos-perso-container p span,
+.infos-email-container p span,
+.infos-password-container p span,
+.infos-entreprise-container p span{
+	font-size: 20px;
+	font-family: 'Ibarra Real Nova', serif;
+	display: block;
+	position: absolute;
+	top: 9px;
+	left: 30px;
+}
+
+.infos-email-container p span{
+	top: 7px;
+}
+
+.infos-perso-container .form-box,
+.infos-email-container .form-box,
+.infos-password-container .form-box,
+.infos-entreprise-container .form-box{
+	box-shadow: 2px 0 12px 3px rgba(115,105,105,0.7);
+	-webkit-box-shadow: 2px 0 12px 3px rgba(115,105,105,0.7);
+	-moz-box-shadow: 2px 0 12px 3px rgba(115,105,105,0.7);
+	background-color: #fff;
+	padding: 35px 50px;
+	margin-top: 30px;
+}
+
+.infos-perso-container .form-box .form-input-container,
+.infos-email-container .form-box .form-input-container,
+.infos-password-container .form-box .form-input-container,
+.infos-entreprise-container .form-box .form-input-container{
+	margin-bottom: 35px;
+	display: inline-block;
+	position: relative;
+}
+
+.infos-perso-container .form-box .form-input-container label,
+.infos-email-container .form-box .form-input-container label,
+.infos-password-container .form-box .form-input-container label,
+.infos-entreprise-container .form-box .form-input-container label{
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.infos-perso-container .form-box .form-input-container input,
+.infos-perso-container .form-box .form-input-container select,
+.infos-email-container .form-box .form-input-container input,
+.infos-password-container .form-box .form-input-container input,
+.infos-entreprise-container .form-box .form-input-container select,
+.infos-entreprise-container .form-box .form-input-container input{
+	display: block;
+	border: none;
+	border-bottom: 2px solid black;
+	height: 40px;
+	width: 90%;
+	margin-right: 50px;
+	font-size: 14px;
+	background-color: transparent;
+}
+
+/*.infos-entreprise-container .form-box .form-input-container select,
+.infos-entreprise-container .form-box .form-input-container input{
+	width: 400px;
+}*/
+
+.infos-email-container .form-box .form-input-container input{
+	width: 90%;
+}
+
+.infos-perso-container .form-box .form-input-container input:focus,
+.infos-perso-container .form-box .form-input-container input:hover,
+.infos-perso-container .form-box .form-input-container select:focus,
+.infos-perso-container .form-box .form-input-container select:hover,
+.infos-email-container .form-box .form-input-container input:focus,
+.infos-password-container .form-box .form-input-container input:focus,
+.infos-entreprise-container .form-box .form-input-container select:hover,
+.infos-entreprise-container .form-box .form-input-container input:focus{
+	border: none;
+	box-shadow: none;
+	outline: none;
+	border-bottom: 2px solid #f07b16;
+}
+
+.infos-perso-container .form-box button,
+.infos-email-container .form-box button,
+.infos-password-container .form-box button,
+.infos-entreprise-container .form-box button{
+	display: block;
+	outline: none;
+	border: none;
+	color: white;
+	background-color: #f07b16;
+	padding: 8px 10px;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+/**
+Email container*/
+.infos-email-container,
+.infos-password-container{
+	position: relative;
+	margin-top: 60px;
+}
+
+
+
+/**************************************RESPONSIVE********************/
+@media only screen and (max-width: 1082px){
+	.infos-perso-container .form-box,
+	.infos-email-container .form-box,
+	.infos-password-container .form-box,
+	.infos-entreprise-container .form-box{
+		padding: 40px 0 30px 50px;
+		margin-top: 30px;
+	}
+}
+
+@media only screen and (max-width: 982px){
+	.infos-perso-container .form-box,
+	.infos-email-container .form-box,
+	.infos-password-container .form-box,
+	.infos-entreprise-container .form-box{
+		padding: 40px 0 30px 20px;
+		margin-top: 30px;
+	}
+}
+
+@media only screen and (max-width: 767px){
+	
+}
+

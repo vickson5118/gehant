@@ -1,0 +1,53 @@
+body{
+	font-family: "Open Sans",serif;
+}
+
+.not-view{
+	display: block;
+	height: 8px;
+	width: 8px;
+	border-radius: 50%;
+	background-color: red;
+	position: relative;
+	left: -3px;
+	top: -25px;
+}
+
+/*View mail*/
+
+.mail-objet{
+	text-align: center;
+	margin-bottom: 50px;
+	margin-top: 10px;
+}
+
+.mail-objet h3{
+	font-weight: bold;
+	font-size: 25px;
+}
+
+.user-info-container{
+	margin-bottom: 50px;
+	margin-left: 30px;
+	text-align: center;
+}
+
+.user-info-container div{
+	margin-bottom: 5px;
+}
+
+.uer-message{
+	background-color: black;
+	width: 800px;
+	margin: 0 auto;
+	color: white;
+	padding: 30px;
+	position: relative;
+}
+
+#btn-reply-mail{
+	position: relative;
+	margin-top: 30px;
+	display: block;
+}
+

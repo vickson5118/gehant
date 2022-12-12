@@ -1,0 +1,71 @@
+@charset "UTF-8";
+
+#link-programme{
+	color: red;
+}
+
+.module-btn button{
+	outline: none;
+	background-color: transparent;
+	color: white;
+	font-size: 20px;
+	padding: 5px 10px;
+	border: 1px solid white;
+	margin-right: 10px;
+}
+
+ul.one-module-point-cle button{
+	outline: none;
+	border: none;
+	background-color: transparent;
+	color: white;
+	margin-left: 10px;
+}
+
+.btn-show-edit-lesson-modal{
+	margin-left: 15px;
+}
+
+.btn-edit-quiz{
+	text-decoration: none;
+	color: white;
+	margin-left: 15px;
+}
+
+.btn-edit-quiz:hover,.btn-show-add-lesson:hover,.add-exercice:hover,.btn-show-edit-lesson-modal:hover,
+.btn-show-delete-lesson-modal:hover,.btn-show-delete-exercice-modal:hover {
+	color: #f07b16;
+}
+
+.one-module:first-child{
+	margin-top: 40px;
+}
+
+.liste-formation-module-container .one-module{
+	padding: 25px;
+	background-color: black;
+	width: 100%;
+	height: auto;
+	color: white;
+	margin-bottom: 20px;
+}
+
+.one-module p{
+	padding-left: 10px;
+}
+
+.liste-formation-module-container .one-module h3{
+	display: inline;
+	font-size: 25px;
+	margin-right: 30px;
+}
+
+.liste-formation-module-container .one-module i{
+	font-size: 18px;
+}
+
+
+.module-btn,.lesson-btn,.exercice-btn{
+	display: inline;
+}
+

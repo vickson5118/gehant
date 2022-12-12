@@ -1,0 +1,83 @@
+.col-md-8 {
+	margin: 0 auto;
+	padding-bottom: 80px;
+}
+
+.historique-icon {
+	background-color: #F5F5F5;
+	text-align: center;
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+	padding-top: 20px;
+	margin: 0 auto;
+}
+
+.historique-icon i {
+	font-size: 100px;
+	color: #f07b16;
+}
+
+.text-historique-vide {
+	font-size: 30px;
+	text-align: center;
+	padding-top: 20px;
+	font-family: 'Ibarra Real Nova', serif;
+	color: #c9c3c3;
+}
+
+.btn-begin-purchase {
+	text-decoration: none;
+	color: white;
+	background-color: #f07b16;
+	text-align: center;
+	padding: 10px 0;
+	display: block;
+	margin: 0 auto;
+	width: 210px;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.btn-begin-purchase:hover{
+	color: white;
+}
+
+.download-recu {
+	outline: none;
+	font-weight: bold;
+	text-decoration: none;
+	color: black;
+}
+
+.download-recu:hover{
+	color: #f07b16;
+}
+
+.download-recu i{
+	font-size: 30px;
+}
+
+table thead th{
+	font-family: 'Ibarra Real Nova', serif;
+}
+
+table tbody td, table tbody th{
+	font-size: 14px;
+}
+
+.bi-cloud-download-fill{
+	font-size: 17px !important;
+}
+
+
+/**************************************RESPONSIVE***********************/
+@media only screen and (max-width: 499px) {
+	.col-designation,
+	.fdesignation{
+		display: none;
+	}
+}
+
+
+

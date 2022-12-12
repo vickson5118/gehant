@@ -1,0 +1,872 @@
+/**Le container*/
+.carrousel-container{
+	background-image: url("/inc/images/temp/domaine.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+	-webkit-background-size: cover;
+	background-size: cover;
+	position: relative;
+	margin-top: 60px;
+}
+
+.carrousel-container .carrousel-infos{
+	background-color: rgba(0,0,0,.8);
+	width: 100%;
+	color: white;
+	padding: 150px 15% 8% 22%;
+}
+
+.carrousel-container .carrousel-infos h1{
+	font-size: 30px;
+	padding-right: 20%;
+	margin-bottom: 20px;
+	font-family: 'Ibarra Real Nova', serif;
+	font-weight: bold;
+}
+
+.carrousel-container .carrousel-infos p{
+	font-size: 15px;
+	padding-right: 20%;
+}
+
+.carrousel-details-container{
+	background-color: #D5D5D5;
+	width: 100%;
+	padding-top: 40px;
+	padding-bottom: 40px;
+	text-align: center;
+}
+
+.carrousel-details-container h2{
+	font-size: 27px;
+	font-family: 'Ibarra Real Nova', serif;
+	text-align: center;
+}
+
+.carrousel-details-container p{
+	font-size: 15px;
+	margin-bottom: 30px;
+	padding-left: 8% !important;
+	padding-right: 8% !important;
+	text-align: center;
+}
+
+.carrousel-details-container .details-card{
+	position: relative;
+	border-radius: 5px;
+	width: 220px;
+	height: 130px;
+	margin-left: 51px;
+	margin-right: 2px;
+	padding: 0;
+}
+
+.carrousel-details-container .details-card img{
+	border-radius: 6px;
+	width: 220px;
+	height: 130px;
+}
+
+.carrousel-details-container .details-card h3{
+	margin: 0;
+}
+
+.carrousel-details-container .details-card h3 a{
+	background-color: rgba(0, 0, 0,.7);
+	display: block;
+	text-decoration: none;
+	position: absolute;
+	top: 0;
+	width: 220px;
+	font-size: 13px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	color: white;
+	padding-top: 50px;
+	border-radius: 6px;
+	font-weight: bold;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+/*best domaines*/
+
+@media screen and (min-width: 1400px){
+	.best-domaines-container{
+		padding-left: 50px;
+		padding-right: 50px;
+	}
+}
+
+.best-domaines-container{
+	margin-top: 30px;
+	padding-top: 20px;
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.best-domaines-container .container{
+	padding-left: 20px !important;
+	padding-right: 0 !important;
+	/*text-align: center;*/
+}
+
+
+.best-domaines-container h1{
+	text-align: center;
+	margin-bottom: 20px;
+	font-size: 27px;
+	font-family: 'Ibarra Real Nova', serif;
+	font-weight: bold;
+	padding-left: 40px;
+}
+
+.best-domaines-container>p{
+	text-align: center;
+	font-size: 15px;
+	padding-left: 40px;
+	padding-right: 50px;
+	margin-bottom: 40px;
+}
+
+
+.best-domaines-container .one-best-domaine{
+	margin-left: 30px;
+	margin-right: 10px;
+	height: 60px;
+	width: 310px;
+	border-radius: 5px;
+	box-shadow: 1px 2px 13px -1px rgba(135,122,122,0.81);
+	-webkit-box-shadow: 1px 2px 13px -1px rgba(135,122,122,0.81);
+	-moz-box-shadow: 1px 2px 13px -1px rgba(135,122,122,0.81);
+	position: relative;
+	margin-bottom: 30px;
+	padding: 0 !important;
+	/*background-color: red;*/
+}
+
+.best-domaines-container .one-best-domaine a {
+	display: block;
+	text-decoration: none;
+	color: black;
+	height: 60px;
+	width: 310px;
+	border-radius: 5px;
+	/*background-color: green;*/
+	transition: all 0.3s;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+}
+
+
+.best-domaines-container .one-best-domaine img{
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	position: absolute;
+	left: 20px;
+	top: 10px;
+	
+}
+
+.best-domaines-container .one-best-domaine a h2{
+	border-radius: 5px;
+	font-size: 13px;
+	padding-left: 80px;
+	height: 60px;
+	width: 310px;
+	display: table-cell;
+	vertical-align: middle;
+	margin-left: 0 !important;
+}
+
+.best-domaines-container .one-best-domaine a:hover{
+	background-color: rgba(0,0,0,.4);
+	z-index: 1;
+	color: #fff;
+	font-weight: bold;
+}
+
+/*Nos formations container*/
+.best-courses-container{
+	background-color: #f07b16;
+	padding-top: 30px;
+	position: relative;
+	margin: 0 auto;
+}
+
+.best-courses-container h2{
+	margin-bottom: 20px;
+	font-size: 27px;
+	font-family: 'Ibarra Real Nova', serif;
+	font-weight: bold;
+	color: white;
+	padding-left: 35px;
+	text-align: center;
+}
+
+.best-courses-container p{
+	font-size: 15px;
+	color: white;
+	padding-left: 35px;
+	padding-right: 50px;
+	margin-bottom: 30px;
+	text-align: center;
+}
+
+.best-courses-container .row{
+	padding-left: 40px;
+}
+
+.best-courses-container .one-best-course{
+	width: 220px;
+	height: 200px;
+	background-color: #fff;
+	text-align: center;
+	position: relative;
+	margin: 0 30px 40px 10px;
+	box-shadow: 5px 3px 18px 0 rgba(0,0,0,0.75);
+	-webkit-box-shadow: 5px 3px 18px 0 rgba(0,0,0,0.75);
+	-moz-box-shadow: 5px 3px 18px 0 rgba(0,0,0,0.75);
+}
+
+.best-courses-container .one-best-course .image-container,.best-courses-container .one-best-course img{
+	width: 220px;
+	height: 120px;
+	padding: 0;
+	margin: 0;
+	position: absolute;
+	left: 0;
+}
+
+.best-courses-container .one-best-course a{
+	display: block;
+	position: absolute;
+	width: 220px;
+	height: 200px;
+	left: 0;
+	top: 0;
+	padding-top: 130px;
+	font-size: 13px;
+	font-weight: bold;
+	text-decoration: none;
+	color: black;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.best-courses-container .one-best-course a:hover {
+	background-color: rgba(0,0,0,.6);
+}
+
+/*Partenaires section*/
+.partenaires-container{
+	background-color: #f4f4f4;
+	position: relative;
+	width: 100%;
+	padding-top: 50px;
+	padding-bottom: 30px;
+	padding-left: 67px;
+}
+
+.partenaires-container h2{
+	font-family: 'Ibarra Real Nova', serif;
+	font-weight: bold;
+	font-size: 27px;
+	color: black;
+	text-align: center;
+}
+
+.pub-container{
+	position: relative;
+	padding: 30px 15px;
+}
+
+
+.pub-container .one-pub{
+	position: relative;
+	background-color: #fff;
+	width: 250px;	
+	height: 120px;
+	border-radius: 12px;
+	display: inline-block;
+	margin-left: 5px;
+	margin-right: 5px;
+	padding: 15px;
+	text-align: center;
+}
+
+.pub-container .one-pub img{
+	max-height: 85px;
+	max-width: 200px;
+	margin: 0 auto;
+	text-align: center;;
+}
+
+
+/******ABOUT*****/
+.about-container{
+	background-image: url("/inc/images/temp/domaine.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+	-webkit-background-size: cover;
+	background-size: cover;
+	color: white;
+}
+
+.about-container .about-cover{
+	background-color: rgba(0,0,0,.8);
+	padding: 50px 0;
+}
+
+
+.about-container p:first-child {
+	font-size: 27px;
+	font-weight: bold;
+	font-family: 'Ibarra Real Nova', serif;
+	padding-left: 35px;
+	text-align: center;
+}
+
+.about-container p:nth-child(2) {
+	font-size: 14px;
+	padding-left: 35px;
+}
+
+.about-container a{
+	width: auto;
+	margin: 30px auto 0;
+	text-decoration: none;
+	background-color: #f07b16;
+	color: white;
+	font-size: 14px;
+	padding: 10px 30px;
+}
+
+
+/************************************************RESPONSIVE****************************/
+
+@media only screen and (max-width: 1199px){
+	.row{
+		max-width: 100%;
+		margin: 0;
+	}
+	
+	.carrousel-container .carrousel-infos{
+		padding: 130px 15% 8% 13%;
+	}
+	
+	.carrousel-container .carrousel-infos p{
+		font-size: 15px;
+		padding-right: 8%;
+	}
+}
+
+@media only screen and (max-width: 1120px){
+	
+	.carrousel-container .carrousel-infos h1{
+		padding-right: 20%;
+	}
+	
+	.carrousel-details-container .details-card{
+		width: 200px;
+		height: 120px;
+		margin: 0 auto;
+	}
+	
+	.carrousel-details-container .details-card img{
+		border-radius: 6px;
+		width: 200px;
+		height: 120px;
+	}
+	
+	.carrousel-details-container .details-card h3 a{
+		width: 200px;
+		height: 120px;
+	}
+	
+	.best-domaines-container .one-best-domaine{
+		width: 290px;
+	}
+	
+	.best-domaines-container .one-best-domaine a{
+		width: 290px;
+	}
+	
+	.best-courses-container .one-best-course{
+		width: 200px;
+		height: 190px;
+	}
+	
+	.best-courses-container .one-best-course .image-container,.best-courses-container .one-best-course img{
+		width: 200px;
+		height: 110px;
+	}
+	
+	.best-courses-container .one-best-course a{
+		width: 200px;
+		height: 190px;
+	}
+	
+	.partenaires-container{
+		padding-left: 40px;
+	}
+	
+}
+
+@media only screen and (max-width: 1023px){
+	
+	.carrousel-container .carrousel-infos h1{
+		font-size: 25px;
+		padding-right: 10%;
+	}
+	
+	.carrousel-container .carrousel-infos p,.carrousel-details-container p{ 
+		font-size: 15px;
+	}
+	
+	.carrousel-details-container h2{
+		font-size: 25px;
+	}
+	
+	.carrousel-details-container .details-card{
+		width: 200px;
+		height: 110px;
+		margin: 0 auto 20px;
+
+	}
+	
+	.carrousel-details-container .details-card img{
+		width: 200px;
+		height: 110px;
+	}
+
+	.carrousel-details-container .details-card h3 a{
+		width: 200px;
+		height: 110px;
+		font-size: 13px;
+	}
+	
+	.best-domaines-container .one-best-domaine,
+	.best-courses-container .one-best-course{
+		margin-left: auto;
+		margin-right: auto;
+	}
+	
+	.best-courses-container .one-best-course,
+	.best-courses-container .one-best-course a{
+		width: 170px;
+		height: 170px;
+	}
+	
+	.best-courses-container .row{
+		padding-left: 15px;
+	}
+	
+	.best-courses-container .one-best-course .image-container,.best-courses-container .one-best-course img{
+		width: 170px;
+		height: 100px;
+	}
+	
+	.best-courses-container .one-best-course a{
+		font-size: 12px;
+		padding-top: 110px;
+	}
+}
+
+@media only screen and (max-width: 950px){
+	
+	.best-domaines-container .one-best-domaine,.best-domaines-container .one-best-domaine a{
+		width: 270px;
+	}
+}
+
+@media only screen and (max-width: 890px){
+	
+	.best-domaines-container .one-best-domaine,.best-domaines-container .one-best-domaine a{
+		width: 225px;
+	}
+	
+	.best-domaines-container .one-best-domaine a{
+		font-size: 12px;
+	}
+}
+
+@media only screen and (max-width: 859px){
+	.carrousel-details-container .details-card,
+	.carrousel-details-container .details-card img,
+	.carrousel-details-container .details-card h3 a{
+		width: 170px;
+		height: 100px;
+	}
+
+	.carrousel-details-container .details-card h3 a{
+		font-size: 11px;
+		padding-top: 40px;
+	}
+}
+
+@media only screen and (max-width: 810px){
+	.best-courses-container .one-best-course,
+	.best-courses-container .one-best-course a{
+		width: 150px;
+		height: 160px;
+	}
+	
+	.best-courses-container .one-best-course .image-container,.best-courses-container .one-best-course img{
+		width: 150px;
+		height: 90px;
+	}
+	
+	.best-courses-container .one-best-course a{
+		font-size: 11px;
+		padding-top: 105px;
+	}
+}
+
+@media only screen and (max-width: 739px){
+	.carrousel-container .carrousel-infos h1{
+		font-size: 23px;
+		padding-right: 10%;
+	}
+	
+	.carrousel-container .carrousel-infos p,.carrousel-details-container p{ 
+		font-size: 14px;
+	}
+}
+
+@media only screen and (max-width: 729px){
+	
+	.carrousel-container .carrousel-infos{
+		padding: 100px 15% 8% 8%;
+	}
+	
+	.carrousel-container .carrousel-infos h1,.carrousel-container .carrousel-infos p{
+		padding-right: 3%;
+	}
+	
+	.carrousel-details-container .row,
+	.best-courses-container .row{
+		padding-left: 8%;
+		padding-right: 8%;
+	}
+	
+	.carrousel-details-container .details-card{
+		width: 230px;
+		height: 110px;
+		margin: 0 auto 20px;
+
+	}
+	
+	.carrousel-details-container .details-card img{
+		width: 230px;
+		height: 110px;
+	}
+
+	.carrousel-details-container .details-card h3 a{
+		width: 230px;
+		height: 110px;
+		font-size: 12px;
+		padding-top: 45px;
+	}
+	
+	.best-domaines-container .one-best-domaine,.best-domaines-container .one-best-domaine a{
+		width: 190px;
+	}
+	
+	.best-domaines-container .one-best-domaine a h2{
+		font-size: 12px;
+		padding-left: 60px;
+	}
+	
+	.best-domaines-container .one-best-domaine img{
+		left: 10px;
+	}
+	
+	.best-courses-container .one-best-course,
+	.best-courses-container .one-best-course a{
+		width: 200px;
+		height: 190px;
+	}
+	
+	.best-courses-container .one-best-course .image-container,.best-courses-container .one-best-course img{
+		width: 200px;
+		height: 110px;
+	}
+	
+	.best-courses-container .one-best-course a{
+		font-size: 12px;
+		padding-top: 130px;
+	}
+	
+}
+
+@media only screen and (max-width: 619px){
+	.carrousel-details-container .row{
+		padding-left: 5%;
+		padding-right: 5%;
+	}
+	
+	.best-domaines-container .one-best-domaine,.best-domaines-container .one-best-domaine a{
+		width: 230px;
+	}
+	
+	.best-domaines-container .one-best-domaine a h2{
+		padding-left: 70px;
+	}
+	
+	.carrousel-details-container .details-card,
+	.carrousel-details-container .details-card img,
+	.carrousel-details-container .details-card h3 a{
+		width: 200px;
+		height: 100px;
+		
+	}
+
+	.carrousel-container .carrousel-details-container .details-card h3 a{
+		padding-top: 40px;
+	}
+	
+	.best-courses-container .one-best-course,
+	.best-courses-container .one-best-course a{
+		width: 170px;
+		height: 160px;
+	}
+	
+	.best-courses-container .one-best-course .image-container,.best-courses-container .one-best-course img{
+		width: 170px;
+		height: 90px;
+	}
+	
+	.best-courses-container .one-best-course a{
+		font-size: 11px;
+		padding-top: 100px;
+	}
+	
+	.pub-container .one-pub img{
+		max-height: 85px;
+		max-width: 150px;
+	}
+	
+}
+
+@media only screen and (max-width: 595px){
+	.carrousel-container .carrousel-infos{
+		padding: 80px 4% 8% 4%;
+	}
+	
+	.carrousel-container .carrousel-infos h1,.carrousel-container .carrousel-infos p{
+		padding-right: 0;
+	}
+}
+
+@media only screen and (max-width: 499px){
+	
+	.container{
+		padding-left: 0;
+	}
+	
+	.carrousel-container .carrousel-infos{
+		padding: 50px 2% 8% 2%;
+	}
+	
+	.carrousel-container .carrousel-infos h1,.carrousel-container .carrousel-infos p{
+		padding-right: 0;
+		text-align: center;
+	}
+	
+	.carrousel-container .carrousel-infos h1{
+		font-size: 22px;
+	}
+	
+	.carrousel-container .carrousel-infos p{
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+	
+	.carrousel-details-container .row{
+		padding-left: 7%;
+		padding-right: 7%;
+	}
+	
+	.carrousel-details-container h2,
+	.best-domaines-container h2,
+	.best-courses-container h2,
+	.partenaires-container h2,
+	.about-container p:first-child{
+		font-size: 22px;
+		padding-left: 0;
+	}
+	
+	.carrousel-details-container .details-card,
+	.carrousel-details-container .details-card img,
+	.carrousel-details-container .details-card h3 a{
+		width: 160px;
+		height: 80px;
+		
+	}
+
+	.carrousel-details-container .details-card h3 a{
+		padding-top: 25px;
+		font-size: 9px;
+	}
+	
+	.best-domaines-container .one-best-domaine,.best-domaines-container .one-best-domaine a{
+		width: 180px;
+	}
+	
+	.best-domaines-container .one-best-domaine a h2{
+		padding-left: 45px;
+	}
+	
+	.best-domaines-container .one-best-domaine img{
+		width: 25px;
+		height: 25px;
+		top: 17px;
+	}
+	
+	.best-courses-container .one-best-course,
+	.best-courses-container .one-best-course a{
+		width: 150px;
+		height: 145px;
+	}
+	
+	
+	.best-courses-container .one-best-course .image-container,.best-courses-container .one-best-course img{
+		width: 150px;
+		height: 80px;
+	}
+	
+	.best-courses-container .one-best-course a{
+		font-size: 10px;
+		padding-top: 90px;
+	}
+	
+	.pub-container .one-pub img{
+		max-height: 85px;
+		max-width: 130px;
+	}
+	
+}
+
+@media only screen and (max-width: 399px){
+	
+	.carrousel-details-container,
+	.best-courses-container .container{
+		padding-right: 0;
+	}
+	
+	.best-domaines-container .container {
+		padding-left: 0 !important;
+	}
+	
+	.carrousel-details-container .details-card,
+	.carrousel-details-container .details-card img,
+	.carrousel-details-container .details-card h3 a{
+		width: 230px;
+		height: 110px;
+	}
+	
+	.best-domaines-container .one-best-domaine img{
+		display: none;
+	}
+	
+	.carrousel-details-container .details-card h3 a{
+		padding-top: 45px;
+		font-size: 12px;
+	}
+	
+	.best-domaines-container .one-best-domaine,
+	.best-domaines-container .one-best-domaine a{
+		width: 140px;
+	}
+	
+	.best-domaines-container .one-best-domaine a h2{
+		padding-left: 5px;
+		padding-right: 5px;
+		text-align: center;
+	}
+	
+	.best-courses-container .one-best-course{
+		width: 90%;
+		height: 80px;
+	}
+	
+	.best-courses-container .one-best-course .image-container,.best-courses-container .one-best-course img{
+		width: 60%;
+		height: 100%;
+		padding: 0;
+		margin: 0;
+		position: absolute;
+		left: 0;
+	}
+	
+	.best-courses-container .one-best-course a{
+		/*background-color: red;*/
+		width: 100%;
+		height: 80px;
+		padding-top: 20px;
+		font-size: 11px;
+		padding-left: 39%;
+		padding-right: 5px;
+	}
+	
+}
+
+@media only screen and (max-width: 319px){
+	.best-courses-container .one-best-course{
+		width: 100%;
+		height: 80px;
+	}
+	
+	.best-courses-container .one-best-course a{
+		width: 100%;
+		height: 80px;
+		padding-top: 20px;
+		font-size: 11px;
+		/*padding-left: 95px;*/
+		padding-right: 7px;
+	}
+}
+
+@media only screen and (max-width: 299px){
+	.best-domaines-container .one-best-domaine,
+	.best-domaines-container .one-best-domaine a{
+		width: 120px;
+	}
+}
+
+@media only screen and (max-width: 259px){
+	.best-domaines-container .one-best-domaine{
+		width: 90%;
+	}
+	
+	.best-domaines-container .one-best-domaine a{
+		width: 100%;
+	}
+}
+
+@media only screen and (max-width: 219px){
+	.carrousel-details-container .details-card,
+	.carrousel-details-container .details-card img,
+	.carrousel-details-container .details-card h3 a{
+		width: 150px;
+		height: 70px;
+	}
+	
+	.carrousel-details-container .details-card h3 a{
+		padding-top: 25px;
+	}
+	
+	.partenaires-container{
+		display: none;
+	}
+}
+
+
+
+
+
+
+

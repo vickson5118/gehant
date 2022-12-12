@@ -1,0 +1,67 @@
+#php_value upload_max_filesize 130M
+#php_value post_max_size 200M 
+
+
+ErrorDocument 404 /components/error/404.php
+
+RewriteEngine on
+
+#ErrorDocument 404 http://gehant.local/404.php
+
+
+RewriteRule ^contactez-nous$ components/other/contactez-nous.php
+RewriteRule ^qui-sommes-nous$ components/other/qui-sommes-nous.php
+RewriteRule ^conditions-generales$ components/other/conditions-generales.php
+RewriteRule ^compte/connexion$ components/compte/connexion.php
+RewriteRule ^compte/inscription$ components/compte/inscription.php
+RewriteRule ^compte/redefinir-mot-de-passe$ components/compte/redefinir-password.php
+RewriteRule ^compte/inscription/entreprise$ components/compte/inscription-entreprise.php
+RewriteRule ^domaines$ components/formation/liste-domaine.php
+RewriteRule ^formations/(.+)/(.+)$ components/formation/presentation.php?domaine=$1&formation=$2
+RewriteRule ^formations/(.+)$ components/formation/domaine.php?domaine=$1
+
+#espace-client
+RewriteRule ^espace-client/entreprise$ components/entreprise/index.php
+RewriteRule ^espace-client/entreprise/formations$ components/entreprise/formation.php
+RewriteRule ^espace-client/entreprise/factures$ components/entreprise/facture.php
+RewriteRule ^espace-client/entreprise/formations/(.+)/(.+)$ components/entreprise/presentation.php?domaine=$1&formation=$2
+RewriteRule ^espace-client$ components/espace-client/index.php
+
+RewriteRule ^panier$ components/compte/panier.php
+
+RewriteRule ^activation/(.+)$ validation/compte/activation.php?token=$1
+RewriteRule ^compte/deconnexion/([0-9]+)$ validation/compte/deconnexion.php?id=$1
+
+
+#admin
+RewriteRule ^w1-admin/dashboard$ w1-admin/dashboard.php
+RewriteRule ^w1-admin/administrateurs$ w1-admin/admins/liste-admin.php
+RewriteRule ^w1-admin/utilisateurs$ w1-admin/users/liste-user.php
+RewriteRule ^w1-admin/apercu/formation/(.+)/(.+)$ w1-admin/courses/apercu.php?domaine=$1&formation=$2
+RewriteRule ^w1-admin/formations$ w1-admin/courses/liste-formation.php
+RewriteRule ^w1-admin/entreprise/formations/participants/([0-9]+)/([0-9]+)$ w1-admin/holding/liste-formation-participant.php?formation=$1&entreprise=$2
+RewriteRule ^w1-admin/entreprise/formations/([0-9]+)$ w1-admin/holding/liste-formation.php?entreprise=$1
+RewriteRule ^w1-admin/entreprise/employes/([0-9]+)$ w1-admin/holding/liste-employe.php?entreprise=$1
+RewriteRule ^w1-admin/entreprises$ w1-admin/holding/liste-entreprise.php
+RewriteRule ^w1-admin/achats$ w1-admin/courses-achats/liste-achat.php
+RewriteRule ^w1-admin/liste-acheteur/([0-9]+)$ w1-admin/courses-achats/liste-acheteur.php?formation=$1
+RewriteRule ^w1-admin/domaines$ w1-admin/courses-domaines/liste-domaine.php
+RewriteRule ^w1-admin/partenaires$ w1-admin/part/liste-partenaire.php
+RewriteRule ^w1-admin/contacts$ w1-admin/other/liste-contact.php
+RewriteRule ^w1-admin/domaines/(.+)$ w1-admin/courses-domaines/liste-formation-domaine.php?domaine=$1
+RewriteRule ^w1-admin/contacts/([0-9]+)$ w1-admin/other/view-mail.php?mail=$1
+RewriteRule ^w1-admin/pays$ w1-admin/other/liste-pays.php
+
+
+#edit-formation
+RewriteRule ^w1-admin/creation/formation/(.+)/(.+)/prerequis$ w1-admin/courses/edit/prerequis.php?domaine=$1&formation=$2
+RewriteRule ^w1-admin/creation/formation/(.+)/(.+)/cibles$ w1-admin/courses/edit/cibles.php?domaine=$1&formation=$2
+RewriteRule ^w1-admin/creation/formation/(.+)/(.+)/objectifs$ w1-admin/courses/edit/objectifs.php?domaine=$1&formation=$2
+RewriteRule ^w1-admin/creation/formation/(.+)/(.+)/points-cles$ w1-admin/courses/edit/points.php?domaine=$1&formation=$2
+RewriteRule ^w1-admin/creation/formation/(.+)/(.+)/presentation$ w1-admin/courses/edit/presentation.php?domaine=$1&formation=$2
+RewriteRule ^w1-admin/creation/formation/(.+)/(.+)/messages$ w1-admin/courses/edit/messages.php?domaine=$1&formation=$2
+RewriteRule ^w1-admin/creation/formation/(.+)/(.+)/programme$ w1-admin/courses/edit/programme.php?domaine=$1&formation=$2
+RewriteRule ^w1-admin/creation/formation/(.+)/(.+)$ w1-admin/courses/edit-formation.php?domaine=$1&formation=$2
+
+
+

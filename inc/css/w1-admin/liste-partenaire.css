@@ -1,0 +1,45 @@
+#partenaireIllustration,#editPartenaireIllustration{
+	display: none;
+}
+
+.partenaireIllustrationLabel,.editPartenaireIllustrationLabel{
+	max-width: 250px;
+	max-height: 150px;
+	height: 150px;
+	width: 250px;
+	border:1px dotted black;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	vertical-align:center;
+	text-align: center;
+	margin: 20px auto 30px;
+	position: relative;
+	cursor: pointer;
+}
+
+.editPartenaireIllustrationLabel img{
+	width: 220px;
+	height: 120px;
+}
+
+.partenaireIllustrationLabel i{
+	font-size: 60px;
+	color: #0B5ED7;
+	text-align: center;
+	padding-bottom: 10px;
+}
+
+.partenaire-illustration-info{
+	font-size: 12px;
+	color: red;
+	position: relative;
+	top: -20px;
+	display: block;
+	text-align: center;
+}
+
+table td img{
+	width: auto;
+	height: 40px;;
+}

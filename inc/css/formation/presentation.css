@@ -1,0 +1,673 @@
+/*Banniere*/
+.formation-info-banniere {
+	padding-top: 60px;
+	color: white;
+	position: relative;
+	background-repeat: no-repeat;
+	background-position: center;
+	-webkit-background-size: cover;
+	background-size: cover;
+}
+
+.formation-info-banniere .formation-banniere-bg {
+	background-color: rgba(0, 0, 0, .75);
+	width: 100%;
+	padding-top: 30px;
+	padding-bottom: 60px;
+}
+
+.formation-info-banniere h1 {
+	font-family: 'Ibarra Real Nova', serif;
+	font-size: 30px;
+	font-weight: bold;
+	padding-top: 40px;
+}
+
+.formation-info-banniere .formation-but {
+	font-size: 16px;
+	margin-top: 20px;
+	padding-right: 70px;
+}
+
+.formation-info-banniere .formateur {
+	font-size: 14px;
+}
+
+.formation-info-menu {
+	width: 100%;
+	height: 50px;
+	position: relative;
+	background-color: #d66000;
+}
+
+.formation-info-menu a {
+	text-decoration: none;
+	color: white;
+	display: inline-block;
+	/*background-color: green;*/
+	height: 50px;
+	padding: 14px 5px 0 5px;
+	margin-left: 50px;
+	font-size: 14px;
+}
+
+.formation-info-menu a:first-child {
+	padding-left: 0 !important;
+	margin-left: 0;
+}
+
+/*Description*/
+.description-container {
+	width: 98%;
+	box-shadow: 2px 0 12px 3px rgba(115, 105, 105, 0.7);
+	-webkit-box-shadow: 2px 0 12px 3px rgba(115, 105, 105, 0.7);
+	-moz-box-shadow: 2px 0 12px 3px rgba(115, 105, 105, 0.7);
+	padding: 30px;
+	margin-top: 80px;
+	/*background-color: #E9E9E9;*/
+	/*background-color: rgb(229, 166, 114);*/
+	background-color: #f07b16;
+	color: #fff;
+	font-size: 14px;
+}
+
+.description-container h3 {
+	font-family: 'Ibarra Real Nova', serif;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.description-container #introduction, 
+.who-container #cibles,
+.prerequis-container #prerequis, 
+.objectif-container #objectifs, 
+.programme-container #programme {
+	top: -130px;
+	position: relative;
+}
+
+.formation-infos {
+	border: 1px solid black;
+	margin-top: 50px;
+	padding: 0 30px 20px;
+	width: 98%;
+}
+
+/**Who container*/
+.who-container, .prerequis-container {
+	border-bottom: 2px solid #f07b16;
+}
+
+.who-container, 
+.objectif-container,
+.prerequis-container, 
+.programme-container, 
+.other-formation-container{
+	margin-top: 30px;
+	width: 100%;
+	position: relative;
+}
+
+.who-container .chapter-point, 
+.objectif-container .chapter-point,
+.prerequis-container .chapter-point,
+.programme-container .chapter-point, 
+.other-formation-container .chapter-point
+	{
+	display: inline-block;
+	background-color: #f07b16;
+	width: 20px;
+	height: 20px;
+}
+
+.who-container h3, 
+.objectif-container h3, 
+.prerequis-container h3, 
+.programme-container h3,
+.other-formation-container h3 {
+	display: inline-block;
+	font-family: 'Ibarra Real Nova', serif;
+	font-size: 20px;
+	/*font-weight: bold;*/
+	margin-left: 10px;
+	margin-bottom: 15px;
+}
+
+.programme-container .day-point {
+	display: inline-block;
+	background-color: #000;
+	color: white;
+	padding: 5px;
+	font-size: 13px;
+	font-weight: bold;
+}
+
+.programme-container .day-title {
+	display: inline-block;
+	font-size: 15px;
+	font-weight: bold;
+	list-style-position: inside;
+	margin-left: 10px;
+}
+
+.who-container ul li, 
+.objectif-container ul li, 
+.prerequis-container ul li,
+.programme-container ul li {
+	margin-left: 70px;
+	font-size: 14px;
+}
+
+.programme-container {
+	padding: 20px 40px;
+	background-color: #E9E9E9;
+	width: 99%;
+	margin-bottom: 50px;
+}
+
+/*Liste des differentes formations*/
+.formation-item .card {
+	height: 270px;
+}
+
+.formation-item .card .date {
+	font-size: 12px;
+	margin-left: 0;
+	position: relative;
+	top: 40px;
+}
+
+.formation-item .card {
+	border: none;
+	margin-bottom: 50px;
+	box-shadow: -1px 0 10px -1px rgba(0, 0, 0, 0.7);
+	-webkit-box-shadow: -1px 0 10px -1px rgba(0, 0, 0, 0.7);
+	-moz-box-shadow: -1px 0 10px -1px rgba(0, 0, 0, 0.7);
+}
+
+.formation-item a {
+	text-decoration: none;
+	color: black;
+	display: block;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 2;
+	border-radius: 8px;
+}
+
+.formation-item a .cours-title {
+	position: relative;
+	top: 170px;
+	font-family: 'Ibarra Real Nova', serif;
+	font-size: 15px;
+	display: block;
+	padding: 0 10px;
+	text-align: left;
+}
+
+.card img {
+	height: 150px;
+}
+
+.formation-item .card:hover {
+	box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.75);
+	-webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.75);
+	-moz-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.75);
+	border: 1px solid #d1d7dc;
+}
+
+/*.slick-dots li {
+	list-style: none;
+}
+
+.slick-dots li button {
+	outline: none !important;
+	border: none !important;
+	display: inline-block !important;
+}*/
+
+/******ASIDE*/
+aside {
+	position: -webkit-sticky;
+	position: sticky;
+	top: 120px;
+	height: 280px;
+	text-align: center;
+	margin-top: 80px !important;
+}
+
+aside .aside-infos {
+	background-color: #E9E9E9;
+	box-shadow: 2px 0 12px 3px rgba(115, 105, 105, 0.7);
+	-webkit-box-shadow: 2px 0 12px 3px rgba(115, 105, 105, 0.7);
+	-moz-box-shadow: 2px 0 12px 3px rgba(115, 105, 105, 0.7);
+	padding-bottom: 20px;
+}
+
+aside button {
+	outline: none;
+	border: none;
+}
+
+aside .aside-other-btn-container {
+	margin-top: 20px;
+}
+
+aside .aside-other-btn-container a {
+	text-decoration: none;
+}
+
+aside .aside-other-btn-container a, aside .aside-other-btn-container button
+	{
+	display: block;
+	color: white;
+	padding: 10px;
+	margin-bottom: 10px;
+	background-color: #2A2A2A;
+	width: 100%;
+	text-align: left !important;
+	border-radius: 3px;
+	position: relative;
+	font-size: 13px;
+	font-weight: bold;
+}
+
+aside .aside-other-btn-container a i, aside .aside-other-btn-container button i
+	{
+	position: absolute;
+	right: 10px;
+	color: white;
+}
+
+aside .btn-register {
+	background-color: #f07b16 !important;
+}
+
+aside p {
+	font-family: 'Ibarra Real Nova', serif;
+	font-size: 22px;
+	text-align: center;
+	padding-top: 10px;
+	font-weight: bold;
+}
+
+aside .lieu {
+	font-size: 14px;
+}
+
+aside .prix {
+	font-family: 'Ibarra Real Nova', serif;
+	font-size: 25px;
+	font-weight: bold;
+	margin-top: 10px;
+	color: #f07b16;
+}
+
+aside .date {
+	font-size: 14px;
+	/*font-weight: bold;*/
+	margin-bottom: 5px;
+}
+
+/*aside .btn-register{
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding: 5px 20px;
+	background-color: #f07b16;
+	display: block;
+}*/
+aside .link-add-participant {
+	text-decoration: none;
+	color: white;
+	padding: 10px 0;
+	display: block;
+	background-color: #f07b16;
+	width: 65%;
+	margin: 10px auto;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+/*aside .btn-download{
+	width: 49%;
+	margin: 0 auto;
+	padding: 5px 0px;
+	background-color: #fff;
+}*/
+
+/*aside .btn-add-basket i,
+aside .btn-download i{
+	font-size: 15px;
+}*/
+
+/*aside .btn-download i{
+	color: black;
+}*/
+
+/*.formation-info-banniere button:hover{
+	background-color: #fff;
+	color: black;
+}*/
+
+.mobile-aside{
+	display: none;
+}
+
+/******************************RESPONSIVE******************************/
+@media only screen and (max-width: 1240px) {
+	.formation-info-banniere h1, .formation-info-banniere .formation-but,
+		.formation-info-banniere .formateur {
+		margin-left: 30px;
+	}
+}
+
+@media only screen and (max-width: 1199px) {
+	.formation-info-banniere h1, .formation-info-banniere .formation-but,
+		.formation-info-banniere .formateur {
+		margin-left: 50px;
+	}
+	.formation-info-menu {
+		padding-left: 50px;
+	}
+}
+
+@media only screen and (max-width: 991px) {
+	.formation-item {
+		width: 270px;
+		margin-right: 5%;
+	}
+}
+
+@media only screen and (max-width: 989px) {
+	.formation-info-menu {
+		padding-left: 5px;
+	}
+}
+
+@media only screen and (max-width: 952px) {
+	.formation-item {
+		margin-right: 3%;
+	}
+}
+
+@media only screen and (max-width: 900px) {
+	.mobile-aside{
+		display: block;
+		position: relative;
+		width: 35%;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 0 !important;
+		top: 30px;
+		height: 220px;
+	}
+	
+	.description-container {
+		position: relative;
+		width: 99.8%;
+		padding: 10px;
+		margin-top: 50px;
+	}
+	
+	.formation-infos-content{
+		width: 100%;
+		margin: 0 auto;
+		padding-right: 0;
+	}
+	
+	.aside-container{
+		display: none;
+	}
+	
+	.formation-infos {
+		padding: 0 10px;
+		width: 100%;
+	}
+	
+	.programme-container {
+		padding: 20px 10px;
+		width: 100%;
+	}
+}
+
+@media only screen and (max-width: 890px) {
+	.formation-item {
+		margin-right: 0;
+	}
+	
+	aside .aside-infos{
+		padding-bottom: 5px;
+	}
+	
+	aside p {
+		font-size: 18px;
+	}
+	aside .lieu {
+		font-size: 13px;
+	}
+	aside .prix {
+		font-size: 20px;
+		font-weight: bold;
+		margin-top: 10px;
+		color: #f07b16;
+	}
+	aside .date {
+		font-size: 14px;
+		margin-bottom: 5px;
+	}
+}
+
+@media only screen and (max-width: 809px) {
+	.formation-item {
+		width: 260px;
+	}
+}
+
+@media only screen and (max-width: 779px) {
+	.formation-item {
+		width: 250px;
+	}
+	.formation-info-menu {
+		display: none;
+	}
+	
+	.description-container {
+		font-size: 13px;
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	.formation-info-banniere h1, .formation-info-banniere .formation-but,
+		.formation-info-banniere .formateur {
+		margin-left: 10px;
+	}
+
+}
+
+@media only screen and (max-width: 749px) {
+	.formation-item {
+		width: 280px;
+		margin-right: 7%;
+	}
+	
+	.mobile-aside{
+		display: block;
+		position: relative;
+		width: 35%;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 0 !important;
+		top: 30px;
+		height: 220px;
+	}
+}
+
+@media only screen and (max-width: 651px) {
+	.formation-item {
+		margin-right: 3%;
+	}
+	
+	.mobile-aside{
+		width: 45%;
+	}
+}
+
+@media only screen and (max-width: 595px) {
+	.formation-item {
+		margin-right: 0;
+		width: 250px;
+	}
+	
+	.who-container ul li, 
+	.objectif-container ul li, 
+	.prerequis-container ul li,
+	.programme-container ul li {
+		margin-left: 30px;
+		font-size: 13px;
+	}
+	
+	.who-container h3, 
+	.objectif-container h3, 
+	.prerequis-container h3, 
+	.programme-container h3,
+	.other-formation-container h3 {
+		font-size: 17px;
+	}
+	
+	.who-container .chapter-point, 
+	.objectif-container .chapter-point,
+	.prerequis-container .chapter-point,
+	.programme-container .chapter-point, 
+	.other-formation-container .chapter-point{
+		width: 10px;
+		height: 10px;
+	}
+	
+	.programme-container .day-point {
+		padding: 5px;
+		font-size: 11px;
+	}
+	
+	.programme-container .day-title {
+		font-size: 13px;
+	}
+	
+}
+
+@media only screen and (max-width: 499px) {
+	.formation-item {
+		width: 220px;
+	}
+	.formation-item .card {
+		height: 200px;
+	}
+	.formation-item a .cours-title {
+		top: 125px;
+		font-size: 14px;
+		display: block;
+		padding: 0 10px;
+		text-align: left;
+	}
+	.card img {
+		height: 110px;
+	}
+	
+	.formation-info-banniere .formation-but {
+		padding-right: 0;
+	}
+}
+
+@media only screen and (max-width: 450px) {
+	.programme-container .day-title {
+		font-size: 13px;
+		display: block;
+		margin-top: 10px;
+		margin-left: 0;
+		text-align: center;
+	}
+	
+	.programme-container{
+		text-align: center;
+	}
+	
+	.programme-container ul li,
+	.programme-container h3,
+	.programme-container .chapter-point {
+		text-align: left;
+	}
+	
+}
+
+@media only screen and (max-width: 460px) {
+	.mobile-aside{
+		width: 70%;
+	}
+}
+
+@media only screen and (max-width: 439px) {
+	.formation-item {
+		width: 220px;
+		margin: 0 auto;
+	}
+	.chapter-point {
+		display: none;
+	}
+}
+
+@media only screen and (max-width: 390px) {
+	.who-container .chapter-point, 
+	.objectif-container .chapter-point,
+	.prerequis-container .chapter-point,
+	.programme-container .chapter-point, 
+	.other-formation-container .chapter-point{
+		display: none;
+	}
+	
+	.who-container h3, 
+	.objectif-container h3, 
+	.prerequis-container h3, 
+	.programme-container h3,
+	.other-formation-container h3 {
+		margin-left: 0;
+		width: 100%;
+		text-align: center;
+	}
+	
+	.who-container ul li, 
+	.objectif-container ul li, 
+	.prerequis-container ul li,
+	.programme-container ul li {
+		margin-left: 0;
+		font-size: 12px;
+	}
+	
+	.formation-info-banniere h1 {
+		font-size: 25px;
+		padding-top: 20px;
+	}
+	
+	.formation-info-banniere .formation-but {
+		font-size: 14px;
+		margin-top: 20px;
+		padding-right: 0;
+	}
+	
+	.formation-info-banniere .formateur {
+		font-size: 12px;
+	}
+	
+}
+
+@media only screen and (max-width: 315px) {
+	.mobile-aside{
+		width: 96%;
+	}
+	
+	.formation-info-banniere h1 {
+		font-size: 20px;
+		padding-top: 22px;
+	}
+}

@@ -1,0 +1,113 @@
+@charset "UTF-8";
+
+.edit-menu-container{
+	width: 25%;
+	margin-top: 70px;
+}
+
+.edit-menu-container h5{
+	font-weight: bold;
+}
+
+.edit-menu-container ul li{
+	list-style: none;
+	padding: 4px 0;
+}
+
+.edit-menu-container ul li a{
+	text-decoration: none;
+	color: black;
+}
+
+.edit-menu-container ul li a:hover{
+	color: #F07B16;
+}
+
+
+
+.formation-infos-container{
+	width: 75%;
+	-webkit-box-shadow: 0 2px 8px 2px rgb(28 29 31 / 15%);
+	-moz-box-shadow: 0 2px 8px 2px rgb(28 29 31 / 15%);
+	box-shadow: 0 2px 8px 2px rgb(28 29 31 / 15%);
+	padding: 0;
+	margin-top: 70px;
+}
+
+.formation-infos-container .section-header{
+	padding: 30px;
+	border-bottom: 1px solid black;
+}
+
+.formation-infos-container .section-header h1{
+	font-size: 30px;
+}
+
+.formation-infos-container .section-content{
+	padding: 30px;
+}
+
+
+#prerequis-form input,#cibles-form input,#objectifs-form input,#points-form input,
+.form-add-module input,#basics-form input,#basics-form select{
+	height: 50px;
+	border-radius: 0;
+	border: 1px solid black;
+	margin-bottom: 20px;
+}
+
+#basics-form input,#basics-form select,#basics-form textarea{
+	margin-bottom: 0;
+}
+
+.hide-container{
+	display: none;
+}
+
+
+
+.illustration-container,.video-presentation-container{
+	position: relative;
+}
+
+#btn-send-evaluate{
+	outline: none;
+	border: none;
+	padding: 15px;
+	color: white;
+	background-color: #5C291E;
+}
+
+
+/*Page edit-formation*/
+#edit-formation-container{
+	padding: 50px;
+}
+
+.edit-welcome{
+	font-size: 25px;
+	font-weight: bold;
+	text-align: center;
+}
+
+
+#edit-formation-container ul li{
+	list-style-type: decimal;
+}
+
+#edit-formation-container b{
+	color: red;
+}
+
+.btn-begin-redaction{
+	background-color: #f07b16;
+	padding: 25px 25px;
+	text-decoration: none;
+	color: white;
+	display: inline-block;
+	margin-top: 30px;
+}
+
+.btn-begin-redaction:hover {
+	color: white;
+}

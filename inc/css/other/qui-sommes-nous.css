@@ -1,0 +1,278 @@
+.who-container{
+	margin-top: 60px;
+}
+
+.who-container-head{
+	background-image: url("/inc/images/who.jpg");
+	background-repeat: no-repeat;
+	-webkit-background-size: cover;
+	background-size: cover;
+	background-position: center;
+	
+}
+
+.who-container-head .who-head-bg{
+	background-color: rgba(0,0,0,.7);
+	padding-bottom: 70px;
+	color: white;
+}
+
+.who-container-head .who-head-bg .container{
+	padding-top: 120px;
+}
+
+.who-container-head .who-head-bg .container h2{
+	text-align: center;
+	font-weight: bold;
+	font-family: 'Ibarra Real Nova', serif;
+	font-size: 35px;
+	padding-bottom: 20px;
+}
+
+.who-container-head .who-head-bg .container p{
+	font-size: 15px;
+	padding: 0 100px;
+}
+
+/*zone mission, vision etc**/
+.pres-container{
+	margin-top: 50px;
+	margin-left: 0;
+}
+
+.pres-container .col-md-4{
+	/*border: 1px solid red;*/
+	width: 340px;
+	margin-right: 30px;
+	margin-bottom: 50px;
+	box-shadow: 2px 2px 24px 0 rgba(105,102,102,0.75);
+	-webkit-box-shadow: 2px 2px 24px 0 rgba(105,102,102,0.75);
+	-moz-box-shadow: 2px 2px 24px 0 rgba(105,102,102,0.75);
+	padding: 30px 20px;
+	text-align: center;
+}
+
+.pres-container .col-md-4 img{
+	width: 50px;
+	height: 50px;
+	margin-bottom: 20px;
+}
+
+.pres-container .col-md-4 h2{
+	font-family: 'Ibarra Real Nova', serif;	
+	font-size: 27px;
+	margin-bottom: 20px;
+}
+
+.pres-container .col-md-4 p{
+	font-size: 14px;
+}
+
+/****VALEURS*/
+.valeurs-container{
+	margin-top: 30px;
+	position: relative;
+	background-image: url("/inc/images/temp/domaine.jpg");
+	background-repeat: no-repeat;
+	-webkit-background-size: cover;
+	background-size: cover;
+	background-position: center;
+}
+
+.valeurs-container .valeurs-container-desc{
+	background-color: rgba(0,0,0,.75);
+	padding: 40px 0;
+	position: relative;
+	top: 0;
+	color: white;
+}
+
+.valeurs-container .valeurs-container-desc h2{
+	font-family: 'Ibarra Real Nova', serif;	
+	font-size: 27px;
+	font-weight: bold;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.valeurs-container .valeurs-container-desc p{
+	font-size: 14px;
+}
+
+.valeurs-container .valeurs-container-desc ol li{
+	font-size: 14px;
+	padding-bottom: 15px;
+}
+
+/******ACTIVITES*/
+.activites-container{
+	padding-top: 50px;
+	background-color: #f4f4f4;
+	padding-bottom: 10px;
+	margin-bottom: 30px;
+}
+
+.activites-container h2{
+	font-family: 'Ibarra Real Nova', serif;	
+	font-size: 27px;
+	font-weight: bold;
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+.activites-container .one-activity-container,
+.activites-container .one-activity-container-reverse{
+	margin-bottom: 30px;
+	position: relative;
+}
+
+.activites-container .one-activity-container .one-activity-detail,
+.activites-container .one-activity-container-reverse .one-activity-detail{
+	background-color: #fff;
+	padding: 20px;
+	border-radius: 5px;
+}
+
+.activites-container .one-activity-container h3,
+.activites-container .one-activity-container-reverse h3{
+	font-family: 'Ibarra Real Nova', serif;	
+	font-size: 24px;
+	font-weight: bold;
+	text-align: center;
+}
+
+.activites-container .one-activity-container p,
+.activites-container .one-activity-container-reverse .one-activity-detail>div{
+	font-size: 14px;
+}
+
+.activites-container .one-activity-container a,
+.activites-container .one-activity-container-reverse a{
+	text-decoration: none;
+	display: block;
+	background-color: #f07b16;
+	color: white;
+	width: 140px;
+	padding: 10px;
+	text-align: center;
+	margin: 20px auto 0;
+	font-size: 13px;
+}
+/*ANCRE*/
+#coaching,#formation,#conseil,#team-building,#conduite-changement{
+	position: relative;
+	top: -70px;
+}
+
+/********************************RESPONSIVE******************************/
+
+@media screen and (max-width: 1199px){
+	.container{
+		padding-left: 50px;
+		padding-right: 20px;
+		/*background-color: green;*/
+	}
+	
+	.who-container-head .who-head-bg .container h2{
+		font-size: 33px;
+	}
+	.who-container-head .who-head-bg .container p{
+		font-size: 14px;
+		padding: 0 50px;
+	}
+	
+	.pres-container .col-md-4{
+		width: 310px;
+		margin: 0 auto;
+	}
+	
+}
+
+@media screen and (max-width: 1049px){
+	.pres-container .col-md-4{
+		width: 280px;
+		margin: 0 20px 0 auto;
+		padding: 15px 10px 10px 10px;
+	}
+}
+
+@media screen and (max-width: 989px){
+	.activites-container .one-activity-container img,
+	.activites-container .one-activity-container-reverse img{
+		display: none;
+	}
+	
+	.activites-container .one-activity-container .one-activity-detail,
+	.activites-container .one-activity-container-reverse .one-activity-detail{
+		width: 100% !important;
+	}
+}
+
+@media screen and (max-width: 957px){
+	.pres-container .col-md-4{
+		width: 250px;
+	}
+	
+	.pres-container .col-md-4 h2{
+		font-size: 22px;
+		margin-bottom: 10px;
+	}
+	
+	.pres-container .col-md-4 p{
+		font-size: 14px;
+	}
+	
+	.who-container-head .who-head-bg .container{
+		padding-top: 80px;
+	}
+}
+
+
+@media screen and (max-width: 879px){
+	.pres-container .col-md-4{
+		width: 200px;
+	}
+	
+	.pres-container .col-md-4 img{
+		display: none
+	}
+	
+	.pres-container .col-md-4 p{
+		font-size: 12px;
+	}
+	
+}	
+
+@media screen and (max-width: 729px){
+	
+	.container{
+			padding-left: 15px;
+			padding-right: 15px;
+		}
+	
+	.pres-container .col-md-4{
+		width: 100%;
+		margin-bottom: 25px;
+	}
+	
+	.who-container-head .who-head-bg .container p{
+		padding: 0 10px;
+	}
+}
+
+@media screen and (max-width: 479px){
+	.valeurs-container .valeurs-container-desc h2,
+	.activites-container .one-activity-container h3,
+.activites-container .one-activity-container-reverse h3{
+		font-size: 22px;
+	}
+
+.valeurs-container .valeurs-container-desc p,
+.valeurs-container .valeurs-container-desc ol li,
+.activites-container .one-activity-container p,
+.activites-container .one-activity-container-reverse .one-activity-detail>div{
+	font-size: 13px;
+}
+}
+
+

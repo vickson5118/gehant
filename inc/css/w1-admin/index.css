@@ -1,0 +1,92 @@
+body{
+	font-family: "Open Sans",serif;
+}
+
+#connexion-container{
+	position: absolute;
+	background-image: url("/inc/images/w1-admin/connexion-bg.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+	-webkit-background-size: 100%;
+	background-size: 100%;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	top: 0;
+}
+
+.connexion-box{
+	padding-top: 20px;
+	width: 500px;
+	height: 480px;
+	background-color: #fff;
+	margin: 10% auto;
+	text-align: center;
+	border-radius: 5px;
+	box-shadow: -2px -1px 14px 1px rgba(0,0,0,0.72);
+	-webkit-box-shadow: -2px -1px 14px 1px rgba(0,0,0,0.72);
+	-moz-box-shadow: -2px -1px 14px 1px rgba(0,0,0,0.72);
+}
+
+.connexion-box img{
+	width: 130px;
+	height: 70px;
+	text-align: center;
+}
+
+.connexion-box p{
+	font-family: "PT Serif",serif;
+	font-size: 28px;
+	margin-top: 10px;
+	margin-bottom: 30px;
+}
+
+.connexion-box .connexion-error{
+	color: #DB2424;
+	font-size: 16px;
+	position: absolute;
+	margin-top: -30px;
+	margin-left: 60px;
+}
+
+ .connexion-box .form-input-container{
+	margin-bottom: 35px;
+	display: inline-block;
+	position: relative;
+}
+
+.connexion-box .form-input-container label{
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.connexion-box .form-input-container input{
+	display: block;
+	border: none;
+	border-bottom: 2px solid black;
+	height: 40px;
+	width: 250px;
+	font-size: 14px;
+	margin: 0 auto;
+}
+
+.connexion-box .form-input-container input:focus,
+.connexion-box .form-input-container input:hover{
+	border: none;
+	box-shadow: none;
+	outline: none;
+	border-bottom: 2px solid #f07b16;
+}
+
+.connexion-box button{
+	display: block;
+	outline: none;
+	border: none;
+	margin: 0 auto;
+	padding: 10px 40px;
+	background-color: #f07b16;
+	color: white;
+	border-radius: 3px;
+}
+
+

@@ -1,0 +1,153 @@
+@charset "UTF-8";
+
+#link-modules{
+	color: red;
+}
+
+#btn-show-add-module-container{
+	border: none;
+	outline: none;
+	background-color: #f07b16;
+	padding: 10px;
+	margin-bottom: 30px;
+}
+
+#btn-show-add-module-container i{
+	color: white;
+	font-size: 20px;
+}
+
+.form-add-module #btn-annuler-add-module {
+	background-color: grey;
+	padding: 15px;
+	position: relative;
+	left: 0;
+}
+
+.form-add-module #btn-add-module {
+	background-color: #f07b16;
+	position: relative;
+	left: 10px;
+	padding: 15px;
+}
+
+.module-edit,.module-delete{
+	outline: none;
+	border: none;
+	background-color: transparent;
+	color: white;
+}
+
+.form-add-module button{
+	outline: none;
+	border: none;
+	/*background-color: white;*/
+	position: relative;
+	color:white;
+	left: 72.5%;
+}
+
+.one-module:first-child{
+	margin-top: 40px;
+}
+
+.liste-formation-module-container .one-module{
+	padding: 20px 25px;
+	background-color: black;
+	width: 100%;
+	height: auto;
+	color: white;
+	margin-bottom: 20px;
+}
+
+.one-module p{
+	padding-left: 10px;
+}
+
+.liste-formation-module-container .one-module h3{
+	display: inline;
+	font-size: 25px;
+	margin-right: 30px;
+}
+
+.liste-formation-module-container .one-module i{
+	font-size: 18px;
+	margin-right: 10px;
+}
+
+.liste-formation-module-container .one-module .mDescription h5{
+	font-size: 16px;
+	margin-top: 15px;
+	padding-left: 30px;
+}
+
+.module-btn{
+	display: inline;
+}
+
+/*@media only screen and (max-width: 991px){
+	.module-btn{
+		display: block;
+	}
+	
+}
+
+@media only screen and (max-width: 767px){
+	.section-header h1{
+		font-size: 23px !important; 
+		text-align: center;
+	}
+	
+	.section-content{
+		font-size: 15px;
+	}
+}
+
+@media only screen and (max-width: 519px){
+	
+	.section-content{
+		font-size: 13px;
+	}
+	
+	.form-add-module input{
+		font-size: 13px;
+	}
+	
+}
+
+@media only screen and (max-width: 579px){
+	
+	.liste-formation-module-container .one-module h4{
+		font-size: 15px;
+	}
+	
+}
+
+@media only screen and (max-width: 560px){
+	
+	.liste-formation-module-container .one-module h4{
+		font-size: 15px;
+	}
+	
+	.liste-formation-module-container .one-module i{
+		font-size: 15px;
+	}
+	
+}
+
+@media only screen and (max-width: 420px){
+	
+	.section-content{
+		padding: 5px !important;
+	}
+	
+	.liste-formation-module-container .one-module{
+		padding: 25px 5px;
+	}
+	
+	.liste-formation-module-container .one-module h4{
+		font-size: 14px;
+	}
+	
+}*/
+

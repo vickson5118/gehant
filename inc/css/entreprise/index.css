@@ -1,0 +1,149 @@
+
+footer{
+	margin-top: 80px;
+}
+
+#entreprise-container{
+	margin-top: 100px;
+}
+
+#entreprise-container button{
+	font-family: 'Ibarra Real Nova', serif;
+}
+
+.formations-buy-container,
+.factures-container{
+	width: 47%;
+	height: 200px;
+	text-align: center;
+	border-radius: 5px;
+	position: relative;
+}
+
+.formations-buy-container{
+	background-color: #f07b16;
+	margin-right: 30px;
+}
+
+
+.factures-container{
+	background-color: #633328;
+	margin-left: 30px;
+}
+
+.formations-buy-container a,.factures-container a{
+	display: block;
+	width: 100%;
+	height: 200px;
+	text-decoration: none;
+	color: white;
+	font-size: 30px;
+	font-family: 'Ibarra Real Nova', serif;
+	padding-top: 70px;
+	transition: all 0.3s;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-o-transition: all 0.3s;
+}
+
+.formations-buy-container a span,.factures-container a span{
+	display: none;
+}
+
+@media only screen and (min-width: 1000px){
+	
+	.formations-buy-container a:hover,.factures-container a:hover{
+		padding-top: 20px;
+		padding-right: 270px;
+	}
+	
+	.factures-container a:hover{
+		padding-right: 305px;
+	}
+	
+	.formations-buy-container a:hover span,.factures-container a:hover span{
+		font-family: 'Montserrat', sans-serif;
+		display: block;
+		font-size: 15px;
+		margin-top: 10px;
+		position: absolute;
+		padding-right: 10px;
+		padding-left: 25px;
+		text-align: left;
+	}
+	
+}
+
+/*panel*/
+.panel{
+	background-color:#fff;
+	border-radius: 5px;
+	margin: 50px auto 0 -10px;
+	font-family: 'Ibarra Real Nova', serif;
+}
+
+.panel .panel-header{
+	text-align: center;
+	padding: 10px;
+}
+
+
+/*panel success*/
+.panel.panel-dark{
+	border: 1px solid #000;
+	-webkit-box-shadow:  0 1px 2px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow:   0 1px 2px rgba(0, 0, 0, 0.5);
+	box-shadow:   0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.panel.panel-dark .panel-header{
+	background-color: #000;
+}
+
+.panel.panel-dark .panel-header h3{
+	font-family: 'Ibarra Real Nova', serif;
+	display: inline-block;
+	color: white;
+}
+
+/*centrer les en tête de table*/
+.table th, .table td{
+	text-align: center;
+}
+
+.table thead th{
+	font-family: 'Ibarra Real Nova', serif;
+}
+
+/*******************************RESPONSIVE********************/
+@media only screen and (max-width: 999px){
+	.formations-buy-container,
+	.factures-container{
+		width: 45%;
+		margin: 0 auto;
+	}
+	
+	#entreprise-container{
+		padding-left: 20px;
+	}
+}
+
+@media only screen and (max-width: 539px){
+	
+	.formations-buy-container,
+	.factures-container{
+		width: 100%;
+		margin: 0 auto;
+	}
+	
+	.formations-buy-container{
+		margin-bottom: 30px;
+	}
+	
+	.col-email,
+	.row-email{
+		display: none;
+	}
+	
+}
+

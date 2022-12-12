@@ -1,0 +1,53 @@
+@charset "UTF-8";
+
+#link-cibles{
+	color: red;
+}
+
+/*Le lien poour ajouter un input sur la page*/
+#add-cibles-input{
+	text-decoration: none;
+	color: #7a83e9;
+	display: inline-block;
+	position: relative;
+	top: -10px;
+	font-weight: bold;
+}
+
+#add-cibles-input i{
+	font-size: 17px;
+	font-weight: bold;
+}
+
+#cibles-save{
+	border: none;
+	outline: none;
+	background-color: #f15a24;
+	margin-top: 10px;
+	color: white;
+	padding: 15px 60px;
+	font-size: 16px;
+}
+
+@media only screen and (max-width: 767px){
+	.section-header h1{
+		font-size: 23px !important; 
+		text-align: center;
+	}
+	
+	.section-content{
+		font-size: 15px;
+	}
+}
+
+@media only screen and (max-width: 519px){
+	
+	.section-content{
+		font-size: 13px;
+	}
+	
+	#cibles-form input{
+		font-size: 13px;
+	}
+	
+}

@@ -1,0 +1,268 @@
+/*Header*/
+.espace-client-header{
+	width: 60%;
+	margin-top: 70px;
+	padding: 30px !important;
+}
+
+.espace-client-header>p{
+	font-family: 'Ibarra Real Nova', serif;
+	font-size: 25px;
+	border-bottom: 1px solid black;
+}
+
+.espace-client-header .type-compte-badge{
+	background-color: rgb(156 163 175);
+	font-size: 12px;
+	text-align: center;
+	padding: 5px 8px;
+	color: white;
+	border-radius: 3px;
+	position: absolute;
+	margin-left: 150px;
+	margin-top: 20px;
+	font-weight: bold;
+}
+
+.espace-client-header .welcome{
+	font-size: 25px;
+	color: #f07b16;
+	position: absolute;
+	margin-left: 150px;
+	margin-top: 50px;
+	font-family: 'Ibarra Real Nova', serif;
+	/*font-weight: bold;*/
+}
+
+.espace-client-header .temps-inscription{
+	position: absolute;
+	margin-left: 150px;
+	margin-top: 92px;
+	font-size: 15px;
+	font-family: 'Ibarra Real Nova', serif;
+}
+
+.espace-client-menu{
+	width: 100%;
+	height: 60px;
+	background-color:white;
+	border-top: 1px solid  #D5E3EC;
+	border-bottom: 1px solid  #D5E3EC;
+	box-shadow: 0 0 10px -4px rgba(212,209,209,0.8);
+	-webkit-box-shadow: 0 0 10px -4px rgba(212,209,209,0.8);
+	-moz-box-shadow: 0 0 10px -4px rgba(212,209,209,0.8);
+}
+
+/*Menu*/
+.espace-client-menu ul{
+	display: flex;
+	position: relative;
+}
+
+.espace-client-menu ul li{
+	list-style: none;
+	height: 60px;
+	border-right: 1px solid  #D5E3EC;
+}
+
+.espace-client-menu ul li:first-child{
+	border-left: 1px solid  #D5E3EC;
+}
+
+.espace-client-menu ul li:last-child{
+	border-right: 1px solid  #D5E3EC;
+}
+
+.espace-client-menu ul li a{
+	text-decoration: none;
+	color: black;
+	font-size: 15px;
+	display: block;
+	padding: 15px 20px 0 20px;
+	height: 60px;
+	transition: all 0.2s;
+	font-weight: bold;
+}
+
+.espace-client-menu ul li a:hover{
+	color: #f07b16;
+}
+
+/*picture*/
+.profil-picture input {
+	display: none;
+}
+
+.profil-picture .profllLabel {
+	background-color: grey;
+	height: 130px;
+	width: 130px;
+	border-radius: 50%;
+	cursor: pointer;
+	text-align: center;
+	color: #fff;
+	display: table-cell;
+	vertical-align: middle;
+	background-position: center;
+	font-family: 'Ibarra Real Nova', serif;
+	font-size: 55px;
+	z-index: 5;
+}
+
+.profil-picture .profllLabel:hover {
+	color: transparent;
+	background-color: rgba(0, 0, 0, .6);
+	background-image: url("/inc/images/camera.png");
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.profil-picture form label img {
+	height: 200px;
+	width: 200px;
+	border-radius: 50%;
+	cursor: pointer;
+	border: 1px solid #f2f2f2;
+}
+
+.espace-client-header .profil-picture,.espace-client-header .profil-picture img{
+	height: 130px;
+	width: 130px;
+	border-radius: 50%;
+}
+
+
+.espace-client-content{
+	background-color: #F7FAFB;
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+
+@media only screen and (max-width: 767px){
+	.espace-client-header{
+		width: 100%;
+	}
+	
+	.espace-client-header p:first-child{
+		font-size: 20px;
+	}
+	
+	.espace-client-header .type-compte-badge{
+		font-size: 11px;
+	}
+	
+	.espace-client-header .welcome{
+		font-size: 20px;
+	}
+	
+	.espace-client-header .temps-inscription{
+		font-size: 13px;
+	}
+
+}
+
+@media only screen and (max-width: 539px){
+		
+	.espace-client-header .profil-picture,.espace-client-header .profil-picture img{
+		height: 80px;
+		width: 80px;
+		position: relative;
+		top: 15px;
+	}
+	
+	.profil-picture .profllLabel,.espace-client-header .profil-picture img {
+		height: 80px;
+		width: 80px;
+		font-size: 35px;
+		position: relative;
+		top: 0;
+	}
+	
+	.espace-client-header .type-compte-badge{
+		font-size: 9px;
+		padding: 5px;
+		margin-left: 100px;
+		margin-top: 10px;
+	}
+	
+	.espace-client-header .welcome{
+		margin-left: 100px;
+		margin-top: 40px;
+	}
+	
+	.espace-client-header .temps-inscription{
+		margin-left: 105px;
+		margin-top: 72px;
+		font-size: 12px;
+	}
+}
+
+
+@media only screen and (max-width: 399px){
+	
+	.espace-client-header .profil-picture,
+	.espace-client-header .profil-picture img{
+		height: 80px;
+		width: 80px;
+		margin: 0 auto;
+	}
+	
+	.espace-client-header .profil-picture{
+		position: absolute;
+		top: 150px;
+		width: 100%;
+		left: 0;
+		margin-left: 0;
+		text-align: center;
+	}
+	
+	.espace-client-info-content{
+		margin-top: 110px;
+		text-align: center;
+	}
+	
+	.profil-picture .profllLabel {
+		height: 80px;
+		width: 80px;
+		font-size: 35px;
+	}
+	
+	.espace-client-header .type-compte-badge{
+		position: relative;
+		font-size: 9px;
+		padding: 5px;
+		margin-left: 10px;
+		margin-top: 10px;
+	}
+	
+	.espace-client-header .welcome{
+		position: relative;
+		margin-left: 10px;
+		margin-top: 10px;
+	}
+	
+	.espace-client-header .temps-inscription{
+		position: relative;
+		margin-left: 10px;
+		margin-top: 10px;
+		font-size: 12px;
+	}
+	
+	.espace-client-menu ul.container{
+		padding: 0;
+	}
+	
+	.espace-client-menu ul li a{
+		text-decoration: none;
+		color: black;
+		font-size: 12px;
+		display: block;
+		padding: 15px 10px 0 10px;
+		height: 60px;
+		transition: all 0.2s;
+		font-weight: bold;
+	}
+}
+
+

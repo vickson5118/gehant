@@ -1,0 +1,452 @@
+/*
+Positionner le logo Gehant
+*/
+
+header{
+	box-shadow: 0 7px 10px 2px rgba(115,105,105,0.7);
+	-webkit-box-shadow: 0 7px 10px 2px rgba(115,105,105,0.7);
+	-moz-box-shadow: 0 7px 10px 2px rgba(115,105,105,0.7);
+	background-color: #fff;
+	position: absolute;
+	z-index: 5;
+	left: 0;
+	right: 0;
+	top: 0;
+}
+
+header .container{
+	position: relative;
+	width: 100%;
+}
+
+header .logo-container{
+	position: absolute;
+	left: 7%;
+	width: 160px;
+	height: 70px;
+	top: 4px;
+	z-index: 3;
+}
+
+header .logo-container img{
+	width: 100px;
+	height: 50px;
+}
+
+header .compte-container{
+	position: absolute;
+	top: 8px;
+	right: 20%;
+	text-align: center;
+	text-decoration: none;
+}
+
+header .user-connect-container{
+	position: absolute;
+	top: 8px;
+	right: 19%;
+	height: 60px;
+	width: 60px;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+header .not-profil-picture{
+	background-color: grey;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	color: white;
+	font-size: 22px;
+	font-family: 'Ibarra Real Nova', serif;
+	text-align: center;
+	padding-top: 10px;
+}
+
+header .user-connect-container:hover >ul{
+	display: block;
+}
+
+header .user-connect-container img{
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+}
+
+header .user-connect-container ul{
+	width: 170px;
+	height: auto;
+	padding: 0;
+	margin: 1px 0 0 -50px;
+	background-color: #633328;
+	display: none;
+}
+
+header .user-connect-container ul li{
+	list-style: none;
+	text-align: center;
+	font-weight: bold;
+	border-bottom: 1px solid white;
+}
+
+header .user-connect-container ul li:last-child{
+	border-bottom: none;
+}
+
+header .user-connect-container ul li a{
+	text-decoration: none;
+	color: white;
+	font-size: 13px;
+	display: block;
+	padding: 12px 0;
+	width: 170px;
+}
+
+header .user-connect-container ul li a:hover{
+	background-color: #2a2a2a;
+}
+
+header .basket-container{
+	text-decoration: none;
+	color: black;
+	position: absolute;
+	top: 15px;
+	right: 9.2%;
+}
+
+header .basket-container i{
+	font-size: 26px;
+}
+
+.gbadge {
+	font-size: 11px;
+	height: 20px;
+	width: 20px;
+	border-radius: 50%;
+	position: absolute;
+	top: -2px;
+	right: -5px;
+	color: white;
+	text-align: center;
+	background-color: red;
+	display: inline-block;
+	vertical-align: middle;
+	padding-top: 1px;
+	font-family: 'Ibarra Real Nova', serif;
+	font-weight: bold;
+}
+
+header .compte-container img,header .search-container img{
+	width: 23px;
+	height: 23px;
+}
+
+header .compte-container span{
+	display: block;
+	font-size: 10px;
+	color: black;
+	font-weight: bold;
+	margin-top: 5px;
+}
+
+header .search-container{
+	position: absolute;
+	top: 8px;
+	right: 13.2%;
+	text-align: center;
+	text-decoration: none;
+}
+
+header .search-container span{
+	display: block;
+	font-size: 10px;
+	color: black;
+	font-weight: bold;
+	margin-top: 5px;
+}
+
+header .menu-res-extra-container, .mobile-menu{
+	display: none;
+}
+
+
+
+
+/*
+Mise en forme du menu
+*/
+header nav{
+	height: 60px;
+	font-size: 14px;
+	top: 0;
+	font-family: 'Ibarra Real Nova', serif;
+}
+
+header nav .smenu{
+	display: none;
+	background-color: #633328;
+	position: absolute;
+	top: 60px;
+	left: 0;
+	right: 0;
+	z-index: 9;
+	width: 70%;
+	padding: 10px 3%;
+	margin: 0 auto;
+}
+
+header  .nav-item{
+	margin-left: 10px;
+	margin-right: 10px;
+	height: 60px;
+}
+
+header .nav-link{
+	color: black;
+	height: 60px;
+	padding-top: 20px;
+}
+
+header .nav-link:hover {
+	color: #f07b16;
+	
+}
+
+header .nav-domaines:hover+.smenu,.smenu:hover{
+	display: block;
+}
+
+header .smenu li{
+	list-style: none;
+	display: inline-block;
+	width: 30%;
+	margin-left: 20px;
+	margin-bottom: 10px;
+	/*background-color: red;*/
+}
+header .smenu li a{
+	text-decoration: none;
+	font-size: 12px;
+	color: white;
+}
+
+header .smenu li a:hover {
+	color: #f07b16;
+}
+
+
+
+/**************************************RESPONSIVE************************************/
+@media only screen and (max-width: 989px){
+	
+	header{
+		background-color: #fff;
+		position: fixed;
+		height: 60px;
+		top: 0;
+	}
+	
+	nav, .menu-extra-container{
+		display: none !important;
+	}
+	
+	.menu-res-extra-container{
+		display: block !important;
+		/*background-color: red;*/
+		width: 140px;
+		height: 60px;
+		right: 10px;
+		position: absolute;
+	}
+	
+	.menu-res-extra-container .compte-container{
+		left: -50%;
+	}
+	
+	.menu-res-extra-container .basket-container{
+		top: 10px;
+		/*background-color: #fff;*/
+		text-align: center;
+		left: 42%;
+		width: 30px;
+	}
+	
+	.res-menu-icon{
+		width: 40px;
+		height: 40px;
+		position: absolute;
+		text-align: center;
+		right: 0;
+		top: 10px;
+	}
+	
+	.res-menu-icon i{
+		font-size: 35px;
+		margin-top: -8px;
+		position: relative;
+		top: -5px;
+	}
+	
+	.mobile-menu{
+		display: block;
+		background-color: #fff;
+		position: fixed;
+		left: 100%;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		z-index: 999;
+		transition: all 0.5s;
+		text-align: center;
+	}
+	
+	.mobile-menu .close-menu{
+		/*background-color:red;*/
+		position: absolute;
+		right: 30px;
+		height: 40px;
+		width: 40px;
+		top: 5px;
+		transition: all 0.5s;
+	}
+	
+	.mobile-menu .close-menu i{
+		font-size: 40px;
+		text-align: center;
+		line-height: 10px;
+		color: #f07b16;
+	}
+	
+	.mobile-menu .logo-container{
+		/*background-color: red;*/
+		position: relative;
+		left: 0;
+		display: inline-block;
+		text-align: center;
+		margin: 30px auto 0;
+	}
+	
+	.mobile-menu .logo-container img{
+		width: auto;
+		height: 100%;
+	}
+	
+	.mobile-menu ul{
+		/*background-color: green;*/
+		margin-top: 50px;
+		font-size: 14px;
+		font-family: 'Ibarra Real Nova', serif;
+		padding-left: 25px;
+		padding-right: 25px;
+	}
+	
+	.mobile-menu .nav-link i{
+		font-size: 30px;
+		position: absolute;
+		color: #f07b16;
+		margin-top: -13px;
+		right: 30px;
+	}
+	
+	.mobile-menu ul .nav-item{
+		font-size: 14px;
+		height: auto;
+		border-bottom: 1px solid  #f07b16;
+		text-align: left;
+	}
+	
+	.mobile-menu ul .smenu{
+		display: none;
+		width: 100%;
+		margin: 0;
+		padding: 0;
+	}
+	
+	.mobile-menu .smenu li{
+		list-style: none;
+		display: inline-block;
+		width: 100%;
+		margin-left: 20px;
+		margin-bottom: 10px;
+	}
+	  .mobile-menu .smenu li a{
+		text-decoration: none;
+		font-size: 12px;
+		color: black;
+	}
+	
+	.mobile-menu .show-menu +.smenu{
+		display: block;
+	}
+	
+	
+}
+
+@media only screen and (max-width: 280px){
+	header .logo-container.not-mobile{
+		left: 3%;
+		width: 70px;
+		height: 35px;
+		top: 10px;
+		text-align: center;
+	}
+
+	header .logo-container.not-mobile img{
+		width: 60px;
+		height: 35px;
+	}
+	
+	header .basket-container{
+		top: 20px;
+	}
+
+	header .basket-container i{
+		font-size: 20px;
+	}
+	
+	header .compte-container{
+		position: absolute;
+		top: 8px;
+		right: 20%;
+		text-align: center;
+		text-decoration: none;
+	}
+	
+	header .compte-container img,header .search-container img{
+		width: 18px;
+		height: 18px;
+	}
+	
+	header .compte-container span{
+		font-size: 9px;
+	}
+	
+	.menu-res-extra-container .compte-container{
+		left: -20%;
+	}
+	
+	.menu-res-extra-container .basket-container{
+		top: 15px;
+		/*background-color: #fff;*/
+		text-align: center;
+		left: 52%;
+		width: 30px;
+	}
+	
+	.res-menu-icon{
+		width: 30px;
+		height: 30px;
+		top: 15px;
+		/*background-color: green;*/
+	}
+	
+	.res-menu-icon i{
+		font-size: 25px;
+		position: relative;
+		top: -3px;
+	}
+	
+}
+
+
+
