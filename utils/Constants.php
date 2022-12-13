@@ -41,7 +41,7 @@ class Constants {
 	 * SMTP IDENTIFICATION
 	 */
 	public const SMTP_USERNAME = "info@gehant-acedemie.net";
-	public const SMTP_PASSWORD = "jM2*hqA!kbj9hsy";
+	public const SMTP_PASSWORD = "hV1!7AEfD!bzvXz";
 	public const SMTP_PORT = 587;
 	public const SMTP_HOST = "mail53.lwspanel.com";
 	
