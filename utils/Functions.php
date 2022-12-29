@@ -139,8 +139,8 @@ class Functions{
     public static function validTelephone(?string $telephone): void{
         if($telephone == null){
             throw new Exception("Le champ téléphone ne peut être vide.");
-        }else if(iconv_strlen($telephone) > 0 && !preg_match("#^\+([0-9][. -]?)+$#",$telephone)){
-            throw new Exception("Le format du téléphone est incorrect. Le format autorisé est +225 07 79 79 05 03");
+        }else if(iconv_strlen($telephone) > 0 && !preg_match("#^[0-9]{2}([. -]?[0-9]{2}){4}$#",$telephone)){
+            throw new Exception("Le format du téléphone est incorrect.");
         }
     }
 

@@ -133,9 +133,9 @@ function repeatPasswordInputValidation(passwordSelector, repeatPasswordSelector)
 
 function telInputValidation(selector){
 	$(selector).keyup(function(){
-		 if($(this).val().length > 0 && !$(this).val().match(/^\+([0-9][. -]?)+$/)){
+		 if($(this).val().length > 0 && !$(this).val().match(/^[0-9]{2}([. -]?[0-9]{2}){4}$/)){
 			$(this).addClass("is-invalid")
-			$(this).parent().find(".error").text("Le format du téléphone est incorrect. Le format autorisé est +225 07 79 79 05 03")
+			$(this).parent().find(".error").text("Le format du téléphone est incorrect.")
 		}else{
 			$(this).removeClass("is-invalid").addClass("is-valid")
 			$(this).parent().find(".error").text("")
@@ -148,9 +148,9 @@ function telParticipantInputValidation(selector){
 		if($(this).val() == null || $(this).val().length == 0){
 			$(this).addClass("is-invalid")
 			$(this).parent().find(".error").text("Le champ téléphone ne peut être vide.")
-		}else if($(this).val().length > 0 && !$(this).val().match(/^\+([0-9][. -]?)+$/)){
+		}else if($(this).val().length > 0 && !$(this).val().match(/^[0-9]{2}([. -]?[0-9]{2}){4}$/)){
 			$(this).addClass("is-invalid")
-			$(this).parent().find(".error").text("Le format du téléphone est incorrect. Le format autorisé est +225 07 79 79 05 03")
+			$(this).parent().find(".error").text("Le format du téléphone est incorrect.")
 		}else{
 			$(this).removeClass("is-invalid").addClass("is-valid")
 			$(this).parent().find(".error").text("")

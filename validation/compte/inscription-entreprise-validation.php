@@ -34,7 +34,7 @@ $prenoms = Functions::getValueChamp($_POST["prenoms"]);
 $email = Functions::getValueChamp($_POST["email"]);
 $telephone = Functions::getValueChamp($_POST["telephone"]);
 $entrepriseNom = Functions::getValueChamp($_POST["entreprise"]);
-$nombreEmployeId = Functions::getValueChamp($_POST["nbEmployes"]);
+$nombreEmployeId = Functions::getValueChamp($_POST["employes"]);
 $objectifNameOrId = Functions::getValueChamp($_POST["objectif"]);
 $secteurNameOrId = Functions::getValueChamp($_POST["secteur"]);
 
@@ -83,7 +83,7 @@ try {
 
 
 if (!$nombreEmployeManager->isExist(intval($nombreEmployeId))) {
-    $erreurs["nbEmployes"] = "Le nombre d'employés selectionné est incorrect.";
+    $erreurs["employes"] = "Le nombre d'employés selectionné est incorrect.";
 }
 
 //Si la valeur numérique est égale à 0 alors il s'agit d'un nouvel objectif
@@ -124,14 +124,14 @@ if (empty($erreurs)) {
     if (intval($objectifNameOrId) == 0) {
         $objectif->setNom(ucfirst($objectifNameOrId));
         $objectifId = $objectifManager->addObjectif($objectif);
-        $objectif->setId(intval($objectifId));
+        $objectif->setId($objectifId);
     }
 
     //on enregistre le nouveau secteur
     if (intval($secteurNameOrId) == 0) {
         $secteur->setNom(ucfirst($secteurNameOrId));
         $secteurId = $secteurManager->addSecteur($secteur);
-        $secteur->setId(intval($secteurId));
+        $secteur->setId($secteurId);
     }
 
     $nombreEmploye->setId(intval($nombreEmployeId));

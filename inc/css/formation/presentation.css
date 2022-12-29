@@ -247,6 +247,11 @@ aside .aside-infos {
 	padding-bottom: 20px;
 }
 
+aside .aside-infos .paiement-statut{
+	font-family: 'Ibarra Real Nova', serif;
+	font-size: 15px;
+}
+
 aside button {
 	outline: none;
 	border: none;

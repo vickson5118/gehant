@@ -35,7 +35,7 @@ $(document).ready(function() {
 			if(data.type === "success"){
 				
 				createSuccessNotif("Vous avez été ajouté avec succès aux participants de cette formation. L'équipe Gehant vous contactera pour le régement de la facture et le début de la formation.",3,"top-right")
-				setTimeout(function(){$(location).attr("href","/"); }, 3000);
+				setTimeout(function(){$(location).attr("href","/espace-client"); }, 3000);
 				
 			}else if (data.type === "session") {
 				$(location).attr("href", "/compte/connexion")

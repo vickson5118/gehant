@@ -3,6 +3,7 @@
 namespace components\formation;
 
 require_once($_SERVER["DOCUMENT_ROOT"] . "/src/Utilisateur.php");
+require_once($_SERVER["DOCUMENT_ROOT"] . "/src/Achat.php");
 require_once($_SERVER["DOCUMENT_ROOT"] . "/manager/FormationManager.php");
 require_once($_SERVER["DOCUMENT_ROOT"] . "/manager/ModuleManager.php");
 require_once($_SERVER["DOCUMENT_ROOT"] . "/manager/PointCleManager.php");
@@ -23,6 +24,9 @@ $formationManager = new FormationManager();
 $formation = $formationManager->getOneFormationInfo(Functions::getValueChamp($_GET["domaine"]), Functions::getValueChamp($_GET["formation"]), false);
 
 if ($formation != null) {
+
+    //$formationIsBuy = $achatManager->getIsPaidAndConfirmPaid($formation->getId(),$_SESSION["utilisateur"]->getId());
+    $userIsRegisterInFormationOrBuy = $achatManager->userIsRegisterInFormationAndPaidOrConfirmPaid($_SESSION["utilisateur"]->getId(), $formation->getId());
 
     $listeFormation = $formationManager->getTwelveLastFormationWithoutThis($formation->getId());
 
@@ -88,11 +92,10 @@ if ($formation->isBloquer()) {
             <aside class="mobile-aside">
 
                 <div class="aside-infos">
-                    <p>Brochure</p>
+                    <p>Dates</p>
                     <div class="date"><?= Functions::formatFormationDate($formation->getDateDebut(), $formation->getDateFin()) ?></div>
                     <div class="lieu"><?= $formation->getLieu() ?></div>
                     <div class="prix">$<?= $formation->getPrix() ?></div>
-
                 </div>
 
                 <div class="aside-other-btn-container">
@@ -102,7 +105,7 @@ if ($formation->isBloquer()) {
                            class="link-add-participant">
                             Ajouter un participant <i class="bi bi-chevron-right"></i>
                         </a>
-                    <?php } else if (!empty($_SESSION["utilisateur"]) && !$achatManager->userIsRegisterInFormation($_SESSION["utilisateur"]->getId(), $formation->getId())) { ?>
+                    <?php } else if (!empty($_SESSION["utilisateur"]) && $userIsRegisterInFormationOrBuy == null) { ?>
                         <button id="mobile-btn-register" class="btn-register" type="button"
                                 value="<?= $formation->getId() ?>">
                             S'enregistrer <i class="bi bi-chevron-right"></i>
@@ -202,11 +205,15 @@ if ($formation->isBloquer()) {
         <aside class="aside-container col-md-3">
 
             <div class="aside-infos">
-                <p>Brochure</p>
+                <p>Dates</p>
                 <div class="date"><?= Functions::formatFormationDate($formation->getDateDebut(), $formation->getDateFin()) ?></div>
                 <div class="lieu"><?= $formation->getLieu() ?></div>
                 <div class="prix">$<?= $formation->getPrix() ?></div>
-
+                <?php if(($_SESSION["utilisateur"]->getTypeCompte()->getId() == Constants::COMPTE_STANDARD || $_SESSION["utilisateur"]->getTypeCompte()->getId() == Constants::COMPTE_ADMIN) && $userIsRegisterInFormationOrBuy != null && $userIsRegisterInFormationOrBuy->isPaid() && !$userIsRegisterInFormationOrBuy->isConfirmPaid()){ ?>
+                    <div class="paiement-statut text-danger">En attente de paiement</div>
+                <?php }else { ?>
+                    <div class="paiement-statut text-success">Payé</div>
+                <?php } ?>
             </div>
 
             <div class="aside-other-btn-container">
@@ -216,7 +223,7 @@ if ($formation->isBloquer()) {
                        class="link-add-participant">
                         Ajouter un participant <i class="bi bi-chevron-right"></i>
                     </a>
-                <?php } else if (!empty($_SESSION["utilisateur"]) && !$achatManager->userIsRegisterInFormation($_SESSION["utilisateur"]->getId(), $formation->getId())) { ?>
+                <?php } else if (!empty($_SESSION["utilisateur"]) && $userIsRegisterInFormationOrBuy == null) { ?>
                     <button class="btn-register" id="btn-register" type="button" value="<?= $formation->getId() ?>">
                         S'enregistrer <i class="bi bi-chevron-right"></i>
                     </button>

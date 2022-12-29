@@ -117,9 +117,9 @@ if($achatManager -> updateConfirmParticulierPaid($factureId, intval($achatId))){
         //Création d'un mail
         $objet = "Confirmation de l'achat de la formation ".$formationTitre;
         $message = "<h3 style='text-align:center'>Bonjour " . $souscripteurName. "</h3>
-                            <p style='text-align:justify;'>Votre inscription à la formation <b>".$formationTitre."</b> qui se tiendra du "
-                                .$formationDate." à ".$formationLieu.".<br /></p>
-                    <p style='margin-bottom:30px;'>L'equipe GEHANT vous contactera sous peu pour l'organisation de la formation.</p>
+                            <p style='text-align:justify;'>Votre inscription à la formation « <b>".$formationTitre."</b> » qui se tiendra du "
+                                .$formationDate." a été prise en compte. <br /></p>
+                    <p style='margin-bottom:30px;'>L'equipe GEHANT vous contactera sous peu pour la tenue de la formation.</p>
                     <p style='text-align:center;margin-bottom:30px;'>
                                 <a href=\"http://" . $_SERVER["HTTP_HOST"] . "/formations/" . $domaineUrl."/".$formationUrl. "\" style=\"text-decoration:none;padding:15px;color:#fff;background:#f07b16\">
                                    Voir la formation
@@ -128,8 +128,8 @@ if($achatManager -> updateConfirmParticulierPaid($factureId, intval($achatId))){
                      <p>A bientôt,<br />L'équipe GEHANT</p>";
         
        $altMessage = "Bonjour " . $souscripteurName. "\n\nVotre inscription à la formation ".$formationTitre." qui se tiendra du "
-                .$formationDate." à ".$formationLieu.".\n\n
-                    L'equipe GEHANT vous contactera sous peu pour l'organisation de la formation.\n\nA bientôt,\nL'équipe GEHANT";
+                .$formationDate." a été prise en compte.\n\n
+                    L'equipe GEHANT vous contactera sous peu pour la tenue de la formation.\n\nA bientôt,\nL'équipe GEHANT";
         
                 try {
                     

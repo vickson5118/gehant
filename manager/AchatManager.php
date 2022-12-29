@@ -788,26 +788,29 @@ class AchatManager{
             $prepare->closeCursor();
         }
     }
-    
+
     /**
      * Verifier que l'utilisateur n'est pas deja enregistré à la formation
      * @param int $utilisateurId
      * @param int $formationId
-     * @return bool
+     * @return Achat|null
      */
-    public function userIsRegisterInFormation(int $utilisateurId, int $formationId): bool{
+    public function userIsRegisterInFormationAndPaidOrConfirmPaid(int $utilisateurId, int $formationId): ?Achat{
         try {
         	$bdd = Database::getInstance();
-        	$sql = "SELECT id FROM ".Constants::TABLE_ACHAT." WHERE utilisateur_id=? AND formation_id=?";
+        	$sql = "SELECT id,is_paid,confirm_paid FROM ".Constants::TABLE_ACHAT." WHERE utilisateur_id=? AND formation_id=?";
                     
         	$prepare = Functions::bindPrepare($bdd, $sql, $utilisateurId,$formationId);
         	$prepare->execute();
-        	
-        	if(empty($prepare->fetch())){
-        	    return false;
-        	}
-        	
-        	return true;
+
+            $achat = null;
+            while ($result = $prepare->fetch()){
+                $achat = new Achat();
+
+                $achat->setPaid($result["is_paid"]);
+                $achat->setConfirmPaid($result["confirm_paid"]);
+            }
+            return $achat;
         
         } catch (Exception $e) {
         	die("Une erreur est survenue : ".$e->getMessage());
@@ -884,6 +887,34 @@ class AchatManager{
         	$prepare->closeCursor();
         }
     }
+
+    /** Savoir si la formation a été payé ou pas
+     * @param int $formationId
+     * @param $utilisateurId
+     * @return void
+     */
+    /*public function getIsPaidAndConfirmPaid(int $formationId, $utilisateurId) : ?Achat{
+        try {
+
+            $bdd = Database::getInstance ();
+            $sql = "SELECT is_paid, confirm_paid FROM ".Constants::TABLE_ACHAT." WHERE utilisateur_id=? AND formation_id=?";
+
+            $prepare = Functions::bindPrepare ($bdd, $sql,$formationId,$utilisateurId);
+            $prepare->execute();
+            $achat = null;
+            while ($result = $prepare->fetch()){
+                $achat = new Achat();
+
+                $achat->setPaid($result["is_paid"]);
+                $achat->setConfirmPaid($result["confirm_paid"]);
+            }
+            return $achat;
+        } catch ( Exception $e ) {
+            die ( "Une erreur est survenue -> " . $e->getMessage () );
+        } finally {
+            $prepare->closeCursor ();
+        }
+    }*/
 
 }
 

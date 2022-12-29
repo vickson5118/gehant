@@ -113,7 +113,7 @@ require_once ($_SERVER["DOCUMENT_ROOT"] . "/inc/other/header.php");
 								<h1 class="card-title">
 									<a
 										href="/formations/<?= $interrestingFormation->getDomaine()->getTitreUrl() ?>/<?= $interrestingFormation->getTitreUrl() ?>">
-										<span class="cours-title"><?= $interrestingFormation->getTitre() ?> Lorem ipsum dolor</span>
+										<span class="cours-title"><?= $interrestingFormation->getTitre() ?></span>
 									</a>
 								</h1>
 								<div class="date"><?= Functions::formatFormationDate($interrestingFormation->getDateDebut(), $interrestingFormation->getDateFin()) ?></div>

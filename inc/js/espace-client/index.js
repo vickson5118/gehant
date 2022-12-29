@@ -1,8 +1,8 @@
 $(document).ready(function(){
 	
-	$(".espace-client-profil").css({color:"#f07b16",borderBottom:"3px solid #f07b16"})
+	$(".espace-client-formation").css({color:"#f07b16",borderBottom:"3px solid #f07b16"})
 	$(".espace-client-content").html("");
-	$(".espace-client-content").load("/components/espace-client/profil.php");
+	$(".espace-client-content").load("/components/espace-client/formation.php");
 	
 	$(".espace-client-profil").on("click",function(event){
 		event.preventDefault();

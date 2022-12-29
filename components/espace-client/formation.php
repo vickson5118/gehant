@@ -33,7 +33,7 @@ $listeFormationPaid = $achatManager->getListeFormationConfirmPaid($_SESSION["uti
                 			<div class="col-md-3 formation-item">
                 			
                     			<div class="card">
-                    				<?php if(!$achat->getPaidForced()){?>
+                    				<?php if(!$achat->isPaidForced()){?>
                     					<button id="btn-delete-formation-inscription" data-bs-toggle="modal" data-bs-target="#staticBackdropAnnulerInscription" type="button" value="<?= $achat->getId() ?>" title="Annuler mon inscription à la formation"><i class="bi bi-x-square-fill"></i></button>
                     				<?php }?>
                     				<img src="<?= $achat ->getFormation() ->getIllustration() ?>" class="card-img-top" alt='<?= $achat ->getFormation()->getTitre() ?>'>

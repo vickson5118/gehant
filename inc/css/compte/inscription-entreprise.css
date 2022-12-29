@@ -21,9 +21,7 @@ footer{
 }
 
 .text-boost-container{
-	width: 34%;
-	height: auto;
-	margin-left: 5%;
+	max-height: 500px;
 	background-color: #fff;
 	border-radius: 10px;
 	padding: 40px 20px;
@@ -88,10 +86,8 @@ footer{
 
 /*Form*/
 .form-inscription-entreprise-container{
-	width: 62%;
 	position: relative;
-	margin-left: 42%;
-	margin-top: -540px;
+	margin-left: 50px;
 	background-color: #fff;
 	padding: 30px 30px 50px 50px;
 }
@@ -142,8 +138,7 @@ footer{
 	border: none;
 	background-color: #f07b16;
 	color: white;
-	padding: 10px 15px;
-	margin-left: 40%;
+	padding: 10px 50px;
 	font-weight: bold;
 	border-radius: 5px;
 	font-size: 16px;
@@ -164,36 +159,11 @@ footer{
 		padding: 0;
 	}
 	
-	.text-boost-container{
-		width: 32%;
-		margin-left: 60px;
-	}
-	
-	.form-inscription-entreprise-container{
-		width: 52%;
-	}
-	
 }
 
 @media only screen and (max-width: 1238px){
 	.text-boost-container p{
 		font-size: 20px;
-	}
-	.form-inscription-entreprise-container{
-		top: -30px;
-	}
-}
-
-@media only screen and (max-width: 1199px){
-	.text-boost-container{
-		width: 34%;
-		margin-left: 30px;
-	}
-	
-	.form-inscription-entreprise-container{
-		width: 58%;
-		right: 20px;
-		top: 0;
 	}
 }
 
@@ -210,52 +180,35 @@ footer{
 	.text-boost-container .performance div,.text-boost-container .quality div,.text-boost-container .mentor div{
 		font-size: 13px;
 	}
-	
-	.form-inscription-entreprise-container{
-		top: 10px;
-	}
 }
 
 @media only screen and (max-width: 1060px){
 	.text-boost-container{
 		display: none;
 	}
-	
+
 	.form-inscription-entreprise-container{
-		margin: 0 auto;
-		right: 0;
 		width: 70%;
-		top: -50px;
+		margin: 0 auto;
 	}
-	
 }
 
 @media only screen and (max-width: 899px){
-	
 	.form-inscription-entreprise-container{
-		width: 73%;
-	}
-	
-	.form-inscription-entreprise-container .form-input-container input,
-	.form-inscription-entreprise-container .form-input-container select{
-		width: 220px;
+		width: 80%;
 	}
 }
 
 @media only screen and (max-width: 767px){
+
 	.form-inscription-entreprise-container{
-		width: 80%;
-	}
-	
-	.form-inscription-entreprise-container .form-input-container input,
-	.form-inscription-entreprise-container .form-input-container select{
-		width: 220px;
+		width: 90%;
 	}
 }
 
 @media only screen and (max-width: 689px){
 	.form-inscription-entreprise-container{
-		width: 90%;
+		width: 95%;
 	}
 	
 	.form-inscription-entreprise-container .form-input-container input,
@@ -268,7 +221,7 @@ footer{
 	
 	.form-inscription-entreprise-container{
 		padding-left: 30px;
-		width: 70%;
+		width: 80%;
 	}
 	
 	.form-inscription-entreprise-container .form-box{

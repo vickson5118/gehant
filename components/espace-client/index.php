@@ -66,11 +66,11 @@ $utilisateur = $_SESSION["utilisateur"];
 			
 			<div class="espace-client-menu">
 				<ul class="container">
+                    <?php if($_SESSION["utilisateur"]->getTypeCompte()->getId() != Constants::COMPTE_ENTREPRISE){ ?>
+                        <li><a href="#" class="espace-client-link espace-client-formation">Formations</a></li>
+                        <li><a href="#" class="espace-client-link espace-client-facture">Factures</a></li>
+                    <?php }?>
 					<li><a href="#" class="espace-client-link espace-client-profil">Profil</a></li>
-					<?php if($_SESSION["utilisateur"]->getTypeCompte()->getId() != Constants::COMPTE_ENTREPRISE){ ?>
-					<li><a href="#" class="espace-client-link espace-client-formation">Formations</a></li>
-					<li><a href="#" class="espace-client-link espace-client-facture">Factures</a></li>
-					<?php }?>
 				</ul>
 			</div>
 		
