@@ -26,10 +26,8 @@ $listeFormation = $formationManager -> getTwelveLastFormation();
 		<?php
 require_once ($_SERVER["DOCUMENT_ROOT"] . "/inc/other/css.php");
 ?>
-		<link rel="stylesheet" href="/inc/css/compte/inscription.css"
-	type="text/css" />
-<link rel="stylesheet" href="/inc/css/formation/presentation.css"
-	type="text/css" />
+    <link rel="stylesheet" href="/inc/css/compte/inscription.css" type="text/css" />
+    <link rel="stylesheet" href="/inc/css/formation/presentation.css" type="text/css" />
 </head>
 
 <body>

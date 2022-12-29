@@ -125,6 +125,8 @@ if (empty($erreurs)) {
         $objectif->setNom(ucfirst($objectifNameOrId));
         $objectifId = $objectifManager->addObjectif($objectif);
         $objectif->setId($objectifId);
+    }else{
+        $objectif->setId(intval($objectifNameOrId));
     }
 
     //on enregistre le nouveau secteur
@@ -132,6 +134,8 @@ if (empty($erreurs)) {
         $secteur->setNom(ucfirst($secteurNameOrId));
         $secteurId = $secteurManager->addSecteur($secteur);
         $secteur->setId($secteurId);
+    }else{
+        $secteur->setId(intval($secteurNameOrId));
     }
 
     $nombreEmploye->setId(intval($nombreEmployeId));
