@@ -10,14 +10,14 @@ $(document).ready(function() {
 			
 			if(data.type === "success"){
 				
-				createSuccessNotif("Vous avez été ajouté avec succès les participants. L'équipe Gehant vous contactera pour le régement de la facture et le début de la formation.",3,"top-right")
-				setTimeout(function(){$(location).attr("href","/espace-client/entreprise"); }, 3000);
+				createSuccessNotif("Vous avez été ajouté avec succès les participants. L'équipe Gehant vous contactera pour le régement de la facture et le début de la formation.",5,"top-right")
+				setTimeout(function(){$(location).attr("href","/espace-client/entreprise"); }, 5000);
 				
 			}else if (data.type === "session") {
 				$(location).attr("href", "/compte/connexion")
 			}else{
-				createErrorNotif(data.msg, 3, "top-right")
-				setTimeout(function(){location.reload(); }, 3000);
+				createErrorNotif(data.msg, 5, "top-right")
+				setTimeout(function(){location.reload(); }, 5000);
 			}
 			
 		},"json")
@@ -34,14 +34,15 @@ $(document).ready(function() {
 			
 			if(data.type === "success"){
 				
-				createSuccessNotif("Vous avez été ajouté avec succès aux participants de cette formation. L'équipe Gehant vous contactera pour le régement de la facture et le début de la formation.",3,"top-right")
-				setTimeout(function(){$(location).attr("href","/espace-client"); }, 3000);
+				createSuccessNotif("Votre inscription a été validée avec succès. L'équipe Gehant vous contactera pour le régement de la facture disponible dans votre espace client et " +
+					"le début de la formation.",5,"top-right")
+				setTimeout(function(){$(location).attr("href","/espace-client"); }, 5000);
 				
 			}else if (data.type === "session") {
 				$(location).attr("href", "/compte/connexion")
 			}else{
-				createErrorNotif(data.msg, 3, "top-right")
-				setTimeout(function(){location.reload(); }, 3000);
+				createErrorNotif(data.msg, 5, "top-right")
+				setTimeout(function(){location.reload(); }, 5000);
 			}
 			
 		},"json")

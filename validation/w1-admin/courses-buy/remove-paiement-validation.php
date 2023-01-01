@@ -1,9 +1,9 @@
 <?php
 
 require_once($_SERVER["DOCUMENT_ROOT"]."/utils/Functions.php");
-require_once($_SERVER["DOCUMENT_ROOT"]."/manager/AchatManager.php");
+require_once($_SERVER["DOCUMENT_ROOT"]."/manager/FactureManager.php");
 
-use manager\AchatManager;
+use manager\FactureManager;
 use utils\Functions;
 
 session_start();
@@ -23,9 +23,9 @@ if(intval($achatId) == 0){
 }
 
 if(empty($erreurs)){
-    $achatManager = new AchatManager();
+    $factureManager = new FactureManager();
     
-    $achatManager->deleteAchat(intval($achatId));
+    $factureManager->deleteFacture(intval($achatId));
     echo json_encode(array(
         "type" => "success"
     ));

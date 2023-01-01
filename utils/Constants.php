@@ -48,7 +48,7 @@ class Constants {
 	/**
 	 * SERVICE CLIENT
 	 */
-    public const SERVICE_CLIENT_EMAIL = "serviceclient@gehant.net";
+    public const SERVICE_CLIENT_EMAIL = "serviceclient@gehant-acedemie.net";
 	
 	/**
 	 * PASSWORD
@@ -71,6 +71,7 @@ class Constants {
 	public const PROFIL_FOLDER = "/uploads/profil/";
 	public const FORMATION_ILLUSTRATION_FOLDER = "/uploads/formations/";
 	public const PDF_FACTURE_FOLDER = "/uploads/pdf/factures/";
+    public const PDF_FACTURE_PROFORMA_FOLDER = "/uploads/pdf/proforma/";
 	public const PARTENAIRE_FOLDER = "/uploads/partenaires/";
 }
 

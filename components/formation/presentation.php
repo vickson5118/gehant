@@ -25,9 +25,6 @@ $formation = $formationManager->getOneFormationInfo(Functions::getValueChamp($_G
 
 if ($formation != null) {
 
-    //$formationIsBuy = $achatManager->getIsPaidAndConfirmPaid($formation->getId(),$_SESSION["utilisateur"]->getId());
-    $userIsRegisterInFormationOrBuy = $achatManager->userIsRegisterInFormationAndPaidOrConfirmPaid($_SESSION["utilisateur"]->getId(), $formation->getId());
-
     $listeFormation = $formationManager->getTwelveLastFormationWithoutThis($formation->getId());
 
     $moduleManager = new ModuleManager();
@@ -35,7 +32,6 @@ if ($formation != null) {
     $listeModule = $moduleManager->getAllModuleByFormation($formation->getId());
     $listePointCle = $pointCleManager->getAllPointCleByFormation($formation->getId());
 } else {
-    //header($_SERVER["SERVER_PROTOCOL"] . " 404 Not Found");
     http_response_code(404);
     exit();
 }
@@ -44,6 +40,12 @@ if ($formation->isBloquer()) {
     http_response_code(404);
     exit();
 }
+
+$userIsRegisterInFormationOrBuy = null;
+if($_SESSION["utilisateur"] != null){
+    $userIsRegisterInFormationOrBuy = $achatManager->userIsRegisterInFormationAndPaidOrConfirmPaid($_SESSION["utilisateur"]->getId(), $formation->getId());
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -209,9 +211,11 @@ if ($formation->isBloquer()) {
                 <div class="date"><?= Functions::formatFormationDate($formation->getDateDebut(), $formation->getDateFin()) ?></div>
                 <div class="lieu"><?= $formation->getLieu() ?></div>
                 <div class="prix">$<?= $formation->getPrix() ?></div>
-                <?php if(($_SESSION["utilisateur"]->getTypeCompte()->getId() == Constants::COMPTE_STANDARD || $_SESSION["utilisateur"]->getTypeCompte()->getId() == Constants::COMPTE_ADMIN) && $userIsRegisterInFormationOrBuy != null && $userIsRegisterInFormationOrBuy->isPaid() && !$userIsRegisterInFormationOrBuy->isConfirmPaid()){ ?>
+                <?php if($_SESSION["utilisateur"] != null && ($_SESSION["utilisateur"]->getTypeCompte()->getId() == Constants::COMPTE_STANDARD || $_SESSION["utilisateur"]->getTypeCompte()->getId() == Constants::COMPTE_ADMIN)
+                    && $userIsRegisterInFormationOrBuy != null && $userIsRegisterInFormationOrBuy->isPaid() && !$userIsRegisterInFormationOrBuy->isConfirmPaid()){ ?>
                     <div class="paiement-statut text-danger">En attente de paiement</div>
-                <?php }else { ?>
+                <?php }else if($_SESSION["utilisateur"] != null && ($_SESSION["utilisateur"]->getTypeCompte()->getId() == Constants::COMPTE_STANDARD || $_SESSION["utilisateur"]->getTypeCompte()->getId() == Constants::COMPTE_ADMIN)
+                    && $userIsRegisterInFormationOrBuy != null && $userIsRegisterInFormationOrBuy->isPaid() && $userIsRegisterInFormationOrBuy->isConfirmPaid()) { ?>
                     <div class="paiement-statut text-success">Payé</div>
                 <?php } ?>
             </div>

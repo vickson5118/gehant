@@ -116,7 +116,7 @@ if($achatManager -> updateConfirmParticulierPaid($factureId, intval($achatId))){
         $pdf -> output($_SERVER["DOCUMENT_ROOT"] . Constants::PDF_FACTURE_FOLDER . $designation . ".pdf", "F");
         
         //Création d'un mail
-        $objet = "Confirmation de l'achat de la formation ".$formationTitre;
+        $objet = "Votre inscription à la formation ".$formationTitre;
         $message = "<h3 style='text-align:center'>Bonjour " . $beneficiaireName. "</h3>
                             <p style='text-align:justify;'>Votre inscription par l'entreprise <b>".$souscripteurName."</b> à la formation <b>"
                                 .$formationTitre."</b> qui se tiendra du ".$formationDate." à ".$formationLieu." a bien été pris en compte.<br /></p>

@@ -1,16 +1,17 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace utils;
 
-require_once ($_SERVER["DOCUMENT_ROOT"] . "/manager/Database.php");
-require_once($_SERVER["DOCUMENT_ROOT"]."/utils/Constants.php");
-require_once ($_SERVER["DOCUMENT_ROOT"] . "/utils/phpmailer/Exception.php");
-require_once ($_SERVER["DOCUMENT_ROOT"] . "/utils/phpmailer/PHPMailer.php");
-require_once ($_SERVER["DOCUMENT_ROOT"] . "/utils/phpmailer/SMTP.php");
+require_once($_SERVER["DOCUMENT_ROOT"] . "/manager/Database.php");
+require_once($_SERVER["DOCUMENT_ROOT"] . "/utils/Constants.php");
+require_once($_SERVER["DOCUMENT_ROOT"] . "/utils/phpmailer/Exception.php");
+require_once($_SERVER["DOCUMENT_ROOT"] . "/utils/phpmailer/PHPMailer.php");
+require_once($_SERVER["DOCUMENT_ROOT"] . "/utils/phpmailer/SMTP.php");
 
 
+use NumberFormatter;
 use PHPMailer\PHPMailer\PHPMailer;
 use DateTime;
 use Exception;
@@ -24,10 +25,12 @@ use manager\DomaineManager;
 use manager\FormationManager;
 use src\Utilisateur;
 
-class Functions{
+class Functions
+{
 
-    private function __construct ()
-    {}
+    private function __construct()
+    {
+    }
 
     /**
      * Verifie une chaine de caractères
@@ -39,13 +42,14 @@ class Functions{
      * @param bool $required
      * @throws Exception
      */
-    public static function validTexte (?string $texte, string $nomChamp,int $minLength, int $maxLength, bool $required): void{
+    public static function validTexte(?string $texte, string $nomChamp, int $minLength, int $maxLength, bool $required): void
+    {
         if (($texte == NULL || empty(trim($texte))) && $required) {
             throw new Exception("Le champ " . $nomChamp . " ne peut être vide.");
-        } elseif (trim($texte) != null && iconv_strlen(trim($texte)) < $minLength ) {
-            throw new Exception("Le champ " . $nomChamp . " ne peut être inférieur à " .$minLength . " caractères.");
+        } elseif (trim($texte) != null && iconv_strlen(trim($texte)) < $minLength) {
+            throw new Exception("Le champ " . $nomChamp . " ne peut être inférieur à " . $minLength . " caractères.");
         } elseif (trim($texte) != null && iconv_strlen(trim($texte)) > $maxLength) {
-            throw new Exception("Le champ " . $nomChamp . " ne peut excéder " .$maxLength . " caractères.");
+            throw new Exception("Le champ " . $nomChamp . " ne peut excéder " . $maxLength . " caractères.");
         }
     }
 
@@ -57,12 +61,13 @@ class Functions{
      * @param array $args
      * @return PDOStatement
      */
-    public static function bindPrepare (PDO $bdd, string $sql, ...$args): PDOStatement{
+    public static function bindPrepare(PDO $bdd, string $sql, ...$args): PDOStatement
+    {
         $prepare = $bdd->prepare($sql);
-        for ($i = 0; $i < sizeof($args); $i ++) {
-            if(is_bool($args[$i])){
+        for ($i = 0; $i < sizeof($args); $i++) {
+            if (is_bool($args[$i])) {
                 $prepare->bindParam($i + 1, $args[$i], PDO::PARAM_BOOL);
-            }else{
+            } else {
                 $prepare->bindParam($i + 1, $args[$i]);
             }
 
@@ -77,11 +82,12 @@ class Functions{
      *            la longeur de la chaine
      * @return string
      */
-    public static function generatePassword (int $length): string{
+    public static function generatePassword(int $length): string
+    {
         $allChars = "!:crfWSvt?.(-~#{[167./-+$%;,!_&|\@]}=^aqw23zkolsAQWxedgbTGVCFR45EDXZyhnuU89JNBHYjipmMPLOKI";
 
         $password = "";
-        for ($i = 0; $i < $length; $i ++) {
+        for ($i = 0; $i < $length; $i++) {
             $allChars = str_shuffle($allChars);
             $password = $allChars[$i] . $password;
         }
@@ -96,14 +102,15 @@ class Functions{
      * @param UtilisateurManager $utilisateurManager
      * @throws Exception
      */
-    public static function validEmail (?string $email,UtilisateurManager $utilisateurManager): void{
+    public static function validEmail(?string $email, UtilisateurManager $utilisateurManager): void
+    {
         if ($email == null || iconv_strlen($email) == 0) {
             throw new Exception("Le champ adresse mail ne peut être vide.");
         } elseif (iconv_strlen($email) < 10) {
             throw new Exception("Le champ adresse mail ne peut être inférieur à 10 caractères.");
         } elseif (iconv_strlen($email) > 255) {
             throw new Exception("Le champ adresse mail ne peut excéder 250 caractères.");
-        } elseif (! preg_match("#^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\\.[a-z]{2,4}$#",$email)) {
+        } elseif (!preg_match("#^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\\.[a-z]{2,4}$#", $email)) {
             throw new Exception("Le format de l'adresse mail est incorrect.");
         } elseif ($utilisateurManager->emailExist($email)) {
             throw new Exception("L'adresse mail existe déja.Veuillez choisir une autre adresse.");
@@ -117,15 +124,16 @@ class Functions{
      * @param string|null $email
      * @throws Exception
      */
-    public static function validContactEmail (?string $email): void{
+    public static function validContactEmail(?string $email): void
+    {
         if ($email == null || iconv_strlen(ltrim($email)) == 0) {
             throw new Exception("Le champ adresse mail ne peut être vide.");
         } elseif (iconv_strlen($email) < 10) {
-            throw new Exception( "Le champ adresse mail ne peut être inférieur à 10 caractères.");
+            throw new Exception("Le champ adresse mail ne peut être inférieur à 10 caractères.");
         } elseif (iconv_strlen($email) > 255) {
-                throw new Exception( "Le champ adresse mail ne peut excéder 250 caractères.");
-         } elseif (! preg_match("#^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\\.[a-z]{2,4}$#",$email)) {
-            throw new Exception( "Le format de l'adresse mail est incorrect.");
+            throw new Exception("Le champ adresse mail ne peut excéder 250 caractères.");
+        } elseif (!preg_match("#^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\\.[a-z]{2,4}$#", $email)) {
+            throw new Exception("Le format de l'adresse mail est incorrect.");
         }
     }
 
@@ -136,10 +144,11 @@ class Functions{
      * @param string|null $telephone
      * @throws Exception
      */
-    public static function validTelephone(?string $telephone): void{
-        if($telephone == null){
+    public static function validTelephone(?string $telephone): void
+    {
+        if ($telephone == null) {
             throw new Exception("Le champ téléphone ne peut être vide.");
-        }else if(iconv_strlen($telephone) > 0 && !preg_match("#^[0-9]{2}([. -]?[0-9]{2}){4}$#",$telephone)){
+        } else if (iconv_strlen($telephone) > 0 && !preg_match("#^[0-9]{2}([. -]?[0-9]{2}){4}$#", $telephone)) {
             throw new Exception("Le format du téléphone est incorrect.");
         }
     }
@@ -149,8 +158,9 @@ class Functions{
      * @param string|null $naissance
      * @throws Exception
      */
-    public static function validDate(?string $naissance): void{
-        if($naissance != null && iconv_strlen($naissance) > 0 && !preg_match("#^[0-9]{2}/[0-9]{2}/[0-9]{4}$#",$naissance)){
+    public static function validDate(?string $naissance): void
+    {
+        if ($naissance != null && iconv_strlen($naissance) > 0 && !preg_match("#^[0-9]{2}/[0-9]{2}/[0-9]{4}$#", $naissance)) {
             throw new Exception("Le format de la date est incorrect.");
         }
     }
@@ -161,13 +171,14 @@ class Functions{
      * @param PaysManager $paysManager
      * @throws Exception
      */
-    public static function validPays(?string $paysId, PaysManager $paysManager): void{
-        if($paysId == null || iconv_strlen($paysId) == 0){
+    public static function validPays(?string $paysId, PaysManager $paysManager): void
+    {
+        if ($paysId == null || iconv_strlen($paysId) == 0) {
             throw new Exception("Le pays choisi est incorrect.");
-        }elseif (!$paysManager->paysExist(intval($paysId))){
+        } elseif (!$paysManager->paysExist(intval($paysId))) {
             throw new Exception("Le pays choisi est incorrect.");
         }
-   }
+    }
 
     /**
      * Verifie si le titre de la formation respecte le nombre de caractères et s'il existe déja
@@ -175,17 +186,18 @@ class Functions{
      * @param FormationManager $formationManager
      * @throws Exception
      */
-   public static function validFormationTitre (?string $titre, FormationManager $formationManager): void{
-       if ($titre == null || iconv_strlen(ltrim($titre)) == 0) {
-           throw new Exception("Le titre de la formation ne peut être vide.");
-       } elseif (iconv_strlen($titre) < 15) {
-           throw new Exception( "Le titre de la formation ne peut être inférieur à 15 caractères.");
-       } elseif (iconv_strlen($titre) > 40) {
-           throw new Exception( "Le titre de la formation ne peut excéder 40 caractères.");
-       } elseif ($formationManager->titreExist($titre)) {
-           throw new Exception( "Le titre de la formation existe déjà. Veuillez choisir un autre titre.");
-       }
-   }
+    public static function validFormationTitre(?string $titre, FormationManager $formationManager): void
+    {
+        if ($titre == null || iconv_strlen(ltrim($titre)) == 0) {
+            throw new Exception("Le titre de la formation ne peut être vide.");
+        } elseif (iconv_strlen($titre) < 15) {
+            throw new Exception("Le titre de la formation ne peut être inférieur à 15 caractères.");
+        } elseif (iconv_strlen($titre) > 40) {
+            throw new Exception("Le titre de la formation ne peut excéder 40 caractères.");
+        } elseif ($formationManager->titreExist($titre)) {
+            throw new Exception("Le titre de la formation existe déjà. Veuillez choisir un autre titre.");
+        }
+    }
 
     /**
      * Verifie que le nouveau titre de la formation n'existe pas en base de donnees
@@ -194,17 +206,18 @@ class Functions{
      * @param FormationManager $formationManager
      * @throws Exception
      */
-   public static function validFormationTitreExist (?string $titre, ?int $formationId, FormationManager $formationManager): void{
-       if ($titre == null || iconv_strlen(ltrim($titre)) == 0) {
-           throw new Exception("Le titre de la formation ne peut être vide.");
-       } elseif (iconv_strlen($titre) < 15) {
-           throw new Exception( "Le titre de la formation ne peut être inférieur à 15 caractères.");
-       } elseif (iconv_strlen($titre) > 40) {
-           throw new Exception( "Le titre de la formation ne peut excéder 40 caractères.");
-       } elseif ($formationManager->titreChangeExist($titre, $formationId)) {
-           throw new Exception( "Le titre de la formation existe déjà. Veuillez choisir un autre titre.");
-       }
-   }
+    public static function validFormationTitreExist(?string $titre, ?int $formationId, FormationManager $formationManager): void
+    {
+        if ($titre == null || iconv_strlen(ltrim($titre)) == 0) {
+            throw new Exception("Le titre de la formation ne peut être vide.");
+        } elseif (iconv_strlen($titre) < 15) {
+            throw new Exception("Le titre de la formation ne peut être inférieur à 15 caractères.");
+        } elseif (iconv_strlen($titre) > 40) {
+            throw new Exception("Le titre de la formation ne peut excéder 40 caractères.");
+        } elseif ($formationManager->titreChangeExist($titre, $formationId)) {
+            throw new Exception("Le titre de la formation existe déjà. Veuillez choisir un autre titre.");
+        }
+    }
 
     /**
      * Valider l'id du domaine de formation pour s'assurer qu'il existe
@@ -213,31 +226,33 @@ class Functions{
      * @return string|NULL
      * @throws Exception
      */
-   public static function validDomaineFormation(?int $domaineId, DomaineManager $domaineManager): ?string {
-       $titreUrl = $domaineManager->domaineExist($domaineId);
-       if ($titreUrl == null || iconv_strlen($titreUrl) == 0){
-           throw new Exception("Le domaine de formation choisi est incorrect.");
-       }
-       return $titreUrl;
-   }
+    public static function validDomaineFormation(?int $domaineId, DomaineManager $domaineManager): ?string
+    {
+        $titreUrl = $domaineManager->domaineExist($domaineId);
+        if ($titreUrl == null || iconv_strlen($titreUrl) == 0) {
+            throw new Exception("Le domaine de formation choisi est incorrect.");
+        }
+        return $titreUrl;
+    }
 
     /**
      * Validation du mot de passe
      * @param string|null $password
      * @throws Exception
      */
-    public static function validPassword(?string $password): void{
+    public static function validPassword(?string $password): void
+    {
         if ($password == null || iconv_strlen($password) == 0) {
             throw new Exception("Le champ mot de passe ne peut être vide.");
         } elseif (iconv_strlen($password) < 8) {
             throw new Exception("Le champ mot de passe ne doit pas être inférieur à 8 caractères.");
-        } else if (!preg_match("#[a-z]+#",$password)) {
+        } else if (!preg_match("#[a-z]+#", $password)) {
             throw new Exception("Le mot de passe doit conténir au moins un caractère miniscule.");
-        } else if (!preg_match("#[A-Z]+#",$password)) {
+        } else if (!preg_match("#[A-Z]+#", $password)) {
             throw new Exception("Le mot de passe doit conténir au moins un caractère majuscule.");
-        } else if (!preg_match("#[0-9]+#",$password)) {
+        } else if (!preg_match("#[0-9]+#", $password)) {
             throw new Exception("Le mot de passe doit conténir au moins un chiffre.");
-        } else if (!preg_match("#[@~&*+°|\#^ù%µ$<>!:;=-]+#",$password)) {
+        } else if (!preg_match("#[@~&*+°|\#^ù%µ$<>!:;=-]+#", $password)) {
             throw new Exception("Le mot de passe doit conténir au moins un caractère spécial suivant : @~&*+°|#^ù%µ$<>!:;=-");
         }
     }
@@ -247,8 +262,9 @@ class Functions{
      * @param string|null $value
      * @return NULL|string
      */
-    public static function getValueChamp(?string $value): ?string{
-        if($value == null){
+    public static function getValueChamp(?string $value): ?string
+    {
+        if ($value == null) {
             return null;
         }
         return strip_tags(trim($value));
@@ -260,16 +276,17 @@ class Functions{
      * @param EntrepriseManager $entrepriseManager
      * @throws Exception
      */
-    public static function validEntreprise(?string $entreprise, EntrepriseManager $entrepriseManager): void{
-        if($entreprise == null || iconv_strlen($entreprise) == 0){
+    public static function validEntreprise(?string $entreprise, EntrepriseManager $entrepriseManager): void
+    {
+        if ($entreprise == null || iconv_strlen($entreprise) == 0) {
             throw new Exception("Le champ nom de l'entreprise ne peut être vide.");
-        }elseif(iconv_strlen($entreprise) < 2){
+        } elseif (iconv_strlen($entreprise) < 2) {
             throw new Exception("Le champ nom de l'entreprise ne peut être inférieur à 2 caractères.");
-        }elseif(iconv_strlen($entreprise) > 30){
+        } elseif (iconv_strlen($entreprise) > 30) {
             throw new Exception("Le champ nom de l'entreprise ne peut excéder 30 caractères.");
-        }elseif($entrepriseManager->isExist($entreprise)){
+        } elseif ($entrepriseManager->isExist($entreprise)) {
             throw new Exception("L'entreprise existe deja. Veuillez vous connecter avec vos identifinats.");
-        }elseif($entrepriseManager->isExist($entreprise)){
+        } elseif ($entrepriseManager->isExist($entreprise)) {
             throw new Exception("L'entreprise existe deja. Veuillez vous connecter avec vos identifinats.");
         }
     }
@@ -281,14 +298,15 @@ class Functions{
      * @param EntrepriseManager $entrepriseManager
      * @throws Exception
      */
-    public static function validEntrepriseNewName(?string $entreprise, int $id, EntrepriseManager $entrepriseManager): void{
-        if($entreprise == null || iconv_strlen($entreprise) == 0){
+    public static function validEntrepriseNewName(?string $entreprise, int $id, EntrepriseManager $entrepriseManager): void
+    {
+        if ($entreprise == null || iconv_strlen($entreprise) == 0) {
             throw new Exception("Le champ nom de l'entreprise ne peut être vide.");
-        }elseif(iconv_strlen($entreprise) < 2){
+        } elseif (iconv_strlen($entreprise) < 2) {
             throw new Exception("Le champ nom de l'entreprise ne peut être inférieur à 2 caractères.");
-        }elseif(iconv_strlen($entreprise) > 30){
+        } elseif (iconv_strlen($entreprise) > 30) {
             throw new Exception("Le champ nom de l'entreprise ne peut excéder 30 caractères.");
-        }elseif($entrepriseManager->newNameisExist($entreprise, $id)){
+        } elseif ($entrepriseManager->newNameisExist($entreprise, $id)) {
             throw new Exception("L'entreprise existe deja. Veuillez vous connecter avec vos identifinats.");
         }
     }
@@ -298,10 +316,11 @@ class Functions{
      * @param string|null $texte
      * @return string|NULL
      */
-    public static function formatUrl(?string $texte): ?string{
-        $search  = array('À', 'Á', 'Â', 'Ã', 'Ä', 'Å', 'Ç', 'È', 'É', 'Ê', 'Ë', 'Ì', 'Í', 'Î', 'Ï', 'Ò', 'Ó', 'Ô', 'Õ', 'Ö', 'Ù', 'Ú', 'Û', 'Ü', 'Ý', 'à', 'á', 'â', 'ã', 'ä', 'å', 'ç', 'è', 'é', 'ê', 'ë', 'ì', 'í', 'î', 'ï', 'ð', 'ò', 'ó', 'ô', 'õ', 'ö', 'ù', 'ú', 'û', 'ü', 'ý', 'ÿ');
+    public static function formatUrl(?string $texte): ?string
+    {
+        $search = array('À', 'Á', 'Â', 'Ã', 'Ä', 'Å', 'Ç', 'È', 'É', 'Ê', 'Ë', 'Ì', 'Í', 'Î', 'Ï', 'Ò', 'Ó', 'Ô', 'Õ', 'Ö', 'Ù', 'Ú', 'Û', 'Ü', 'Ý', 'à', 'á', 'â', 'ã', 'ä', 'å', 'ç', 'è', 'é', 'ê', 'ë', 'ì', 'í', 'î', 'ï', 'ð', 'ò', 'ó', 'ô', 'õ', 'ö', 'ù', 'ú', 'û', 'ü', 'ý', 'ÿ');
         $replace = array('A', 'A', 'A', 'A', 'A', 'A', 'C', 'E', 'E', 'E', 'E', 'I', 'I', 'I', 'I', 'O', 'O', 'O', 'O', 'O', 'U', 'U', 'U', 'U', 'Y', 'a', 'a', 'a', 'a', 'a', 'a', 'c', 'e', 'e', 'e', 'e', 'i', 'i', 'i', 'i', 'o', 'o', 'o', 'o', 'o', 'o', 'u', 'u', 'u', 'u', 'y', 'y');
-        
+
         $texteSansAccent = str_replace($search, $replace, $texte);
         $url = str_replace(" ", "-", $texteSansAccent);
         return preg_replace("#-{2,}#", "-", $url);
@@ -312,16 +331,17 @@ class Functions{
      * @param string|null $prix
      * @throws Exception
      */
-    public static function validPrix(?string $prix): void{
-       if($prix == null){
+    public static function validPrix(?string $prix): void
+    {
+        if ($prix == null) {
             throw new Exception("Le prix de la formation ne peut être vide.");
-        }elseif($prix == 0){
+        } elseif ($prix == 0) {
             throw new Exception("Le prix de la formation doit être supérieur à 0.");
-        }elseif (!preg_match("#[0-9]+#",$prix)){
+        } elseif (!preg_match("#[0-9]+#", $prix)) {
             throw new Exception("Le prix est incorrect.");
         }
     }
-    
+
     /**
      * Verifier que les images respecte differents critères
      * @param  $image : l'image envoyée dans $_POST
@@ -332,37 +352,38 @@ class Functions{
      * @throws Exception
      * @return string|NULL
      */
-    public static function validImage($image, $imageSize, $imageSizeInMo, $imageUploadWidth, $imageUploadHeight): ?string{
-        
-        if(empty($image["name"]) && !isset($image)){
+    public static function validImage($image, $imageSize, $imageSizeInMo, $imageUploadWidth, $imageUploadHeight): ?string
+    {
+
+        if (empty($image["name"]) && !isset($image)) {
             throw new Exception("Le champ de l'image ne peut être vide.");
-        }else{
-            
-            if($image["error"] != 0){
+        } else {
+
+            if ($image["error"] != 0) {
                 throw new Exception("Une erreur est survenue, veuillez reessayer ultérieurement.");
             }
-            
+
             $imageInfo = getimagesize($image["tmp_name"]);
             $imageWidth = $imageInfo[0];
             $imageHeight = $imageInfo[1];
             $imageTypeMime = $imageInfo["mime"];
-            
-            if($image["size"] > $imageSize){
-                throw new Exception("La taille de l'image ne doit pas excéder ".$imageSizeInMo." Mo");
+
+            if ($image["size"] > $imageSize) {
+                throw new Exception("La taille de l'image ne doit pas excéder " . $imageSizeInMo . " Mo");
             }
-            
-            $extension = strtolower(pathinfo($image["name"],PATHINFO_EXTENSION));
-            $allowExtension = array("jpg","png","jpeg");
-            $allowTypeMime = array("image/jpg","image/jpeg","image/png");
-            
-            if(!in_array($extension, $allowExtension) || !in_array($imageTypeMime, $allowTypeMime)){
+
+            $extension = strtolower(pathinfo($image["name"], PATHINFO_EXTENSION));
+            $allowExtension = array("jpg", "png", "jpeg");
+            $allowTypeMime = array("image/jpg", "image/jpeg", "image/png");
+
+            if (!in_array($extension, $allowExtension) || !in_array($imageTypeMime, $allowTypeMime)) {
                 throw new Exception("Le format de l'image n'est pas correct. Les formats autorisés sont: png, jpeg, jpg");
             }
-            
-            if($imageWidth != $imageUploadWidth || $imageHeight != $imageUploadHeight){
-                throw new Exception("La dimension de l'image autorisée est: ".$imageUploadWidth."*".$imageUploadHeight);
+
+            if ($imageWidth != $imageUploadWidth || $imageHeight != $imageUploadHeight) {
+                throw new Exception("La dimension de l'image autorisée est: " . $imageUploadWidth . "*" . $imageUploadHeight);
             }
-            
+
             return $extension;
         }
     }
@@ -372,9 +393,9 @@ class Functions{
      * @param string|null $date
      * @return string|NULL
      */
-    public static function convertDateEnToFr(?string $date): ?string {
-        return ($date == null) ? null : 
-        (DateTime::createFromFormat("Y-m-d", $date))->format("d/m/Y");
+    public static function convertDateEnToFr(?string $date): ?string
+    {
+        return ($date == null) ? null : (DateTime::createFromFormat("Y-m-d", $date))->format("d/m/Y");
     }
 
     /**
@@ -382,9 +403,9 @@ class Functions{
      * @param string|null $date
      * @return string|NULL
      */
-    public static function convertDateFrToEn(?string $date): ?string {
-        return ($date == null) ? null :
-        (DateTime::createFromFormat("d/m/Y", $date))->format("Y-m-d");
+    public static function convertDateFrToEn(?string $date): ?string
+    {
+        return ($date == null) ? null : (DateTime::createFromFormat("d/m/Y", $date))->format("Y-m-d");
     }
 
     /**
@@ -393,14 +414,9 @@ class Functions{
      * @return string|NULL
      * @throws Exception
      */
-   public static function convertDateFrToFrMonthAbrege(?string $date): ?string {
-        $dateFormatter = new IntlDateFormatter(
-            'fr_FR',
-            IntlDateFormatter::MEDIUM,
-            IntlDateFormatter::NONE,
-            'Africa/Abidjan',
-            IntlDateFormatter::GREGORIAN,
-            );
+    public static function convertDateFrToFrMonthAbrege(?string $date): ?string
+    {
+        $dateFormatter = new IntlDateFormatter('fr_FR', IntlDateFormatter::MEDIUM, IntlDateFormatter::NONE, 'Africa/Abidjan', IntlDateFormatter::GREGORIAN,);
         return $date == null ? null : $dateFormatter->format(new DateTime(DateTime::createFromFormat("d/m/Y", $date)->format("Y-m-d")));
     }
 
@@ -411,27 +427,28 @@ class Functions{
      * @return string|null
      * @throws Exception
      */
-    public static function formatFormationDate(?string $dateDebut, ?string $dateFin): ?string{
+    public static function formatFormationDate(?string $dateDebut, ?string $dateFin): ?string
+    {
 
-        if($dateDebut == null || $dateFin == null){
+        if ($dateDebut == null || $dateFin == null) {
             return null;
         }
 
         $dateDebut = DateTime::createFromFormat("d/m/Y", $dateDebut)->format("d/n/Y");
         $dateFin = DateTime::createFromFormat("d/m/Y", $dateFin)->format("d/n/Y");
 
-        $monthTab = [ "Jan", "Fév", "Mar", "Avr", "Mai", "Juin","Juil", "Août", "Sept", "Oct", "Nov", "Déc" ];
+        $monthTab = ["Jan", "Fév", "Mar", "Avr", "Mai", "Juin", "Juil", "Août", "Sept", "Oct", "Nov", "Déc"];
         $dateDebutTab = explode("/", $dateDebut);
         $dateFinTab = explode("/", $dateFin);
 
-        if($dateDebutTab[1] == $dateFinTab[1] && $dateDebutTab[2] == $dateFinTab[2]){
-            return $dateDebutTab[0]." - ".$dateFinTab[0]." ".$monthTab[(intval($dateDebutTab[1])-1)]." ".$dateDebutTab[2];
-        }else if($dateDebutTab[1] == $dateFinTab[1] && $dateDebutTab[2] != $dateFinTab[2]){
-            return self::convertDateFrToFrMonthAbrege($dateDebut)." - ".self::convertDateFrToFrMonthAbrege($dateFin);
-        }else if($dateDebutTab[1] != $dateFinTab[1] && $dateDebutTab[2] == $dateFinTab[2]){
-            return $dateDebutTab[0]." ".$monthTab[(intval($dateDebutTab[1])-1)]." - ".$dateFinTab[0]." ".$monthTab[(intval($dateFinTab[1])-1)]." ".$dateDebutTab[2];
-        }else{
-            return self::convertDateFrToFrMonthAbrege($dateDebut)." - ".self::convertDateFrToFrMonthAbrege($dateFin);
+        if ($dateDebutTab[1] == $dateFinTab[1] && $dateDebutTab[2] == $dateFinTab[2]) {
+            return $dateDebutTab[0] . " - " . $dateFinTab[0] . " " . $monthTab[(intval($dateDebutTab[1]) - 1)] . " " . $dateDebutTab[2];
+        } else if ($dateDebutTab[1] == $dateFinTab[1] && $dateDebutTab[2] != $dateFinTab[2]) {
+            return self::convertDateFrToFrMonthAbrege($dateDebut) . " - " . self::convertDateFrToFrMonthAbrege($dateFin);
+        } else if ($dateDebutTab[1] != $dateFinTab[1] && $dateDebutTab[2] == $dateFinTab[2]) {
+            return $dateDebutTab[0] . " " . $monthTab[(intval($dateDebutTab[1]) - 1)] . " - " . $dateFinTab[0] . " " . $monthTab[(intval($dateFinTab[1]) - 1)] . " " . $dateDebutTab[2];
+        } else {
+            return self::convertDateFrToFrMonthAbrege($dateDebut) . " - " . self::convertDateFrToFrMonthAbrege($dateFin);
         }
 
     }
@@ -441,23 +458,24 @@ class Functions{
      * @return string|null
      * @throws Exception
      */
-    public static function dateInscriptionInterval(string $dateInscription): ?string{
+    public static function dateInscriptionInterval(string $dateInscription): ?string
+    {
         $dateInscriptionConvert = new DateTime($dateInscription);
         $now = new DateTime("now");
         $interval = $dateInscriptionConvert->diff($now);
-       
-        if(intval($interval->format("%a")) < 1){
+
+        if (intval($interval->format("%a")) < 1) {
             return $interval->format("Inscrit depuis quelques heures");
-        }else if(intval($interval->format("%a")) == 1){
+        } else if (intval($interval->format("%a")) == 1) {
             return $interval->format("Inscrit depuis %a jour");
-        }else if(intval($interval->format("%a")) > 1 && intval($interval->format("%Y")) < 1){
+        } else if (intval($interval->format("%a")) > 1 && intval($interval->format("%Y")) < 1) {
             return $interval->format("Inscrit depuis %a jours");
-        }else if(intval($interval->format("%Y")) == 1){
+        } else if (intval($interval->format("%Y")) == 1) {
             return $interval->format("Inscrit depuis %Y an");
-        }else{
+        } else {
             return $interval->format("Inscrit depuis %Y ans");
         }
-        
+
     }
 
     /**
@@ -469,64 +487,67 @@ class Functions{
      * @return bool
      * @throws Exception
      */
-    public static function sendMail(string $email, string $objet,string $message,?string $altMessage): bool{
-        
+    public static function sendMail(string $email, string $objet, string $message, ?string $altMessage): bool
+    {
+
         $mailer = new PHPMailer(true);
-        
-        try{
-            
+
+        try {
+
             // Debutg
             // $mailer -> SMTPDebug = SMTP::DEBUG_SERVER;
-            
+
             // config SMTP
-            $mailer -> isSMTP();
-            $mailer -> Host = Constants::SMTP_HOST;
-            $mailer -> Port = Constants::SMTP_PORT;
-            $mailer -> SMTPAuth = true;
-            $mailer -> Username = Constants::SMTP_USERNAME;
-            $mailer -> Password = Constants::SMTP_PASSWORD;
-            $mailer -> SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-            
+            $mailer->isSMTP();
+            $mailer->Host = Constants::SMTP_HOST;
+            $mailer->Port = Constants::SMTP_PORT;
+            $mailer->SMTPAuth = true;
+            $mailer->Username = Constants::SMTP_USERNAME;
+            $mailer->Password = Constants::SMTP_PASSWORD;
+            $mailer->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+
             // Charset
-            $mailer -> CharSet = "utf-8";
-            
+            $mailer->CharSet = "utf-8";
+
             // Destinataire et expediteur
-            $mailer -> setFrom(Constants::SMTP_USERNAME,"L'équipe Gehant");
-            $mailer -> addAddress($email);
-            
+            $mailer->setFrom(Constants::SMTP_USERNAME, "L'équipe Gehant");
+            $mailer->addAddress($email);
+
             // Message
-            $mailer -> isHTML();
-            $mailer -> Subject = $objet;
-            $mailer -> Body = $message;
-            
-            $mailer -> AltBody = $altMessage;
-                         
+            $mailer->isHTML();
+            $mailer->Subject = $objet;
+            $mailer->Body = $message;
+
+            $mailer->AltBody = $altMessage;
+
             return $mailer->send();
-             
-        } catch(\PHPMailer\PHPMailer\Exception $e){
-             throw new Exception("Une erreur est survenue lors de l'envoi du mail. Vérifier votre connexion internet et réessayer ultérieurement. " .$e->getMessage());
+
+        } catch(\PHPMailer\PHPMailer\Exception $e) {
+            throw new Exception("Une erreur est survenue lors de l'envoi du mail. Vérifier votre connexion internet et réessayer ultérieurement. " . $e->getMessage());
         }
     }
-    
+
     /**
      * Obtenir les initiaux de l'utilisateur
      * @param string $nom
      * @param string $prenoms
      * @return string
      */
-    public static function getUtilisateurInitial(string $nom, string $prenoms): string{
-        return strtoupper(substr($prenoms, 0, 1).substr($nom, 0, 1));
+    public static function getUtilisateurInitial(string $nom, string $prenoms): string
+    {
+        return strtoupper(substr($prenoms, 0, 1) . substr($nom, 0, 1));
     }
 
     /** Rediriger lorsqu'il n'y a pas de session entreprise pour les pages d'entreprise
      * @param Utilisateur|null $utilisateur
      * @return void*
      */
-    public static function redirectWhenNotConnexionEntreprise(?Utilisateur $utilisateur) : void{
-        if($utilisateur == null){
+    public static function redirectWhenNotConnexionEntreprise(?Utilisateur $utilisateur): void
+    {
+        if ($utilisateur == null) {
             header("Location: http://" . $_SERVER["SERVER_NAME"] . "/compte/connexion");
             exit();
-        } else if(!empty($utilisateur) &&  $utilisateur -> getTypeCompte() -> getId() != Constants::COMPTE_ENTREPRISE){
+        } else if (!empty($utilisateur) && $utilisateur->getTypeCompte()->getId() != Constants::COMPTE_ENTREPRISE) {
             header("Location: http://" . $_SERVER["SERVER_NAME"]);
             exit();
         }
@@ -536,15 +557,28 @@ class Functions{
      * @param Utilisateur|null $utilisateur
      * @return void
      */
-    public static function redirectWhenNotConnexionAdmin(?Utilisateur $utilisateur) : void{
+    public static function redirectWhenNotConnexionAdmin(?Utilisateur $utilisateur): void
+    {
         if ($utilisateur == null) {
-            header ( "Location: http://" . $_SERVER ["SERVER_NAME"]."/w1-admin" );
+            header("Location: http://" . $_SERVER ["SERVER_NAME"] . "/w1-admin");
             exit ();
-        }else if($utilisateur ->getTypeCompte()->getId() != Constants::COMPTE_ADMIN){
+        } else if ($utilisateur->getTypeCompte()->getId() != Constants::COMPTE_ADMIN) {
             http_response_code(404);
             exit ();
         }
     }
-    
+
+
+    /** Convertir les nombres en lettres
+     * @param int $nombre
+     * @return string
+     */
+    public static function convertirNombreEnLettres(int $nombre): string {
+        $numberFormater = new NumberFormatter("fr_CI", NumberFormatter::SPELLOUT);
+        return $numberFormater->format($nombre);
+    }
+
 }
+
+
 

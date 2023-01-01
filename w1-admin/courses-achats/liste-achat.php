@@ -1,20 +1,21 @@
 <?php
 require_once ($_SERVER["DOCUMENT_ROOT"] . "/src/Utilisateur.php");
+require_once ($_SERVER["DOCUMENT_ROOT"] . "/src/Facture.php");
 require_once ($_SERVER["DOCUMENT_ROOT"] . "/src/Achat.php");
-require_once ($_SERVER["DOCUMENT_ROOT"] . "/src/Formation.php");
-require_once ($_SERVER["DOCUMENT_ROOT"] . "/manager/AchatManager.php");
+require_once ($_SERVER["DOCUMENT_ROOT"] . "/manager/FactureManager.php");
 
-use manager\AchatManager;
-use utils\Constants;
+use manager\FactureManager;
 use utils\Functions;
 
 session_start();
 
 Functions::redirectWhenNotConnexionAdmin($_SESSION["utilisateur"]);
 
-$achatManager = new AchatManager();
-$listeAchatParticulierNotConfirm = $achatManager -> getListeAchatParticulierNotComfirmPaid();
-$listeAchatEntrepriseNotConfirm = $achatManager -> getListeAchatEntrepriseNotConfirmPaid();
+//$achatManager = new AchatManager();
+$factureManager = new FactureManager();
+$listeFactureParticulierEnAttente = $factureManager->getListeFactureParticulierEnAttente();
+//$listeAchatParticulierNotConfirm = $achatManager -> getListeAchatParticulierNotComfirmPaid();
+//$listeAchatEntrepriseNotConfirm = $achatManager -> getListeAchatEntrepriseNotConfirmPaid();
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -34,64 +35,57 @@ $listeAchatEntrepriseNotConfirm = $achatManager -> getListeAchatEntrepriseNotCon
 
 			<div class="panel panel-warning">
 				<div class="panel-header">
-					<h3>Les achats en attente de validation - Particulier</h3>
+					<h3>Les factures en attente de validation - Particulier</h3>
 				</div>
 				<div class="panel-body">
-					<?php if(empty($listeAchatParticulierNotConfirm)){ ?>
-						<h3 class="text-center">Aucun achat en attente.</h3>
+					<?php if(empty($listeFactureParticulierEnAttente)){ ?>
+						<h3 class="text-center">Aucune facture en attente.</h3>
 					<?php }else{ ?>
 					<table class="table table-hover table-bordered">
 						<thead>
 							<tr>
 								<th scope="col">N°</th>
-								<th scope="col">Titre</th>
 								<th scope="col">Nom</th>
 								<th scope="col">Email</th>
 								<th scope="col">Tel</th>
+                                <th scope="col">Reference</th>
+                                <th scope="col">Prix</th>
 								<th scope="col">Date Ins.</th>
-								<th scope="col">Date Form.</th>
-								<th scope="col" style="display: none;">Lieu</th>
-								<th scope="col" style="display: none;">Domaine url</th>
-								<th scope="col" style="display: none;">Formation url</th>
-								<th scope="col">Prix</th>
 								<th scope="col">Actions</th>
 							</tr>
 						</thead>
 						<tbody>
 							<?php
-                                foreach($listeAchatParticulierNotConfirm as $key => $achat){
+                                foreach($listeFactureParticulierEnAttente as $key => $achat){
                                 ?>
 								
 								<tr style="text-align: center;">
 								<th scope="row"><?= ($key+1) ?></th>
-								<td class="formation-title"><?= $achat->getFormation()->getTitre() ?></td>
 								<td class="row-name"><?= $achat->getUtilisateur()->getPrenoms() ?> <?= $achat->getUtilisateur()->getNom() ?></td>
 								<td class="row-email"><?= $achat->getUtilisateur()->getEmail() ?></td>
 								<td class="row-tel"><?= $achat->getUtilisateur()->getTelephone() ?></td>
-								<td><?= $achat->getDateInscription() ?></td>
-								<td class="row-date"><?= Functions::formatFormationDate($achat->getFormation()->getDateDebut(), $achat->getFormation()->getDateFin()) ?></td>
-								<td class="row-lieu" style="display: none;"><?= $achat->getFormation()->getLieu() ?></td>
-								<td class="row-domaine-url" style="display: none;"><?= $achat->getFormation()->getDomaine()->getTitreUrl() ?></td>
-								<td class="row-formation-url" style="display: none;"><?= $achat->getFormation()->getTitreUrl() ?></td>
-								<td class="row-prix">$<?= $achat->getFormation()->getPrix() ?></td>
+                                <td class="row-designation"><?= $achat->getFacture()->getDesignation() ?></td>
+                                <td class="row-prix">$<?= $achat->getFacture()->getPrix() ?></td>
+								<td><?= $achat->getFacture()->getDateProforma() ?></td>
 								<td>
-									<button data-bs-toggle="modal" data-bs-target="#staticBackdropConfirmPaiement" value="<?= $achat->getId() ?>" type="button" class="btn btn-success btn-modal-confirm-particulier-paiement" title="Confirmer le paiement">
+									<button data-bs-toggle="modal" data-bs-target="#staticBackdropConfirmPaiement" value="<?= $achat->getFacture()->getId() ?>" type="button" class="btn btn-success btn-modal-confirm-particulier-paiement" title="Confirmer le paiement">
 										<i class="bi bi-check-lg"></i>
 									</button>
 									
 									<?php if($achat->isPaidForced()){ ?>
-									<button data-bs-toggle="modal" data-bs-target="#staticBackdropConfirmUnlockedPaiement" value="<?= $achat->getId() ?>" type="button" class="btn btn-danger btn-modal-confirm-particulier-unlocked-paiement" title="Débloquer l'achat">
+									<button data-bs-toggle="modal" data-bs-target="#staticBackdropConfirmUnlockedPaiement" value="<?= $achat->getFacture()->getId() ?>" type="button" class="btn btn-danger btn-modal-confirm-particulier-unlocked-paiement" title="Débloquer l'achat">
 										<i class="bi bi-unlock-fill"></i>
 									</button>
 									<?php }else{ ?>
-										<button data-bs-toggle="modal" data-bs-target="#staticBackdropConfirmLockedPaiement" value="<?= $achat->getId() ?>" type="button" class="btn btn-primary btn-modal-confirm-particulier-locked-paiement" title="Bloquer l'achat">
+										<button data-bs-toggle="modal" data-bs-target="#staticBackdropConfirmLockedPaiement" value="<?= $achat->getFacture()->getId() ?>" type="button" class="btn btn-primary btn-modal-confirm-particulier-locked-paiement" title="Bloquer l'achat">
     										<i class="bi bi-lock-fill"></i>
     									</button>
 									<?php }?>
-									
-									<button data-bs-toggle="modal" data-bs-target="#staticBackdropDeleteConfirmPaiement" value="<?= $achat->getId() ?>" type="button" class="btn btn-danger btn-modal-delete-confirm-particulier-paiement" title="Supprimer l'achat">
-										<i class="bi bi-x-lg"></i>
-									</button>
+                                    <?php if(!$achat->isPaidForced()){ ?>
+                                        <button data-bs-toggle="modal" data-bs-target="#staticBackdropDeleteConfirmPaiement" value="<?= $achat->getFacture()->getId() ?>" type="button" class="btn btn-danger btn-modal-delete-confirm-particulier-paiement" title="Supprimer l'achat">
+                                            <i class="bi bi-x-lg"></i>
+                                        </button>
+                                    <?php }?>
 								</td>
 							</tr>
 							<?php } ?>
@@ -104,11 +98,11 @@ $listeAchatEntrepriseNotConfirm = $achatManager -> getListeAchatEntrepriseNotCon
 			
 			<div class="panel panel-warning">
 				<div class="panel-header">
-					<h3>Les achats en attente de validation - Entreprise</h3>
+					<h3>Les facture en attente de validation - Entreprise</h3>
 				</div>
 				<div class="panel-body">
 					<?php if(empty($listeAchatEntrepriseNotConfirm)){ ?>
-						<h3 class="text-center">Aucun achat en attente.</h3>
+						<h3 class="text-center">Aucune facture en attente.</h3>
 					<?php }else{ ?>
 					<table class="table table-hover table-bordered">
 						<thead>

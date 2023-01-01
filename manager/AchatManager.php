@@ -351,17 +351,17 @@ class AchatManager{
      * @param bool $isEntreprise
      * @return bool
      */
-    public function updatePaid(int $entrepriseOrUserId, string $dateInscription, bool $isEntreprise): bool{
+    public function updatePaid(int $entrepriseOrUserId, string $dateInscription, bool $isEntreprise, int $factureId): bool{
         try {
         	$bdd = Database::getInstance();
         	if($isEntreprise){
-        	    $sql = "UPDATE ".Constants::TABLE_ACHAT." SET is_paid=true,date_inscription=? WHERE entreprise_id=? AND is_paid=false";
+        	    $sql = "UPDATE ".Constants::TABLE_ACHAT." SET is_paid=true,date_inscription=?,facture_id=? WHERE entreprise_id=? AND is_paid=false";
         	}else{
-        	    $sql = "UPDATE ".Constants::TABLE_ACHAT." SET is_paid=true,date_inscription=? WHERE utilisateur_id=? AND entreprise_id<=>null 
+        	    $sql = "UPDATE ".Constants::TABLE_ACHAT." SET is_paid=true,date_inscription=?,facture_id=? WHERE utilisateur_id=? AND entreprise_id<=>null 
                             AND is_paid=false";
         	}
         	
-        	$prepare = Functions::bindPrepare($bdd, $sql,$dateInscription, $entrepriseOrUserId);
+        	$prepare = Functions::bindPrepare($bdd, $sql,$dateInscription,$factureId, $entrepriseOrUserId);
             return $prepare->execute();
             
         } catch (Exception $e) {
@@ -375,17 +375,16 @@ class AchatManager{
      * Cette fonction est utilisée lorsque l'utilisateur envoie l'argent et que l'administrateur confirme ce paiement
      * pour un utilisateur particulier
      * @param int $factureId
-     * @param int $achatId
      * @return bool
      */
-    public function updateConfirmParticulierPaid(int $factureId, int $achatId): bool{
+    public function updateConfirmParticulierPaid(int $factureId): bool{
         try {
             $bdd = Database::getInstance();
 
-             $sql = "UPDATE ".Constants::TABLE_ACHAT." SET confirm_paid=true,facture_id=? WHERE id=?";
+             $sql = "UPDATE ".Constants::TABLE_ACHAT." SET confirm_paid=true WHERE facture_id=?";
             
             
-            $prepare = Functions::bindPrepare($bdd, $sql, $factureId,$achatId);
+            $prepare = Functions::bindPrepare($bdd, $sql, $factureId);
             return $prepare->execute();
             
         } catch (Exception $e) {
@@ -531,7 +530,7 @@ class AchatManager{
      * Les achats des particuliers qui n'ont pas encore été confirmé
      * @return array
      */
-    public function getListeAchatParticulierNotComfirmPaid(): array{
+    /*public function getListeAchatParticulierNotComfirmPaid(): array{
         try {
         	$bdd = Database::getInstance();
         	$sql = "SELECT a.id AS achatId,a.confirm_paid,a.date_inscription, a.paid_forced,f.id AS formId,f.titre,f.titre_url,f.date_debut,f.date_fin,f.lieu,f.prix,u.nom,
@@ -585,13 +584,13 @@ class AchatManager{
         }finally{
         	$prepare->closeCursor();
         }
-    }
+    }*/
     
     /**
      * Les achats d'entreprise pas encore confirmés
      * @return array
      */
-    public function getListeAchatEntrepriseNotConfirmPaid(): array{
+    /*public function getListeAchatEntrepriseNotConfirmPaid(): array{
         try {
         	$bdd = Database::getInstance();
         	$sql = "SELECT a.id AS achatId,a.confirm_paid,a.date_inscription,a.paid_forced,f.id AS formId,f.titre,f.titre_url,f.date_debut,f.date_fin,f.prix,
@@ -657,7 +656,7 @@ class AchatManager{
         }finally{
         	$prepare->closeCursor();
         }
-    }
+    }*/
 
     /**
      * Obtenir la liste des formations achetées par un utilisateur
@@ -735,12 +734,12 @@ class AchatManager{
             $bdd = Database::getInstance();
             
             if($isEntreprise){
-                $sql = "SELECT a.id AS achatId,a.paid_forced,f.id,f.titre,f.titre_url,f.illustration,f.date_debut,f.date_fin,d.titre_url AS domaineUrl,d.titre AS domaineTitre,u.nom,u.prenoms FROM ".Constants::TABLE_ACHAT
+                $sql = "SELECT a.id AS achatId,a.paid_forced,f.id,f.titre,f.titre_url,f.illustration,f.date_debut,f.date_fin,f.prix,d.titre_url AS domaineUrl,d.titre AS domaineTitre,u.nom,u.prenoms FROM ".Constants::TABLE_ACHAT
                 ." AS a INNER JOIN ".Constants::TABLE_FORMATION." AS f INNER JOIN ".Constants::TABLE_UTILISATEUR
                 ." AS u INNER JOIN ".Constants::TABLE_DOMAINE." AS d ON a.formation_id=f.id AND f.auteur_id=u.id AND 
                   f.domaine_id=d.id WHERE a.entreprise_id =? AND a.is_paid=true AND a.confirm_paid=false GROUP BY f.titre";
             }else{
-                $sql = "SELECT a.id AS achatId,a.paid_forced,f.id,f.titre,f.titre_url,f.illustration,f.date_debut,f.date_fin,d.titre_url AS domaineUrl,d.titre AS domaineTitre,u.nom,u.prenoms FROM "
+                $sql = "SELECT a.id AS achatId,a.paid_forced,f.id,f.titre,f.titre_url,f.illustration,f.date_debut,f.date_fin,f.prix,d.titre_url AS domaineUrl,d.titre AS domaineTitre,u.nom,u.prenoms FROM "
                     .Constants::TABLE_ACHAT
                 ." AS a INNER JOIN ".Constants::TABLE_FORMATION." AS f INNER JOIN ".Constants::TABLE_UTILISATEUR
                 ." AS u INNER JOIN ".Constants::TABLE_DOMAINE." AS d ON a.formation_id=f.id AND f.auteur_id=u.id AND 
@@ -767,6 +766,7 @@ class AchatManager{
                 $formation->setId($result["id"]);
                 $formation->setDateDebut(Functions::convertDateEnToFr($result["date_debut"]));
                 $formation->setDateFin(Functions::convertDateEnToFr($result["date_fin"]));
+                $formation->setPrix($result["prix"]);
                 $formation->setTitreUrl($result["titre_url"]);
                 $formation->setTitre($result["titre"]);
                 $formation->setIllustration($result["illustration"]);
@@ -873,9 +873,9 @@ class AchatManager{
         	$bdd = Database::getInstance();
         	
         	if($paidForced){
-        	    $sql = "UPDATE ".Constants::TABLE_ACHAT." SET paid_forced=true WHERE id=?";
+        	    $sql = "UPDATE ".Constants::TABLE_ACHAT." SET paid_forced=true WHERE facture_id=?";
         	}else{
-        	    $sql = "UPDATE ".Constants::TABLE_ACHAT." SET paid_forced=false WHERE id=?";
+        	    $sql = "UPDATE ".Constants::TABLE_ACHAT." SET paid_forced=false WHERE facture_id=?";
         	}
             
         	$prepare = Functions::bindPrepare($bdd, $sql, $id);
